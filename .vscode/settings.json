@@ -3,5 +3,10 @@
   "cSpell.enabled": true,
   "editor.formatOnSave": true,
   "typescript.tsdk": "node_modules/typescript/lib",
-  "typescript.enablePromptUseWorkspaceTsdk": true
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "reactSnippets.settings.prettierEnabled": true,
+  "prettier.configPath": "prettier.config.js",
+  "search.exclude": {
+    "package-lock.json": true
+  },
 }
