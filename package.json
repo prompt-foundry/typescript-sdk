@@ -10,7 +10,7 @@
     "url": "git+https://github.com/prompt-foundry/typescript-sdk.git"
   },
   "license": "Apache-2.0",
-  "keywords": [],
+  "keywords": ["typescript", "sdk", "prompt", "prompt-engineering", "prompt-management", "prompt-testing"],
   "scripts": {
     "build": "run-p build:*",
     "build:main": "tsc -p tsconfig.json",
