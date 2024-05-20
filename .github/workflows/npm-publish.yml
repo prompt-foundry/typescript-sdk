@@ -20,7 +20,8 @@ jobs:
         run: npm run lint
       - name: Run tests
         run: npm test
-
+      - name: Run Build
+        run: npm run build
   publish-npm:
     needs: build
     runs-on: ubuntu-latest
