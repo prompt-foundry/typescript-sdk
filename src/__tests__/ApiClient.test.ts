@@ -18,7 +18,7 @@ describe('APIClient', () => {
     expect(mockedAxios.create).toHaveBeenCalledWith({
       baseURL,
       headers: {
-        Authorization: `Bearer ${apiToken}`
+        'X-API-KEY': 'test-token'
       }
     })
   })
