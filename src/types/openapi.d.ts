@@ -63,27 +63,22 @@ declare namespace Components {
                  */
                 seed: number | null;
             };
+            promptMessages: /* The initial messages to be included with your call to the LLM API. */ PromptMessage[];
+        }
+        /**
+         * The initial messages to be included with your call to the LLM API.
+         */
+        export interface PromptMessage {
             /**
-             * Variables to be used in the prompt messages.
              * example:
-             * [
-             *   "name",
-             *   "city"
-             * ]
+             * Hello, {{city}}!
              */
-            promptVariables: string[];
-            promptMessages: {
-                /**
-                 * example:
-                 * Hello, {{city}}!
-                 */
-                content: string;
-                /**
-                 * example:
-                 * user
-                 */
-                role: "USER" | "ASSISTANT" | "SYSTEM" | "TOOL";
-            }[];
+            content: string;
+            /**
+             * example:
+             * user
+             */
+            role: "USER" | "ASSISTANT" | "SYSTEM" | "TOOL";
         }
     }
 }
