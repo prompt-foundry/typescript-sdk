@@ -8,7 +8,7 @@ class APIClient {
     this.axiosInstance = axios.create({
       baseURL,
       headers: {
-        Authorization: `Bearer ${apiToken}`
+        'X-API-KEY': apiToken
       }
     })
   }

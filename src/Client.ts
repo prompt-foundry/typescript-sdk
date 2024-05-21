@@ -1,5 +1,5 @@
 import APIClient from './ApiClient'
-import { Prompt } from './types/Prompt'
+import { PromptConfiguration } from './types'
 
 export default class PromptFoundry {
   private client: APIClient
@@ -11,12 +11,12 @@ export default class PromptFoundry {
     }
 
     this.client = new APIClient({
-      baseURL: 'https://api.promptfoundry.com',
+      baseURL: 'https://api.promptfoundry.ai/sdk/v1',
       apiToken: apiKey
     })
   }
 
-  public async getPrompt({ promptId }: { promptId: string }): Promise<Prompt> {
-    return this.client.get<Prompt>(`/prompts/${promptId}`)
+  public async getPrompt({ promptId }: { promptId: string }): Promise<PromptConfiguration> {
+    return this.client.get<PromptConfiguration>(`/prompts/${promptId}`)
   }
 }
