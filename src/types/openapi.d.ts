@@ -52,6 +52,16 @@ declare namespace Components {
                  * 1
                  */
                 topP: number;
+                /**
+                 * example:
+                 * 100
+                 */
+                maxTokens: number | null;
+                /**
+                 * example:
+                 * 97946543
+                 */
+                seed: number | null;
             };
             /**
              * Variables to be used in the prompt messages.

@@ -1,4 +1,7 @@
+import { ChatCompletionCreateParamsNonStreaming } from 'openai/resources'
+
 import APIClient from './ApiClient'
+import { mapPromptToOpenAIConfig } from './helpers/openAi'
 import { PromptConfiguration } from './types'
 
 export default class PromptFoundry {
@@ -18,5 +21,11 @@ export default class PromptFoundry {
 
   public async getPrompt({ promptId }: { promptId: string }): Promise<PromptConfiguration> {
     return this.client.get<PromptConfiguration>(`/prompts/${promptId}`)
+  }
+
+  public async getOpenAiPrompt({ promptId }: { promptId: string }): Promise<ChatCompletionCreateParamsNonStreaming> {
+    const result = await this.client.get<PromptConfiguration>(`/prompts/${promptId}`)
+
+    return mapPromptToOpenAIConfig(result)
   }
 }
