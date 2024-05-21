@@ -1,7 +1,21 @@
 # @prompt-foundry/typescript-sdk
 
-The Typescript/ JavasScript SDK for the prompt engineering, prompt management, and prompt testing tool.
+The TypeScript/ JavasScript prompt engineering, prompt management, and prompt testing tool.
 
 ## Installation
 
-`npm install @prompt-foundry/typescript-sdk`
+```bash
+npm install @prompt-foundry/typescript-sdk
+```
+
+## Usage
+
+```typescript
+import PromptFoundry from '@prompt-foundry/typescript-sdk'
+
+const pf = new PromptFoundry({
+  apiKey: '<API_KEY>'
+})
+
+const prompt = await pf.getPrompt({ promptId: 'HELLO' })
+```
