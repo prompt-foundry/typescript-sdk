@@ -1,2 +1,5 @@
-export * from './lib/getPrompt'
-export type * from './types/Prompt'
+import Client from './Client'
+
+export type * from './types'
+
+export default Client
