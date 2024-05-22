@@ -65,7 +65,7 @@ export const mapPromptToOpenAIConfig = (promptConfig: PromptConfiguration): Chat
     frequency_penalty: promptParameters.frequencyPenalty,
     tool_choice: mapToolChoiceToOpenAI(promptTools, promptParameters.toolChoice),
     response_format: {
-      type: promptParameters.responseFormat === 'json' ? 'json_object' : 'text'
+      type: promptParameters.responseFormat === 'JSON' ? 'json_object' : 'text'
     },
     tools: promptTools.map((tool) => mapToolToOpenAi(tool))
   }

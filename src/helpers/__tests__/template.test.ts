@@ -158,7 +158,7 @@ describe('template helpers', () => {
           topP: 1.0,
           presencePenalty: 0.0,
           frequencyPenalty: 0.0,
-          responseFormat: 'json',
+          responseFormat: 'JSON',
           seed: 0
         },
         promptTools: [],
@@ -182,7 +182,7 @@ describe('template helpers', () => {
           topP: 1.0,
           presencePenalty: 0.0,
           frequencyPenalty: 0.0,
-          responseFormat: 'json',
+          responseFormat: 'JSON',
           seed: 0
         },
         promptTools: [],
@@ -207,7 +207,7 @@ describe('template helpers', () => {
           topP: 1.0,
           presencePenalty: 0.0,
           frequencyPenalty: 0.0,
-          responseFormat: 'json',
+          responseFormat: 'JSON',
           seed: 0
         },
         promptTools: [],
@@ -228,7 +228,7 @@ describe('template helpers', () => {
           topP: 1.0,
           presencePenalty: 0.0,
           frequencyPenalty: 0.0,
-          responseFormat: 'json',
+          responseFormat: 'JSON',
           seed: 0
         },
         promptTools: [],
