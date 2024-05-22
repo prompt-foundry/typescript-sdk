@@ -39,9 +39,9 @@ declare namespace Components {
                 presencePenalty: number;
                 /**
                  * example:
-                 * text
+                 * TEXT
                  */
-                responseFormat: "text" | "json";
+                responseFormat: "TEXT" | "JSON";
                 /**
                  * example:
                  * 1
