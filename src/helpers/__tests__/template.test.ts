@@ -161,7 +161,7 @@ describe('template helpers', () => {
           responseFormat: 'json',
           seed: 0
         },
-
+        promptTools: [],
         promptMessages: [{ role: PromptMessageRoleEnum.USER, content: 'Hello, {{name}}!' }]
       }
       const variables = { name: 'Alice' }
@@ -185,6 +185,7 @@ describe('template helpers', () => {
           responseFormat: 'json',
           seed: 0
         },
+        promptTools: [],
         promptMessages: [{ role: PromptMessageRoleEnum.USER, content: 'Hello!' }]
       }
       const variables = {}
@@ -209,6 +210,7 @@ describe('template helpers', () => {
           responseFormat: 'json',
           seed: 0
         },
+        promptTools: [],
         promptMessages: [{ role: PromptMessageRoleEnum.USER, content: 'Hello, {{name}}!' }]
       }
       const variables = { name: 'Alice' }
@@ -229,6 +231,7 @@ describe('template helpers', () => {
           responseFormat: 'json',
           seed: 0
         },
+        promptTools: [],
         promptMessages: [{ role: PromptMessageRoleEnum.USER, content: 'Hello, {{name}}!' }]
       }
       const variables = {}

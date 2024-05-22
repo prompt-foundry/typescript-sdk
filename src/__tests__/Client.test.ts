@@ -1,5 +1,6 @@
 import APIClient from '../ApiClient'
 import Client from '../Client'
+import { PromptConfiguration, PromptMessageRoleEnum } from '../types'
 
 describe('client', () => {
   describe('init client', () => {
@@ -61,28 +62,30 @@ describe('client', () => {
     it('should replace variables', async () => {
       const client = new Client({ apiKey: '123' })
 
-      const value = {
+      const value: PromptConfiguration = {
         promptId: 'HELLO',
         promptParameters: {
           frequencyPenalty: 0,
           modelName: 'gpt-3.5-turbo',
           presencePenalty: 0,
-          responseFormat: {
-            type: 'text'
-          },
+          responseFormat: 'text',
           temperature: 0.7,
-          topP: 1
+          topP: 1,
+          seed: null,
+          maxTokens: null,
+          toolChoice: 'auto'
         },
         promptMessages: [
           {
             content: 'Hello, world!',
-            role: 'user'
+            role: PromptMessageRoleEnum.USER
           },
           {
             content: 'Hi there {{name}}!',
-            role: 'assistant'
+            role: PromptMessageRoleEnum.ASSISTANT
           }
-        ]
+        ],
+        promptTools: []
       }
 
       const apiClient: APIClient = {
@@ -102,28 +105,30 @@ describe('client', () => {
     it('should throw error if missing variables', async () => {
       const client = new Client({ apiKey: '123' })
 
-      const value = {
+      const value: PromptConfiguration = {
         promptId: 'HELLO',
         promptParameters: {
           frequencyPenalty: 0,
           modelName: 'gpt-3.5-turbo',
           presencePenalty: 0,
-          responseFormat: {
-            type: 'text'
-          },
+          responseFormat: 'text',
           temperature: 0.7,
-          topP: 1
+          topP: 1,
+          seed: null,
+          maxTokens: null,
+          toolChoice: 'auto'
         },
         promptMessages: [
           {
             content: 'Hello, world!',
-            role: 'user'
+            role: PromptMessageRoleEnum.USER
           },
           {
             content: 'Hi there {{name}}!',
-            role: 'assistant'
+            role: PromptMessageRoleEnum.ASSISTANT
           }
-        ]
+        ],
+        promptTools: []
       }
 
       const apiClient: APIClient = {
@@ -143,28 +148,30 @@ describe('client', () => {
     it('returnsmapped prompt', async () => {
       const client = new Client({ apiKey: '123' })
 
-      const value = {
+      const value: PromptConfiguration = {
         promptId: 'HELLO',
         promptParameters: {
           frequencyPenalty: 0,
           modelName: 'gpt-3.5-turbo',
           presencePenalty: 0,
-          responseFormat: {
-            type: 'text'
-          },
+          responseFormat: 'text',
           temperature: 0.7,
-          topP: 1
+          topP: 1,
+          seed: null,
+          maxTokens: null,
+          toolChoice: 'auto'
         },
         promptMessages: [
           {
             content: 'Hello, world!',
-            role: 'user'
+            role: PromptMessageRoleEnum.USER
           },
           {
             content: 'Hi there!',
-            role: 'assistant'
+            role: PromptMessageRoleEnum.ASSISTANT
           }
-        ]
+        ],
+        promptTools: []
       }
 
       const apiClient: APIClient = {
@@ -184,28 +191,30 @@ describe('client', () => {
     it('should replace variables', async () => {
       const client = new Client({ apiKey: '123' })
 
-      const value = {
+      const value: PromptConfiguration = {
         promptId: 'HELLO',
         promptParameters: {
           frequencyPenalty: 0,
           modelName: 'gpt-3.5-turbo',
           presencePenalty: 0,
-          responseFormat: {
-            type: 'text'
-          },
+          responseFormat: 'text',
           temperature: 0.7,
-          topP: 1
+          topP: 1,
+          seed: null,
+          maxTokens: null,
+          toolChoice: 'auto'
         },
         promptMessages: [
           {
             content: 'Hello, world!',
-            role: 'user'
+            role: PromptMessageRoleEnum.USER
           },
           {
             content: 'Hi there {{name}}!',
-            role: 'assistant'
+            role: PromptMessageRoleEnum.ASSISTANT
           }
-        ]
+        ],
+        promptTools: []
       }
 
       const apiClient: APIClient = {
@@ -225,28 +234,30 @@ describe('client', () => {
     it('should throw error if missing variables', async () => {
       const client = new Client({ apiKey: '123' })
 
-      const value = {
+      const value: PromptConfiguration = {
         promptId: 'HELLO',
         promptParameters: {
           frequencyPenalty: 0,
           modelName: 'gpt-3.5-turbo',
           presencePenalty: 0,
-          responseFormat: {
-            type: 'text'
-          },
+          responseFormat: 'text',
           temperature: 0.7,
-          topP: 1
+          topP: 1,
+          seed: null,
+          maxTokens: null,
+          toolChoice: 'auto'
         },
         promptMessages: [
           {
             content: 'Hello, world!',
-            role: 'user'
+            role: PromptMessageRoleEnum.USER
           },
           {
             content: 'Hi there {{name}}!',
-            role: 'assistant'
+            role: PromptMessageRoleEnum.ASSISTANT
           }
-        ]
+        ],
+        promptTools: []
       }
 
       const apiClient: APIClient = {

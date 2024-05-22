@@ -62,8 +62,14 @@ declare namespace Components {
                  * 97946543
                  */
                 seed: number | null;
+                /**
+                 * example:
+                 * checkWeather
+                 */
+                toolChoice?: string | null;
             };
             promptMessages: /* The initial messages to be included with your call to the LLM API. */ PromptMessage[];
+            promptTools: Tool[];
         }
         /**
          * The initial messages to be included with your call to the LLM API.
@@ -79,6 +85,28 @@ declare namespace Components {
              * user
              */
             role: "USER" | "ASSISTANT" | "SYSTEM" | "TOOL";
+        }
+        export interface Tool {
+            /**
+             * example:
+             * TOOL_1
+             */
+            toolId?: string;
+            /**
+             * The name of the tool to be called. Must be a-z, A-Z, 0-9, or contain underscores and dashes, with a maximum length of 64.
+             */
+            name: string; // ^[a-zA-Z0-9_-]{1,64}$
+            /**
+             * A description of what the tool does, used by the model to choose when and how to call the tool.
+             */
+            description: string;
+            parameters: /* The parameters the functions accepts, described as a JSON Schema object. This schema is designed to match the TypeScript Record<string, unknown>, allowing for any properties with values of any type. */ ToolParameters;
+        }
+        /**
+         * The parameters the functions accepts, described as a JSON Schema object. This schema is designed to match the TypeScript Record<string, unknown>, allowing for any properties with values of any type.
+         */
+        export interface ToolParameters {
+            [name: string]: any;
         }
     }
 }

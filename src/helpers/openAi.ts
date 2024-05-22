@@ -1,6 +1,12 @@
-import { ChatCompletionCreateParamsNonStreaming, ChatCompletionMessageParam, ChatCompletionRole } from 'openai/resources'
+import {
+  ChatCompletionCreateParamsNonStreaming,
+  ChatCompletionMessageParam,
+  ChatCompletionRole,
+  ChatCompletionTool,
+  ChatCompletionToolChoiceOption
+} from 'openai/resources'
 
-import { PromptConfiguration, PromptMessage } from '../types'
+import { PromptConfiguration, PromptMessage, PromptTool } from '../types'
 
 export const mapMessagesToOpenAI = (promptMessages: PromptMessage[]): ChatCompletionMessageParam[] => {
   return promptMessages.map((message) => ({
@@ -9,8 +15,42 @@ export const mapMessagesToOpenAI = (promptMessages: PromptMessage[]): ChatComple
   })) as ChatCompletionMessageParam[]
 }
 
-export const mapPromptToOpenAIConfig = (promptInstance: PromptConfiguration): ChatCompletionCreateParamsNonStreaming => {
-  const { promptMessages, promptParameters } = promptInstance
+const mapToolChoiceToOpenAI = (tools: PromptTool[], toolChoice?: string | null): ChatCompletionToolChoiceOption => {
+  if (toolChoice === 'auto' || (!toolChoice && tools.length !== 0)) {
+    return 'auto'
+  }
+  if (toolChoice === 'none' || tools.length === 0) {
+    return 'none'
+  }
+
+  if (toolChoice) {
+    const tool = tools.find((t) => t.name === toolChoice)
+    if (tool) {
+      return {
+        type: 'function',
+        function: {
+          name: tool.name
+        }
+      }
+    }
+  }
+
+  return 'none'
+}
+
+const mapToolToOpenAi = (tool: PromptTool): ChatCompletionTool => {
+  return {
+    type: 'function',
+    function: {
+      name: tool.name,
+      description: tool.description,
+      parameters: tool.parameters
+    }
+  }
+}
+
+export const mapPromptToOpenAIConfig = (promptConfig: PromptConfiguration): ChatCompletionCreateParamsNonStreaming => {
+  const { promptMessages, promptParameters, promptTools } = promptConfig
 
   const messages = mapMessagesToOpenAI(promptMessages)
 
@@ -23,8 +63,10 @@ export const mapPromptToOpenAIConfig = (promptInstance: PromptConfiguration): Ch
     seed: promptParameters.seed,
     presence_penalty: promptParameters.presencePenalty,
     frequency_penalty: promptParameters.frequencyPenalty,
+    tool_choice: mapToolChoiceToOpenAI(promptTools, promptParameters.toolChoice),
     response_format: {
       type: promptParameters.responseFormat === 'json' ? 'json_object' : 'text'
-    }
+    },
+    tools: promptTools.map((tool) => mapToolToOpenAi(tool))
   }
 }

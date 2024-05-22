@@ -21,8 +21,8 @@
   ],
   "scripts": {
     "build": "run-p build:*",
-    "build:main": "tsc -p tsconfig.json",
-    "build:module": "tsc -p tsconfig.module.json",
+    "build:main": "tsc -p tsconfig.json && npx openapicmd typegen https://api.promptfoundry.ai/sdk/openapi > ./build/main/types/openapi.d.ts",
+    "build:module": "tsc -p tsconfig.module.json && npx openapicmd typegen https://api.promptfoundry.ai/sdk/openapi > ./build/module/types/openapi.d.ts",
     "fix": "run-s fix:*",
     "lint": "eslint .",
     "prettier": "npm run lint -- --fix",
