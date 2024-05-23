@@ -7,11 +7,14 @@ exports[`client getOpenAiPrompt returnsmapped prompt 1`] = `
   "messages": [
     {
       "content": "Hello, world!",
+      "name": undefined,
       "role": "user",
     },
     {
       "content": "Hi there!",
+      "name": undefined,
       "role": "assistant",
+      "tool_calls": undefined,
     },
   ],
   "model": "gpt-3.5-turbo",

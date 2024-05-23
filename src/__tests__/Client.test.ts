@@ -78,11 +78,15 @@ describe('client', () => {
         promptMessages: [
           {
             content: 'Hello, world!',
-            role: PromptMessageRoleEnum.USER
+            role: PromptMessageRoleEnum.USER,
+            toolCalls: null,
+            toolCallId: null
           },
           {
             content: 'Hi there {{name}}!',
-            role: PromptMessageRoleEnum.ASSISTANT
+            role: PromptMessageRoleEnum.ASSISTANT,
+            toolCalls: null,
+            toolCallId: null
           }
         ],
         promptTools: []
@@ -121,11 +125,15 @@ describe('client', () => {
         promptMessages: [
           {
             content: 'Hello, world!',
-            role: PromptMessageRoleEnum.USER
+            role: PromptMessageRoleEnum.USER,
+            toolCalls: null,
+            toolCallId: null
           },
           {
             content: 'Hi there {{name}}!',
-            role: PromptMessageRoleEnum.ASSISTANT
+            role: PromptMessageRoleEnum.ASSISTANT,
+            toolCalls: null,
+            toolCallId: null
           }
         ],
         promptTools: []
@@ -164,11 +172,15 @@ describe('client', () => {
         promptMessages: [
           {
             content: 'Hello, world!',
-            role: PromptMessageRoleEnum.USER
+            role: PromptMessageRoleEnum.USER,
+            toolCalls: null,
+            toolCallId: null
           },
           {
             content: 'Hi there!',
-            role: PromptMessageRoleEnum.ASSISTANT
+            role: PromptMessageRoleEnum.ASSISTANT,
+            toolCalls: null,
+            toolCallId: null
           }
         ],
         promptTools: []
@@ -207,11 +219,15 @@ describe('client', () => {
         promptMessages: [
           {
             content: 'Hello, world!',
-            role: PromptMessageRoleEnum.USER
+            role: PromptMessageRoleEnum.USER,
+            toolCalls: null,
+            toolCallId: null
           },
           {
             content: 'Hi there {{name}}!',
-            role: PromptMessageRoleEnum.ASSISTANT
+            role: PromptMessageRoleEnum.ASSISTANT,
+            toolCalls: null,
+            toolCallId: null
           }
         ],
         promptTools: []
@@ -250,11 +266,15 @@ describe('client', () => {
         promptMessages: [
           {
             content: 'Hello, world!',
-            role: PromptMessageRoleEnum.USER
+            role: PromptMessageRoleEnum.USER,
+            toolCalls: null,
+            toolCallId: null
           },
           {
             content: 'Hi there {{name}}!',
-            role: PromptMessageRoleEnum.ASSISTANT
+            role: PromptMessageRoleEnum.ASSISTANT,
+            toolCalls: null,
+            toolCallId: null
           }
         ],
         promptTools: []

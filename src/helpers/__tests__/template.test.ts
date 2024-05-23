@@ -62,30 +62,30 @@ describe('template helpers', () => {
 
   describe('extractVariablesFromMessages', () => {
     it('returns an array of template variables from messages', () => {
-      const messages = [{ role: PromptMessageRoleEnum.USER, content: 'Hello, {{name}}' }]
+      const messages = [{ role: PromptMessageRoleEnum.USER, content: 'Hello, {{name}}', toolCalls: null, toolCallId: null }]
       expect(extractVariablesFromMessages(messages)).toEqual(['name'])
     })
 
     it('returns an array of template variables from messages - variable across mutliple messages', () => {
       const messages = [
-        { role: PromptMessageRoleEnum.USER, content: 'Hello, {{name}}' },
-        { role: PromptMessageRoleEnum.USER, content: 'Hello, {{name}}' }
+        { role: PromptMessageRoleEnum.USER, content: 'Hello, {{name}}', toolCalls: null, toolCallId: null },
+        { role: PromptMessageRoleEnum.USER, content: 'Hello, {{name}}', toolCalls: null, toolCallId: null }
       ]
       expect(extractVariablesFromMessages(messages)).toEqual(['name'])
     })
 
     it('returns an array of template variables from messages - no variables', () => {
       const messages = [
-        { role: PromptMessageRoleEnum.USER, content: 'Hello' },
-        { role: PromptMessageRoleEnum.USER, content: 'Hello' }
+        { role: PromptMessageRoleEnum.USER, content: 'Hello', toolCalls: null, toolCallId: null },
+        { role: PromptMessageRoleEnum.USER, content: 'Hello', toolCalls: null, toolCallId: null }
       ]
       expect(extractVariablesFromMessages(messages)).toEqual([])
     })
 
     it('returns an array of template variables from messages - mutliple variables', () => {
       const messages = [
-        { role: PromptMessageRoleEnum.USER, content: 'Hello, {{name}}' },
-        { role: PromptMessageRoleEnum.USER, content: 'Hello, {{firstName }} {{lastName}}' }
+        { role: PromptMessageRoleEnum.USER, content: 'Hello, {{name}}', toolCalls: null, toolCallId: null },
+        { role: PromptMessageRoleEnum.USER, content: 'Hello, {{firstName }} {{lastName}}', toolCalls: null, toolCallId: null }
       ]
       expect(extractVariablesFromMessages(messages)).toEqual(['name', 'firstName', 'lastName'])
     })
@@ -136,15 +136,19 @@ describe('template helpers', () => {
   })
   describe('renderMessagesWithVariabels', () => {
     it('renders a simple message with one variable', () => {
-      const messages = [{ role: PromptMessageRoleEnum.USER, content: 'Hello, {{name}}!' }]
+      const messages = [{ role: PromptMessageRoleEnum.USER, content: 'Hello, {{name}}!', toolCalls: null, toolCallId: null }]
       const variables = { name: 'Alice' }
-      expect(renderMessagesWithVariabels(messages, variables)).toEqual([{ role: PromptMessageRoleEnum.USER, content: 'Hello, Alice!' }])
+      expect(renderMessagesWithVariabels(messages, variables)).toEqual([
+        { role: PromptMessageRoleEnum.USER, content: 'Hello, Alice!', toolCalls: null, toolCallId: null }
+      ])
     })
 
     it('renders a simple message with no variables', () => {
-      const messages = [{ role: PromptMessageRoleEnum.USER, content: 'Hello!' }]
+      const messages = [{ role: PromptMessageRoleEnum.USER, content: 'Hello!', toolCalls: null, toolCallId: null }]
       const variables = {}
-      expect(renderMessagesWithVariabels(messages, variables)).toEqual([{ role: PromptMessageRoleEnum.USER, content: 'Hello!' }])
+      expect(renderMessagesWithVariabels(messages, variables)).toEqual([
+        { role: PromptMessageRoleEnum.USER, content: 'Hello!', toolCalls: null, toolCallId: null }
+      ])
     })
   })
   describe('renderPromptWithVariables', () => {
@@ -162,13 +166,13 @@ describe('template helpers', () => {
           seed: 0
         },
         promptTools: [],
-        promptMessages: [{ role: PromptMessageRoleEnum.USER, content: 'Hello, {{name}}!' }]
+        promptMessages: [{ role: PromptMessageRoleEnum.USER, content: 'Hello, {{name}}!', toolCalls: null, toolCallId: null }]
       }
       const variables = { name: 'Alice' }
 
       expect(renderPromptWithVariables(prompt, variables)).toEqual({
         ...prompt,
-        promptMessages: [{ role: PromptMessageRoleEnum.USER, content: 'Hello, Alice!' }]
+        promptMessages: [{ role: PromptMessageRoleEnum.USER, content: 'Hello, Alice!', toolCalls: null, toolCallId: null }]
       })
     })
 
@@ -186,13 +190,13 @@ describe('template helpers', () => {
           seed: 0
         },
         promptTools: [],
-        promptMessages: [{ role: PromptMessageRoleEnum.USER, content: 'Hello!' }]
+        promptMessages: [{ role: PromptMessageRoleEnum.USER, content: 'Hello!', toolCalls: null, toolCallId: null }]
       }
       const variables = {}
 
       expect(renderPromptWithVariables(prompt, variables)).toEqual({
         ...prompt,
-        promptMessages: [{ role: PromptMessageRoleEnum.USER, content: 'Hello!' }]
+        promptMessages: [{ role: PromptMessageRoleEnum.USER, content: 'Hello!', toolCalls: null, toolCallId: null }]
       })
     })
   })
@@ -211,7 +215,7 @@ describe('template helpers', () => {
           seed: 0
         },
         promptTools: [],
-        promptMessages: [{ role: PromptMessageRoleEnum.USER, content: 'Hello, {{name}}!' }]
+        promptMessages: [{ role: PromptMessageRoleEnum.USER, content: 'Hello, {{name}}!', toolCalls: null, toolCallId: null }]
       }
       const variables = { name: 'Alice' }
 
@@ -232,7 +236,7 @@ describe('template helpers', () => {
           seed: 0
         },
         promptTools: [],
-        promptMessages: [{ role: PromptMessageRoleEnum.USER, content: 'Hello, {{name}}!' }]
+        promptMessages: [{ role: PromptMessageRoleEnum.USER, content: 'Hello, {{name}}!', toolCalls: null, toolCallId: null }]
       }
       const variables = {}
 

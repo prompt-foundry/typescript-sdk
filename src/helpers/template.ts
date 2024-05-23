@@ -1,6 +1,9 @@
 import { PromptConfiguration, PromptMessage } from '../types'
 
-export function extractVariables(template: string): string[] {
+export function extractVariables(template: string | null): string[] {
+  if (!template) {
+    return []
+  }
   const regex = /\{\{([^{}]+)\}\}/g
   const variables = new Set<string>()
   let match: RegExpExecArray | null
@@ -21,7 +24,10 @@ export function extractVariablesFromMessages(messages: PromptMessage[]): string[
   return Array.from(new Set(variables.flat()))
 }
 
-export function renderTemplate(template: string, variables: Record<string, string>): string {
+export function renderTemplate(template: string | null, variables: Record<string, string>): string {
+  if (!template) {
+    return ''
+  }
   return template.replace(/\{\{([^{}]+)\}\}/g, (_, key) => {
     return variables[key.trim()] || ''
   })
@@ -30,7 +36,7 @@ export function renderTemplate(template: string, variables: Record<string, strin
 export function renderMessagesWithVariabels(messages: PromptMessage[], variables: Record<string, string>): PromptMessage[] {
   return messages.map((message) => {
     return {
-      role: message.role,
+      ...message,
       content: renderTemplate(message.content, variables)
     }
   })
