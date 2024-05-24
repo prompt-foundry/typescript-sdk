@@ -24,7 +24,7 @@ exports[`client getOpenAiPrompt returnsmapped prompt 1`] = `
   },
   "seed": null,
   "temperature": 0.7,
-  "tool_choice": "none",
+  "tool_choice": undefined,
   "tools": undefined,
   "top_p": 1,
 }

@@ -59,25 +59,18 @@ describe('openAi helpers', () => {
   })
 
   describe('mapPromptToOpenAIConfig', () => {
-    const mockPromptConfig = createPromptConfigurationFixture()
-
     it('should map the configuration to OpenAI parameters correctly', () => {
-      const result = mapPromptToOpenAIConfig(mockPromptConfig)
-      expect(result).toEqual({
-        messages: [{ role: 'user', name: undefined, content: 'Hello world' }],
-        model: 'text-davinci-002',
-        top_p: 0.5,
-        max_tokens: 150,
-        temperature: 0.7,
-        seed: 42,
-        presence_penalty: 0.1,
-        frequency_penalty: 0.1,
-        tool_choice: 'none',
-        response_format: {
-          type: 'json_object'
-        },
-        tools: undefined
-      })
+      const result = mapPromptToOpenAIConfig(createPromptConfigurationFixture())
+      expect(result).toMatchSnapshot()
+    })
+
+    it('should map the configuration to OpenAI parameters correctly - tools', () => {
+      const result = mapPromptToOpenAIConfig(
+        createPromptConfigurationFixture({
+          promptTools: [createPromptToolFixture({ name: 'exampleTool' })]
+        })
+      )
+      expect(result).toMatchSnapshot()
     })
 
     // Additional test cases to test other configurations and scenarios can be added here.
@@ -92,9 +85,9 @@ describe('openAi helpers', () => {
 
     it('should return "none" if there are no tools or toolChoice is "none"', () => {
       const tools: PromptTool[] = []
-      expect(mapToolChoiceToOpenAI(tools, 'none')).toBe('none')
-      expect(mapToolChoiceToOpenAI(tools)).toBe('none')
-      expect(mapToolChoiceToOpenAI(tools, 'auto')).toBe('none')
+      expect(mapToolChoiceToOpenAI(tools, 'none')).toBe(undefined)
+      expect(mapToolChoiceToOpenAI(tools)).toBe(undefined)
+      expect(mapToolChoiceToOpenAI(tools, 'auto')).toBe(undefined)
     })
 
     it('should return tool function object if a valid toolChoice matches a tool', () => {

@@ -69,9 +69,9 @@ export const mapMessagesToOpenAI = (promptMessages: PromptMessage[]): ChatComple
   })
 }
 
-export const mapToolChoiceToOpenAI = (tools: PromptTool[], toolChoice?: string | null): ChatCompletionToolChoiceOption => {
+export const mapToolChoiceToOpenAI = (tools: PromptTool[], toolChoice?: string | null): ChatCompletionToolChoiceOption | undefined => {
   if (tools.length === 0) {
-    return 'none'
+    return undefined
   }
   if (toolChoice === 'auto' || (!toolChoice && tools.length !== 0)) {
     return 'auto'

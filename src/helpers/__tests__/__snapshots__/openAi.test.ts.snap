@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`openAi helpers mapPromptToOpenAIConfig should map the configuration to OpenAI parameters correctly - tools 1`] = `
+{
+  "frequency_penalty": 0.1,
+  "max_tokens": 150,
+  "messages": [
+    {
+      "content": "Hello world",
+      "name": undefined,
+      "role": "user",
+    },
+  ],
+  "model": "text-davinci-002",
+  "presence_penalty": 0.1,
+  "response_format": {
+    "type": "json_object",
+  },
+  "seed": 42,
+  "temperature": 0.7,
+  "tool_choice": "auto",
+  "tools": [
+    {
+      "function": {
+        "description": "description",
+        "name": "exampleTool",
+        "parameters": {},
+      },
+      "type": "function",
+    },
+  ],
+  "top_p": 0.5,
+}
+`;
+
+exports[`openAi helpers mapPromptToOpenAIConfig should map the configuration to OpenAI parameters correctly 1`] = `
+{
+  "frequency_penalty": 0.1,
+  "max_tokens": 150,
+  "messages": [
+    {
+      "content": "Hello world",
+      "name": undefined,
+      "role": "user",
+    },
+  ],
+  "model": "text-davinci-002",
+  "presence_penalty": 0.1,
+  "response_format": {
+    "type": "json_object",
+  },
+  "seed": 42,
+  "temperature": 0.7,
+  "tool_choice": undefined,
+  "tools": undefined,
+  "top_p": 0.5,
+}
+`;
