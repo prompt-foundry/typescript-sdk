@@ -69,11 +69,14 @@ export const mapMessagesToOpenAI = (promptMessages: PromptMessage[]): ChatComple
   })
 }
 
-const mapToolChoiceToOpenAI = (tools: PromptTool[], toolChoice?: string | null): ChatCompletionToolChoiceOption => {
+export const mapToolChoiceToOpenAI = (tools: PromptTool[], toolChoice?: string | null): ChatCompletionToolChoiceOption => {
+  if (tools.length === 0) {
+    return 'none'
+  }
   if (toolChoice === 'auto' || (!toolChoice && tools.length !== 0)) {
     return 'auto'
   }
-  if (toolChoice === 'none' || tools.length === 0) {
+  if (toolChoice === 'none') {
     return 'none'
   }
 
@@ -103,6 +106,14 @@ const mapToolToOpenAi = (tool: PromptTool): ChatCompletionTool => {
   }
 }
 
+const getTools = (promptTools: PromptTool[]): ChatCompletionTool[] | undefined => {
+  if (promptTools.length === 0) {
+    return undefined
+  }
+
+  return promptTools.map((tool) => mapToolToOpenAi(tool))
+}
+
 export const mapPromptToOpenAIConfig = (promptConfig: PromptConfiguration): ChatCompletionCreateParamsNonStreaming => {
   const { promptMessages, promptParameters, promptTools } = promptConfig
 
@@ -121,6 +132,6 @@ export const mapPromptToOpenAIConfig = (promptConfig: PromptConfiguration): Chat
     response_format: {
       type: promptParameters.responseFormat === 'JSON' ? 'json_object' : 'text'
     },
-    tools: promptTools.map((tool) => mapToolToOpenAi(tool))
+    tools: getTools(promptTools)
   }
 }
