@@ -1,4 +1,4 @@
-import { PromptConfiguration } from '../../src'
+import { PromptConfiguration } from '../../types'
 
 import { createPromptMessageFixture } from './promptMessage'
 

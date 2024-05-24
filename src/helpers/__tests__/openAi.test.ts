@@ -1,6 +1,6 @@
-import { createPromptConfigurationFixture } from '../../../test/__fixtures__/promptConfiguration'
-import { createPromptMessageFixture } from '../../../test/__fixtures__/promptMessage'
-import { createPromptToolFixture } from '../../../test/__fixtures__/promptTool'
+import { createPromptConfigurationFixture } from '../../test/__fixtures__/promptConfiguration'
+import { createPromptMessageFixture } from '../../test/__fixtures__/promptMessage'
+import { createPromptToolFixture } from '../../test/__fixtures__/promptTool'
 import { PromptMessageRoleEnum, PromptTool } from '../../types'
 import { mapMessagesToOpenAI, mapPromptToOpenAIConfig, mapToolChoiceToOpenAI } from '../openAi'
 

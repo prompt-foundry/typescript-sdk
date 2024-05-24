@@ -73,6 +73,8 @@
     "build/main",
     "build/module",
     "!**/*.spec.*",
+    "!**/*.test.*",
+    "!**/test/*",
     "!**/*.json",
     "CHANGELOG.md",
     "LICENSE",

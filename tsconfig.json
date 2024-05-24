@@ -3,7 +3,7 @@
     "incremental": true,
     "target": "es2017",
     "outDir": "build/main",
-    "rootDir": "./",
+    "rootDir": "src",
     "moduleResolution": "node",
     "module": "commonjs",
     "declaration": true,
@@ -29,7 +29,7 @@
   },
   "include": [
     "src/**/*.ts",
-    "test/**/*.ts"
+    "src/test/**/*.ts"
   ],
   "exclude": [
     "node_modules/**"

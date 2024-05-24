@@ -1,4 +1,4 @@
-import { PromptMessage, PromptMessageRoleEnum } from '../../src'
+import { PromptMessage, PromptMessageRoleEnum } from '../../types'
 
 export const createPromptMessageFixture = (overrides: Partial<PromptMessage> = {}): PromptMessage => ({
   content: 'Hello world',
