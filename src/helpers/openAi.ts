@@ -1,6 +1,7 @@
 import {
   ChatCompletionAssistantMessageParam,
   ChatCompletionCreateParamsNonStreaming,
+  ChatCompletionFunctionMessageParam,
   ChatCompletionMessageParam,
   ChatCompletionMessageToolCall,
   ChatCompletionRole,
@@ -75,6 +76,10 @@ function isToolMessage(message: ChatCompletionMessageParam): message is ChatComp
   return message.role === 'tool'
 }
 
+function isFunctionMessage(message: ChatCompletionMessageParam): message is ChatCompletionFunctionMessageParam {
+  return message.role === 'tool'
+}
+
 function isAssistantMessage(message: ChatCompletionMessageParam): message is ChatCompletionAssistantMessageParam {
   return message.role === 'assistant'
 }
@@ -95,6 +100,22 @@ export const mapOpenAIMessagesToMessages = (messages: ChatCompletionMessageParam
         role,
         content: message.content,
         toolCallId: message.tool_call_id,
+        toolCalls: null
+      }
+    }
+
+    if (isFunctionMessage(message)) {
+      if (!message.name) {
+        throw new Error('Function call missing name')
+      }
+
+      if (!message.content) {
+        throw new Error('Tool message missing content')
+      }
+      return {
+        role: 'TOOL',
+        content: message.content,
+        toolCallId: message.name,
         toolCalls: null
       }
     }
