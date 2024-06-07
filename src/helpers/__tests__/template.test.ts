@@ -154,8 +154,9 @@ describe('template helpers', () => {
   describe('renderPromptWithVariables', () => {
     it('renders a prompt with one variable', () => {
       const prompt: PromptConfiguration = {
-        promptId: 'hi',
-        promptParameters: {
+        id: 'hi',
+        name: 'Hi',
+        parameters: {
           modelName: 'davinci',
           maxTokens: 100,
           temperature: 0.5,
@@ -163,23 +164,26 @@ describe('template helpers', () => {
           presencePenalty: 0.0,
           frequencyPenalty: 0.0,
           responseFormat: 'JSON',
-          seed: 0
+          seed: 0,
+          toolChoice: 'none'
         },
-        promptTools: [],
-        promptMessages: [{ role: PromptMessageRoleEnum.USER, content: 'Hello, {{name}}!', toolCalls: null, toolCallId: null }]
+        tools: [],
+        messages: [{ role: PromptMessageRoleEnum.USER, content: 'Hello, {{name}}!', toolCalls: null, toolCallId: null }]
       }
       const variables = { name: 'Alice' }
 
       expect(renderPromptWithVariables(prompt, variables)).toEqual({
         ...prompt,
-        promptMessages: [{ role: PromptMessageRoleEnum.USER, content: 'Hello, Alice!', toolCalls: null, toolCallId: null }]
+        messages: [{ role: PromptMessageRoleEnum.USER, content: 'Hello, Alice!', toolCalls: null, toolCallId: null }]
       })
     })
 
     it('renders a prompt with no variables', () => {
       const prompt: PromptConfiguration = {
-        promptId: 'hi',
-        promptParameters: {
+        id: 'hi',
+        name: 'Hi',
+
+        parameters: {
           modelName: 'davinci',
           maxTokens: 100,
           temperature: 0.5,
@@ -187,24 +191,27 @@ describe('template helpers', () => {
           presencePenalty: 0.0,
           frequencyPenalty: 0.0,
           responseFormat: 'JSON',
-          seed: 0
+          seed: 0,
+          toolChoice: 'none'
         },
-        promptTools: [],
-        promptMessages: [{ role: PromptMessageRoleEnum.USER, content: 'Hello!', toolCalls: null, toolCallId: null }]
+        tools: [],
+        messages: [{ role: PromptMessageRoleEnum.USER, content: 'Hello!', toolCalls: null, toolCallId: null }]
       }
       const variables = {}
 
       expect(renderPromptWithVariables(prompt, variables)).toEqual({
         ...prompt,
-        promptMessages: [{ role: PromptMessageRoleEnum.USER, content: 'Hello!', toolCalls: null, toolCallId: null }]
+        messages: [{ role: PromptMessageRoleEnum.USER, content: 'Hello!', toolCalls: null, toolCallId: null }]
       })
     })
   })
   describe('validatePromptVariables', () => {
     it('returns true if all configured variables are in passed in varibles', () => {
       const prompt: PromptConfiguration = {
-        promptId: 'hi',
-        promptParameters: {
+        id: 'hi',
+        name: 'Hi',
+
+        parameters: {
           modelName: 'davinci',
           maxTokens: 100,
           temperature: 0.5,
@@ -212,10 +219,11 @@ describe('template helpers', () => {
           presencePenalty: 0.0,
           frequencyPenalty: 0.0,
           responseFormat: 'JSON',
-          seed: 0
+          seed: 0,
+          toolChoice: 'none'
         },
-        promptTools: [],
-        promptMessages: [{ role: PromptMessageRoleEnum.USER, content: 'Hello, {{name}}!', toolCalls: null, toolCallId: null }]
+        tools: [],
+        messages: [{ role: PromptMessageRoleEnum.USER, content: 'Hello, {{name}}!', toolCalls: null, toolCallId: null }]
       }
       const variables = { name: 'Alice' }
 
@@ -224,8 +232,9 @@ describe('template helpers', () => {
 
     it('returns false if configured variables are missing in passed in varibles', () => {
       const prompt: PromptConfiguration = {
-        promptId: 'hi',
-        promptParameters: {
+        id: 'hi',
+        name: 'Hi',
+        parameters: {
           modelName: 'davinci',
           maxTokens: 100,
           temperature: 0.5,
@@ -233,10 +242,11 @@ describe('template helpers', () => {
           presencePenalty: 0.0,
           frequencyPenalty: 0.0,
           responseFormat: 'JSON',
-          seed: 0
+          seed: 0,
+          toolChoice: 'none'
         },
-        promptTools: [],
-        promptMessages: [{ role: PromptMessageRoleEnum.USER, content: 'Hello, {{name}}!', toolCalls: null, toolCallId: null }]
+        tools: [],
+        messages: [{ role: PromptMessageRoleEnum.USER, content: 'Hello, {{name}}!', toolCalls: null, toolCallId: null }]
       }
       const variables = {}
 

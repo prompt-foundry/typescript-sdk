@@ -67,7 +67,7 @@ describe('openAi helpers', () => {
     it('should map the configuration to OpenAI parameters correctly - tools', () => {
       const result = mapPromptToOpenAIConfig(
         createPromptConfigurationFixture({
-          promptTools: [createPromptToolFixture({ name: 'exampleTool' })]
+          tools: [createPromptToolFixture({ name: 'exampleTool' })]
         })
       )
       expect(result).toMatchSnapshot()

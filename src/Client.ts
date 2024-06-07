@@ -20,12 +20,12 @@ export default class PromptFoundry {
     })
   }
 
-  public async getRawPrompt({ promptId }: { promptId: string }): Promise<PromptConfiguration> {
-    return this.client.get<PromptConfiguration>(`/prompts/${promptId}`)
+  public async getRawPrompt({ id }: { id: string }): Promise<PromptConfiguration> {
+    return this.client.get<PromptConfiguration>(`/prompts/${id}`)
   }
 
-  public async getPrompt({ promptId, variables }: { promptId: string; variables: Record<string, string> }): Promise<PromptConfiguration> {
-    const result = await this.getRawPrompt({ promptId })
+  public async getPrompt({ id, variables }: { id: string; variables: Record<string, string> }): Promise<PromptConfiguration> {
+    const result = await this.getRawPrompt({ id })
 
     if (!validatePromptVariables(result, variables)) {
       const missingVariables = getMissingPromptVariables(result, variables)
@@ -35,13 +35,13 @@ export default class PromptFoundry {
   }
 
   public async getOpenAiPrompt({
-    promptId,
+    id,
     variables
   }: {
-    promptId: string
+    id: string
     variables: Record<string, string>
   }): Promise<ChatCompletionCreateParamsNonStreaming> {
-    const updatedWithVariables = await this.getPrompt({ promptId, variables })
+    const updatedWithVariables = await this.getPrompt({ id, variables })
 
     return mapPromptToOpenAIConfig(updatedWithVariables)
   }

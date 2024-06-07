@@ -3,9 +3,10 @@ import { PromptConfiguration } from '../../types'
 import { createPromptMessageFixture } from './promptMessage'
 
 export const createPromptConfigurationFixture = (overrides: Partial<PromptConfiguration> = {}): PromptConfiguration => ({
-  promptId: 'promptId',
-  promptMessages: [createPromptMessageFixture()],
-  promptParameters: {
+  id: 'id',
+  name: 'name',
+  messages: [createPromptMessageFixture()],
+  parameters: {
     modelName: 'text-davinci-002',
     topP: 0.5,
     maxTokens: 150,
@@ -16,6 +17,6 @@ export const createPromptConfigurationFixture = (overrides: Partial<PromptConfig
     toolChoice: 'auto',
     responseFormat: 'JSON'
   },
-  promptTools: [],
+  tools: [],
   ...overrides
 })

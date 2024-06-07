@@ -22,8 +22,9 @@ describe('client', () => {
       const client = new Client({ apiKey: '123' })
 
       const value = {
-        promptId: 'HELLO',
-        promptParameters: {
+        id: 'HELLO',
+        name: 'winning',
+        parameters: {
           frequencyPenalty: 0,
           modelName: 'gpt-3.5-turbo',
           presencePenalty: 0,
@@ -33,7 +34,7 @@ describe('client', () => {
           temperature: 0.7,
           topP: 1
         },
-        promptMessages: [
+        messages: [
           {
             content: 'Hello, world!',
             role: 'user'
@@ -54,7 +55,7 @@ describe('client', () => {
       // @ts-expect-error - mocking the client's client property
       client.client = apiClient
 
-      const prompt = await client.getPrompt({ promptId: 'HELLO', variables: {} })
+      const prompt = await client.getPrompt({ id: 'HELLO', variables: {} })
 
       expect(prompt).toEqual(value)
     })
@@ -63,8 +64,9 @@ describe('client', () => {
       const client = new Client({ apiKey: '123' })
 
       const value: PromptConfiguration = {
-        promptId: 'HELLO',
-        promptParameters: {
+        id: 'HELLO',
+        name: 'winning',
+        parameters: {
           frequencyPenalty: 0,
           modelName: 'gpt-3.5-turbo',
           presencePenalty: 0,
@@ -75,7 +77,7 @@ describe('client', () => {
           maxTokens: null,
           toolChoice: 'auto'
         },
-        promptMessages: [
+        messages: [
           {
             content: 'Hello, world!',
             role: PromptMessageRoleEnum.USER,
@@ -89,7 +91,7 @@ describe('client', () => {
             toolCallId: null
           }
         ],
-        promptTools: []
+        tools: []
       }
 
       const apiClient: APIClient = {
@@ -101,17 +103,18 @@ describe('client', () => {
       // @ts-expect-error - mocking the client's client property
       client.client = apiClient
 
-      const prompt = await client.getPrompt({ promptId: 'HELLO', variables: { name: 'bob' } })
+      const prompt = await client.getPrompt({ id: 'HELLO', variables: { name: 'bob' } })
 
-      expect(prompt.promptMessages[1].content).toEqual('Hi there bob!')
+      expect(prompt.messages[1].content).toEqual('Hi there bob!')
     })
 
     it('should throw error if missing variables', async () => {
       const client = new Client({ apiKey: '123' })
 
       const value: PromptConfiguration = {
-        promptId: 'HELLO',
-        promptParameters: {
+        id: 'HELLO',
+        name: 'winning',
+        parameters: {
           frequencyPenalty: 0,
           modelName: 'gpt-3.5-turbo',
           presencePenalty: 0,
@@ -122,7 +125,7 @@ describe('client', () => {
           maxTokens: null,
           toolChoice: 'auto'
         },
-        promptMessages: [
+        messages: [
           {
             content: 'Hello, world!',
             role: PromptMessageRoleEnum.USER,
@@ -136,7 +139,7 @@ describe('client', () => {
             toolCallId: null
           }
         ],
-        promptTools: []
+        tools: []
       }
 
       const apiClient: APIClient = {
@@ -148,7 +151,7 @@ describe('client', () => {
       // @ts-expect-error - mocking the client's client property
       client.client = apiClient
 
-      await expect(() => client.getPrompt({ promptId: 'HELLO', variables: {} })).rejects.toThrowErrorMatchingSnapshot()
+      await expect(() => client.getPrompt({ id: 'HELLO', variables: {} })).rejects.toThrowErrorMatchingSnapshot()
     })
   })
 
@@ -157,8 +160,9 @@ describe('client', () => {
       const client = new Client({ apiKey: '123' })
 
       const value: PromptConfiguration = {
-        promptId: 'HELLO',
-        promptParameters: {
+        id: 'HELLO',
+        name: 'winning',
+        parameters: {
           frequencyPenalty: 0,
           modelName: 'gpt-3.5-turbo',
           presencePenalty: 0,
@@ -169,7 +173,7 @@ describe('client', () => {
           maxTokens: null,
           toolChoice: 'auto'
         },
-        promptMessages: [
+        messages: [
           {
             content: 'Hello, world!',
             role: PromptMessageRoleEnum.USER,
@@ -183,7 +187,7 @@ describe('client', () => {
             toolCallId: null
           }
         ],
-        promptTools: []
+        tools: []
       }
 
       const apiClient: APIClient = {
@@ -195,7 +199,7 @@ describe('client', () => {
       // @ts-expect-error - mocking the client's client property
       client.client = apiClient
 
-      const prompt = await client.getOpenAiPrompt({ promptId: 'HELLO', variables: {} })
+      const prompt = await client.getOpenAiPrompt({ id: 'HELLO', variables: {} })
 
       expect(prompt).toMatchSnapshot()
     })
@@ -204,8 +208,9 @@ describe('client', () => {
       const client = new Client({ apiKey: '123' })
 
       const value: PromptConfiguration = {
-        promptId: 'HELLO',
-        promptParameters: {
+        id: 'HELLO',
+        name: 'winning',
+        parameters: {
           frequencyPenalty: 0,
           modelName: 'gpt-3.5-turbo',
           presencePenalty: 0,
@@ -216,7 +221,7 @@ describe('client', () => {
           maxTokens: null,
           toolChoice: 'auto'
         },
-        promptMessages: [
+        messages: [
           {
             content: 'Hello, world!',
             role: PromptMessageRoleEnum.USER,
@@ -230,7 +235,7 @@ describe('client', () => {
             toolCallId: null
           }
         ],
-        promptTools: []
+        tools: []
       }
 
       const apiClient: APIClient = {
@@ -242,7 +247,7 @@ describe('client', () => {
       // @ts-expect-error - mocking the client's client property
       client.client = apiClient
 
-      const prompt = await client.getOpenAiPrompt({ promptId: 'HELLO', variables: { name: 'bob' } })
+      const prompt = await client.getOpenAiPrompt({ id: 'HELLO', variables: { name: 'bob' } })
 
       expect(prompt.messages[1].content).toEqual('Hi there bob!')
     })
@@ -251,8 +256,9 @@ describe('client', () => {
       const client = new Client({ apiKey: '123' })
 
       const value: PromptConfiguration = {
-        promptId: 'HELLO',
-        promptParameters: {
+        id: 'HELLO',
+        name: 'winning',
+        parameters: {
           frequencyPenalty: 0,
           modelName: 'gpt-3.5-turbo',
           presencePenalty: 0,
@@ -263,7 +269,7 @@ describe('client', () => {
           maxTokens: null,
           toolChoice: 'auto'
         },
-        promptMessages: [
+        messages: [
           {
             content: 'Hello, world!',
             role: PromptMessageRoleEnum.USER,
@@ -277,7 +283,7 @@ describe('client', () => {
             toolCallId: null
           }
         ],
-        promptTools: []
+        tools: []
       }
 
       const apiClient: APIClient = {
@@ -289,7 +295,7 @@ describe('client', () => {
       // @ts-expect-error - mocking the client's client property
       client.client = apiClient
 
-      await expect(() => client.getOpenAiPrompt({ promptId: 'HELLO', variables: {} })).rejects.toThrowErrorMatchingSnapshot()
+      await expect(() => client.getOpenAiPrompt({ id: 'HELLO', variables: {} })).rejects.toThrowErrorMatchingSnapshot()
     })
   })
 })

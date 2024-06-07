@@ -45,12 +45,12 @@ export function renderMessagesWithVariabels(messages: PromptMessage[], variables
 export function renderPromptWithVariables(prompt: PromptConfiguration, variables: Record<string, string>): PromptConfiguration {
   return {
     ...prompt,
-    promptMessages: renderMessagesWithVariabels(prompt.promptMessages, variables)
+    messages: renderMessagesWithVariabels(prompt.messages, variables)
   }
 }
 
 export function getMissingPromptVariables(prompt: PromptConfiguration, variables: Record<string, string>): string[] {
-  const variablesInPrompt = extractVariablesFromMessages(prompt.promptMessages)
+  const variablesInPrompt = extractVariablesFromMessages(prompt.messages)
 
   const missingVariables = variablesInPrompt.filter((variable) => !variables[variable])
 
