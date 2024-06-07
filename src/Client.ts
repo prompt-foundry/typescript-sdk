@@ -1,7 +1,7 @@
-import { ChatCompletionCreateParamsNonStreaming } from 'openai/resources'
+import { ChatCompletionCreateParamsNonStreaming, ChatCompletionMessageParam } from 'openai/resources'
 
 import { addAppendedMessages, addOverrideMessages, getMissingPromptVariables, renderPromptWithVariables, validatePromptVariables } from './helpers'
-import { mapPromptToOpenAIConfig } from './helpers/openAi'
+import { mapOpenAIMessagesToMessages, mapPromptToOpenAIConfig } from './helpers/openAi'
 import { api, createApiClient } from './openapi/client'
 import {
   Evaluation,
@@ -76,11 +76,19 @@ export default class PromptFoundry {
   }: {
     id: string
     variables: Record<string, string>
-    appendMessages?: PromptMessage[]
-    overrideMessages?: PromptMessage[]
+    appendMessages?: ChatCompletionMessageParam[]
+    overrideMessages?: ChatCompletionMessageParam[]
     user?: string
   }): Promise<ChatCompletionCreateParamsNonStreaming> {
-    const updatedWithVariables = await this.getPrompt({ id, variables, appendMessages, overrideMessages })
+    const appendMessagesMapped = appendMessages ? mapOpenAIMessagesToMessages(appendMessages) : undefined
+    const overrideMessagesMapped = overrideMessages ? mapOpenAIMessagesToMessages(overrideMessages) : undefined
+
+    const updatedWithVariables = await this.getPrompt({
+      id,
+      variables,
+      appendMessages: appendMessagesMapped,
+      overrideMessages: overrideMessagesMapped
+    })
 
     return mapPromptToOpenAIConfig(updatedWithVariables, {
       user

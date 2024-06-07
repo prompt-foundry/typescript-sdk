@@ -2,10 +2,10 @@ import { createPromptConfigurationFixture } from '../../test/__fixtures__/prompt
 import { createPromptMessageFixture } from '../../test/__fixtures__/promptMessage'
 import { createPromptToolFixture } from '../../test/__fixtures__/promptTool'
 import { PromptMessageRoleEnum, PromptTool } from '../../types'
-import { mapMessagesToOpenAI, mapPromptToOpenAIConfig, mapToolChoiceToOpenAI } from '../openAi'
+import { mapMessagesToOpenAIMessages, mapOpenAIMessagesToMessages, mapPromptToOpenAIConfig, mapToolChoiceToOpenAI } from '../openAi'
 
 describe('openAi helpers', () => {
-  describe('mapMessagesToOpenAI', () => {
+  describe('mapMessagesToOpenAIMessages', () => {
     const mockMessages = [
       createPromptMessageFixture({ role: PromptMessageRoleEnum.TOOL, content: 'content1', toolCallId: 'id1' }),
       createPromptMessageFixture({ role: PromptMessageRoleEnum.ASSISTANT, content: 'content2' }),
@@ -14,7 +14,7 @@ describe('openAi helpers', () => {
     ]
 
     it('should correctly map tool messages', () => {
-      const result = mapMessagesToOpenAI([mockMessages[0]])
+      const result = mapMessagesToOpenAIMessages([mockMessages[0]])
       expect(result[0]).toEqual({
         role: 'tool',
         content: 'content1',
@@ -23,7 +23,7 @@ describe('openAi helpers', () => {
     })
 
     it('should correctly map assistant messages', () => {
-      const result = mapMessagesToOpenAI([mockMessages[1]])
+      const result = mapMessagesToOpenAIMessages([mockMessages[1]])
       expect(result[0]).toEqual({
         role: 'assistant',
         content: 'content2',
@@ -33,7 +33,7 @@ describe('openAi helpers', () => {
     })
 
     it('should correctly map user messages', () => {
-      const result = mapMessagesToOpenAI([mockMessages[2]])
+      const result = mapMessagesToOpenAIMessages([mockMessages[2]])
       expect(result[0]).toEqual({
         role: 'user',
         name: undefined,
@@ -42,7 +42,7 @@ describe('openAi helpers', () => {
     })
 
     it('should correctly map system messages', () => {
-      const result = mapMessagesToOpenAI([mockMessages[3]])
+      const result = mapMessagesToOpenAIMessages([mockMessages[3]])
       expect(result[0]).toEqual({
         role: 'system',
         content: 'content4'
@@ -50,12 +50,37 @@ describe('openAi helpers', () => {
     })
 
     it('should throw an error for invalid message roles', () => {
-      expect(() => mapMessagesToOpenAI([createPromptMessageFixture({ role: 'invalid', content: 'content5' } as any)])).toThrow(
+      expect(() => mapMessagesToOpenAIMessages([createPromptMessageFixture({ role: 'invalid', content: 'content5' } as any)])).toThrow(
         'Invalid message role: invalid'
       )
     })
 
     // Additional test cases for missing fields and other edge cases can be added here.
+  })
+
+  describe('mapOpenAIMessagesToMessages', () => {
+    const mockMessages = [
+      createPromptMessageFixture({ role: PromptMessageRoleEnum.TOOL, content: 'content1', toolCallId: 'id1' }),
+      createPromptMessageFixture({ role: PromptMessageRoleEnum.ASSISTANT, content: 'content2' }),
+      createPromptMessageFixture({ role: PromptMessageRoleEnum.USER, content: 'content3' }),
+      createPromptMessageFixture({ role: PromptMessageRoleEnum.SYSTEM, content: 'content4' })
+    ]
+
+    it('should correctly map tool messages', () => {
+      expect(mapOpenAIMessagesToMessages(mapMessagesToOpenAIMessages([mockMessages[0]]))).toEqual([mockMessages[0]])
+    })
+
+    it('should correctly map assistant messages', () => {
+      expect(mapOpenAIMessagesToMessages(mapMessagesToOpenAIMessages([mockMessages[1]]))).toEqual([mockMessages[1]])
+    })
+
+    it('should correctly map user messages', () => {
+      expect(mapOpenAIMessagesToMessages(mapMessagesToOpenAIMessages([mockMessages[2]]))).toEqual([mockMessages[2]])
+    })
+
+    it('should correctly map system messages', () => {
+      expect(mapOpenAIMessagesToMessages(mapMessagesToOpenAIMessages([mockMessages[3]]))).toEqual([mockMessages[3]])
+    })
   })
 
   describe('mapPromptToOpenAIConfig', () => {

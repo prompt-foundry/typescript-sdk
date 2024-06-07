@@ -1,15 +1,17 @@
 import {
+  ChatCompletionAssistantMessageParam,
   ChatCompletionCreateParamsNonStreaming,
   ChatCompletionMessageParam,
   ChatCompletionMessageToolCall,
   ChatCompletionRole,
   ChatCompletionTool,
-  ChatCompletionToolChoiceOption
+  ChatCompletionToolChoiceOption,
+  ChatCompletionToolMessageParam
 } from 'openai/resources'
 
-import { PromptConfiguration, PromptMessage, PromptTool } from '../types'
+import { PromptConfiguration, PromptMessage, PromptMessageRole, PromptTool } from '../types'
 
-export const mapMessagesToOpenAI = (messages: PromptMessage[]): ChatCompletionMessageParam[] => {
+export const mapMessagesToOpenAIMessages = (messages: PromptMessage[]): ChatCompletionMessageParam[] => {
   return messages.map((message): ChatCompletionMessageParam => {
     const role = message.role.toLowerCase() as ChatCompletionRole
     if (role === 'tool') {
@@ -69,6 +71,87 @@ export const mapMessagesToOpenAI = (messages: PromptMessage[]): ChatCompletionMe
   })
 }
 
+function isToolMessage(message: ChatCompletionMessageParam): message is ChatCompletionToolMessageParam {
+  return message.role === 'tool'
+}
+
+function isAssistantMessage(message: ChatCompletionMessageParam): message is ChatCompletionAssistantMessageParam {
+  return message.role === 'assistant'
+}
+
+export const mapOpenAIMessagesToMessages = (messages: ChatCompletionMessageParam[]): PromptMessage[] => {
+  return messages.map((message): PromptMessage => {
+    const role = message.role.toUpperCase() as PromptMessageRole
+
+    if (isToolMessage(message)) {
+      if (!message.tool_call_id) {
+        throw new Error('Tool call missing tool call id')
+      }
+
+      if (!message.content) {
+        throw new Error('Tool message missing content')
+      }
+      return {
+        role,
+        content: message.content,
+        toolCallId: message.tool_call_id,
+        toolCalls: null
+      }
+    }
+
+    if (isAssistantMessage(message)) {
+      const toolCalls: PromptMessage['toolCalls'] =
+        message.tool_calls?.map((toolCall) => {
+          return {
+            toolCallId: toolCall.id,
+            type: toolCall.type,
+            function: {
+              name: toolCall.function.name,
+              arguments: toolCall.function.arguments
+            }
+          }
+        }) || null
+
+      return {
+        role,
+        content: message.content as string,
+        name: undefined,
+        toolCallId: null,
+        toolCalls
+      }
+    }
+
+    if (role === 'USER') {
+      if (!message.content) {
+        throw new Error('User message missing content')
+      }
+
+      return {
+        role,
+        name: undefined,
+        content: message.content as string,
+        toolCallId: null,
+        toolCalls: null
+      }
+    }
+
+    if (role === 'SYSTEM') {
+      if (!message.content) {
+        throw new Error('System message missing content')
+      }
+
+      return {
+        role,
+        content: message.content as string,
+        toolCallId: null,
+        toolCalls: null
+      }
+    }
+
+    throw new Error(`Invalid message role: ${role as string}`)
+  })
+}
+
 export const mapToolChoiceToOpenAI = (tools: PromptTool[], toolChoice?: string | null): ChatCompletionToolChoiceOption | undefined => {
   if (tools.length === 0) {
     return undefined
@@ -120,7 +203,7 @@ export const mapPromptToOpenAIConfig = (
 ): ChatCompletionCreateParamsNonStreaming => {
   const { messages: promptMessages, parameters, tools } = promptConfig
 
-  const messages = mapMessagesToOpenAI(promptMessages)
+  const messages = mapMessagesToOpenAIMessages(promptMessages)
 
   return {
     messages,
