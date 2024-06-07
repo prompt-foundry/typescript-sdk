@@ -49,6 +49,20 @@ export function renderPromptWithVariables(prompt: PromptConfiguration, variables
   }
 }
 
+export function addAppendedMessages(prompt: PromptConfiguration, messages: PromptMessage[]): PromptConfiguration {
+  return {
+    ...prompt,
+    messages: [...prompt.messages, ...messages]
+  }
+}
+
+export function addOverrideMessages(prompt: PromptConfiguration, messages: PromptMessage[]): PromptConfiguration {
+  return {
+    ...prompt,
+    messages
+  }
+}
+
 export function getMissingPromptVariables(prompt: PromptConfiguration, variables: Record<string, string>): string[] {
   const variablesInPrompt = extractVariablesFromMessages(prompt.messages)
 

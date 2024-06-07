@@ -1,6 +1,6 @@
 import { ChatCompletionCreateParamsNonStreaming } from 'openai/resources'
 
-import { getMissingPromptVariables, renderPromptWithVariables, validatePromptVariables } from './helpers'
+import { addAppendedMessages, addOverrideMessages, getMissingPromptVariables, renderPromptWithVariables, validatePromptVariables } from './helpers'
 import { mapPromptToOpenAIConfig } from './helpers/openAi'
 import { api, createApiClient } from './openapi/client'
 import {
@@ -10,6 +10,7 @@ import {
   EvaluationGroupBody,
   PromptConfiguration,
   PromptConfigurationBody,
+  PromptMessage,
   PromptTool,
   PromptToolBody
 } from './types'
@@ -34,26 +35,56 @@ export default class PromptFoundry {
     return this.client.getPrompt({ params: { promptId: id }, headers: { 'X-API-KEY': this.apiKey } })
   }
 
-  public async getPrompt({ id, variables }: { id: string; variables: Record<string, string> }): Promise<PromptConfiguration> {
+  public async getPrompt({
+    id,
+    variables,
+    appendMessages,
+    overrideMessages
+  }: {
+    id: string
+    variables: Record<string, string>
+    appendMessages?: PromptMessage[]
+    overrideMessages?: PromptMessage[]
+    userId?: string
+  }): Promise<PromptConfiguration> {
     const result = await this.getRawPrompt({ id })
 
     if (!validatePromptVariables(result, variables)) {
       const missingVariables = getMissingPromptVariables(result, variables)
       throw new Error(`Missing variables in prompt: ${missingVariables.join(', ')}`)
     }
-    return renderPromptWithVariables(result, variables)
+
+    const updatedWithVariables = renderPromptWithVariables(result, variables)
+
+    if (overrideMessages) {
+      return addOverrideMessages(updatedWithVariables, overrideMessages)
+    }
+
+    if (appendMessages) {
+      return addAppendedMessages(updatedWithVariables, appendMessages)
+    }
+
+    return updatedWithVariables
   }
 
   public async getOpenAiPrompt({
     id,
-    variables
+    variables,
+    user,
+    appendMessages,
+    overrideMessages
   }: {
     id: string
     variables: Record<string, string>
+    appendMessages?: PromptMessage[]
+    overrideMessages?: PromptMessage[]
+    user?: string
   }): Promise<ChatCompletionCreateParamsNonStreaming> {
-    const updatedWithVariables = await this.getPrompt({ id, variables })
+    const updatedWithVariables = await this.getPrompt({ id, variables, appendMessages, overrideMessages })
 
-    return mapPromptToOpenAIConfig(updatedWithVariables)
+    return mapPromptToOpenAIConfig(updatedWithVariables, {
+      user
+    })
   }
 
   public createPrompt(data: PromptConfigurationBody): Promise<PromptConfiguration> {

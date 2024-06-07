@@ -114,7 +114,10 @@ const getTools = (tools: PromptTool[]): ChatCompletionTool[] | undefined => {
   return tools.map((tool) => mapToolToOpenAi(tool))
 }
 
-export const mapPromptToOpenAIConfig = (promptConfig: PromptConfiguration): ChatCompletionCreateParamsNonStreaming => {
+export const mapPromptToOpenAIConfig = (
+  promptConfig: PromptConfiguration,
+  { user }: { user?: string } = {}
+): ChatCompletionCreateParamsNonStreaming => {
   const { messages: promptMessages, parameters, tools } = promptConfig
 
   const messages = mapMessagesToOpenAI(promptMessages)
@@ -132,6 +135,7 @@ export const mapPromptToOpenAIConfig = (promptConfig: PromptConfiguration): Chat
     response_format: {
       type: parameters.responseFormat === 'JSON' ? 'json_object' : 'text'
     },
-    tools: getTools(tools)
+    tools: getTools(tools),
+    user
   }
 }
