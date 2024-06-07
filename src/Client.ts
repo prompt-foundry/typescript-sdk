@@ -15,7 +15,7 @@ import {
   PromptToolBody
 } from './types'
 
-const BASE_URL = 'https://api.promptfoundry.ai/sdk/v1'
+const BASE_URL = 'https://api.promptfoundry.ai'
 
 export default class PromptFoundry {
   private client: typeof api
