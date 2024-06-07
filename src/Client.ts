@@ -15,12 +15,14 @@ import {
   PromptToolBody
 } from './types'
 
+const BASE_URL = 'https://api.promptfoundry.ai/sdk/v1'
+
 export default class PromptFoundry {
   private client: typeof api
 
   private apiKey: string
 
-  constructor({ apiKey }: { apiKey: string }) {
+  constructor({ apiKey, baseUrl = BASE_URL }: { apiKey: string; baseUrl?: string }) {
     // @ts-expect-error - protect against missing apiKey for js consumers
     if (apiKey === '' || apiKey === undefined || apiKey === null || apiKey === 0) {
       throw new Error('Prompt Foundry API Key is required!')
@@ -28,7 +30,7 @@ export default class PromptFoundry {
 
     this.apiKey = apiKey
 
-    this.client = createApiClient('https://api.promptfoundry.ai/sdk/v1')
+    this.client = createApiClient(baseUrl)
   }
 
   public async getRawPrompt({ id }: { id: string }): Promise<PromptConfiguration> {
