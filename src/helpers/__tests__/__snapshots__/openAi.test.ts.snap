@@ -30,6 +30,7 @@ exports[`openAi helpers mapPromptToOpenAIConfig should map the configuration to 
     },
   ],
   "top_p": 0.5,
+  "user": undefined,
 }
 `;
 
@@ -54,5 +55,6 @@ exports[`openAi helpers mapPromptToOpenAIConfig should map the configuration to 
   "tool_choice": undefined,
   "tools": undefined,
   "top_p": 0.5,
+  "user": undefined,
 }
 `;
