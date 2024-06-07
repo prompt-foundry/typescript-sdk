@@ -77,7 +77,7 @@ function isToolMessage(message: ChatCompletionMessageParam): message is ChatComp
 }
 
 function isFunctionMessage(message: ChatCompletionMessageParam): message is ChatCompletionFunctionMessageParam {
-  return message.role === 'tool'
+  return message.role === 'function'
 }
 
 function isAssistantMessage(message: ChatCompletionMessageParam): message is ChatCompletionAssistantMessageParam {

@@ -1,3 +1,5 @@
+import { ChatCompletionFunctionMessageParam } from 'openai/resources'
+
 import { createPromptConfigurationFixture } from '../../test/__fixtures__/promptConfiguration'
 import { createPromptMessageFixture } from '../../test/__fixtures__/promptMessage'
 import { createPromptToolFixture } from '../../test/__fixtures__/promptTool'
@@ -80,6 +82,17 @@ describe('openAi helpers', () => {
 
     it('should correctly map system messages', () => {
       expect(mapOpenAIMessagesToMessages(mapMessagesToOpenAIMessages([mockMessages[3]]))).toEqual([mockMessages[3]])
+    })
+
+    it('should support function calls', () => {
+      const message: ChatCompletionFunctionMessageParam = {
+        content: '{}',
+        role: 'function',
+        name: 'workflowResponse'
+      }
+
+      const result = mapOpenAIMessagesToMessages([message])
+      expect(result[0].role).toEqual('TOOL')
     })
   })
 
