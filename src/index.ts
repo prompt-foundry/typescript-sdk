@@ -1,4 +1,4 @@
-import Client from './Client'
+import Client from './client/Client'
 
 export * from './helpers'
 export * from './types'

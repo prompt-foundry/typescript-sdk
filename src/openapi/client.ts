@@ -96,26 +96,24 @@ const ToolBody = z
 const Tool = z
   .object({ id: z.string(), name: z.string().regex(/^[a-zA-Z0-9_-]{1,64}$/), description: z.string(), parameters: z.record(z.unknown().nullable()) })
   .passthrough()
-const EvaluationGroupBody = z
+const EvaluationAssertionBody = z
   .object({
-    name: z.string(),
-    description: z.string(),
-    promptId: z.string(),
+    evaluationId: z.string(),
+    target: z.string(),
     matcher: z.object({ type: z.enum(['CONTAINS', 'EQUALS', 'JSON']), jsonPath: z.string().nullable() }).passthrough()
   })
   .passthrough()
-const EvaluationGroup = z
+const EvaluationAssertion = z
   .object({
     id: z.string(),
-    name: z.string(),
-    description: z.string(),
-    promptId: z.string(),
+    evaluationId: z.string(),
+    target: z.string(),
     matcher: z.object({ type: z.enum(['CONTAINS', 'EQUALS', 'JSON']), jsonPath: z.string().nullable() }).passthrough()
   })
   .passthrough()
 const EvaluationBody = z
   .object({
-    evaluationGroupId: z.string(),
+    promptId: z.string(),
     appendedMessages: z.array(
       z
         .object({
@@ -136,14 +134,13 @@ const EvaluationBody = z
         })
         .passthrough()
     ),
-    variables: z.record(z.unknown().nullable()),
-    target: z.string()
+    variables: z.record(z.unknown().nullable())
   })
   .passthrough()
 const Evaluation = z
   .object({
     id: z.string(),
-    evaluationGroupId: z.string(),
+    promptId: z.string(),
     appendedMessages: z.array(
       z
         .object({
@@ -164,8 +161,7 @@ const Evaluation = z
         })
         .passthrough()
     ),
-    variables: z.record(z.unknown().nullable()),
-    target: z.string()
+    variables: z.record(z.unknown().nullable())
   })
   .passthrough()
 const PromptMessage = z
@@ -197,8 +193,8 @@ export const schemas = {
   PromptBody,
   ToolBody,
   Tool,
-  EvaluationGroupBody,
-  EvaluationGroup,
+  EvaluationAssertionBody,
+  EvaluationAssertion,
   EvaluationBody,
   Evaluation,
   PromptMessage,
@@ -209,15 +205,15 @@ export const schemas = {
 const endpoints = makeApi([
   {
     method: 'post',
-    path: '/sdk/v1/evaluation-groups',
-    alias: 'createEvaluationGroup',
+    path: '/sdk/v1/evaluation-assertions',
+    alias: 'createEvaluationAssertion',
     requestFormat: 'json',
     parameters: [
       {
         name: 'body',
-        description: 'Data needed to create a new evaluationGroup',
+        description: 'Data needed to create a new Evaluation Assertion',
         type: 'Body',
-        schema: EvaluationGroupBody
+        schema: EvaluationAssertionBody
       },
       {
         name: 'X-API-KEY',
@@ -225,7 +221,7 @@ const endpoints = makeApi([
         schema: z.string()
       }
     ],
-    response: EvaluationGroup,
+    response: EvaluationAssertion,
     errors: [
       {
         status: 401,
@@ -246,17 +242,22 @@ const endpoints = makeApi([
   },
   {
     method: 'get',
-    path: '/sdk/v1/evaluation-groups',
-    alias: 'getEvaluationGroups',
+    path: '/sdk/v1/evaluation-assertions',
+    alias: 'getEvaluationAssertions',
     requestFormat: 'json',
     parameters: [
+      {
+        name: 'evaluationId',
+        type: 'Query',
+        schema: z.string().optional()
+      },
       {
         name: 'X-API-KEY',
         type: 'Header',
         schema: z.string()
       }
     ],
-    response: z.array(EvaluationGroup),
+    response: z.array(EvaluationAssertion),
     errors: [
       {
         status: 401,
@@ -277,12 +278,12 @@ const endpoints = makeApi([
   },
   {
     method: 'get',
-    path: '/sdk/v1/evaluation-groups/:evaluationGroupId',
-    alias: 'getEvaluationGroup',
+    path: '/sdk/v1/evaluation-assertions/:evaluationAssertionId',
+    alias: 'getEvaluationAssertion',
     requestFormat: 'json',
     parameters: [
       {
-        name: 'evaluationGroupId',
+        name: 'evaluationAssertionId',
         type: 'Path',
         schema: z.string()
       },
@@ -292,7 +293,7 @@ const endpoints = makeApi([
         schema: z.string()
       }
     ],
-    response: EvaluationGroup,
+    response: EvaluationAssertion,
     errors: [
       {
         status: 400,
@@ -311,7 +312,7 @@ const endpoints = makeApi([
       },
       {
         status: 404,
-        description: 'EvaluationGroup not found',
+        description: 'Evaluation Assertion not found',
         schema: z.object({ error: z.string() }).passthrough()
       },
       {
@@ -323,18 +324,18 @@ const endpoints = makeApi([
   },
   {
     method: 'put',
-    path: '/sdk/v1/evaluation-groups/:evaluationGroupId',
-    alias: 'updateEvaluationGroup',
+    path: '/sdk/v1/evaluation-assertions/:evaluationAssertionId',
+    alias: 'updateEvaluationAssertion',
     requestFormat: 'json',
     parameters: [
       {
         name: 'body',
         description: 'Data needed to update the Evaluation Group',
         type: 'Body',
-        schema: EvaluationGroupBody
+        schema: EvaluationAssertionBody
       },
       {
-        name: 'evaluationGroupId',
+        name: 'evaluationAssertionId',
         type: 'Path',
         schema: z.string()
       },
@@ -344,7 +345,7 @@ const endpoints = makeApi([
         schema: z.string()
       }
     ],
-    response: EvaluationGroup,
+    response: EvaluationAssertion,
     errors: [
       {
         status: 401,
@@ -365,13 +366,13 @@ const endpoints = makeApi([
   },
   {
     method: 'delete',
-    path: '/sdk/v1/evaluation-groups/:evaluationGroupId',
-    alias: 'deleteEvaluationGroup',
-    description: 'Delete a evaluationGroup by ID.',
+    path: '/sdk/v1/evaluation-assertions/:evaluationAssertionId',
+    alias: 'deleteEvaluationAssertion',
+    description: 'Delete a evaluationAssertion by ID.',
     requestFormat: 'json',
     parameters: [
       {
-        name: 'evaluationGroupId',
+        name: 'evaluationAssertionId',
         type: 'Path',
         schema: z.string()
       },
@@ -390,12 +391,12 @@ const endpoints = makeApi([
       },
       {
         status: 403,
-        description: 'Forbidden request due to missing or invalid evaluationGroup ID or API Key',
+        description: 'Forbidden request due to missing or invalid evaluationAssertion ID or API Key',
         schema: z.object({ error: z.string() }).passthrough()
       },
       {
         status: 404,
-        description: 'EvaluationGroup not found',
+        description: 'EvaluationAssertion not found',
         schema: z.object({ error: z.string() }).partial().passthrough()
       },
       {

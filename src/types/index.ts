@@ -17,5 +17,5 @@ export enum PromptMessageRoleEnum {
 
 export type Evaluation = z.infer<typeof schemas.Evaluation>
 export type EvaluationBody = z.infer<typeof schemas.EvaluationBody>
-export type EvaluationGroup = z.infer<typeof schemas.EvaluationGroup>
-export type EvaluationGroupBody = z.infer<typeof schemas.EvaluationGroupBody>
+export type EvaluationAssertion = z.infer<typeof schemas.EvaluationAssertion>
+export type EvaluationAssertionBody = z.infer<typeof schemas.EvaluationAssertionBody>

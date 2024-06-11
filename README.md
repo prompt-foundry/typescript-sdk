@@ -17,5 +17,5 @@ const pf = new PromptFoundry({
   apiKey: '<API_KEY>'
 })
 
-const prompt = await pf.getPrompt({ promptId: 'HELLO' })
+const prompt = await pf.prompts.get({ promptId: 'HELLO' })
 ```
