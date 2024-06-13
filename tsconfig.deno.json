@@ -6,9 +6,9 @@
     "rootDir": "./deno",
     "lib": ["es2020", "DOM"],
     "paths": {
-      "@@@@prompt-foundry/typescript-sdk/_shims/auto/*": ["deno/_shims/auto/*-deno"],
-      "@@@@prompt-foundry/typescript-sdk/*": ["deno/*"],
-      "@@@@prompt-foundry/typescript-sdk": ["deno/index.ts"],
+      "@prompt-foundry/typescript-sdk/_shims/auto/*": ["deno/_shims/auto/*-deno"],
+      "@prompt-foundry/typescript-sdk/*": ["deno/*"],
+      "@prompt-foundry/typescript-sdk": ["deno/index.ts"],
     },
     "noEmit": true,
     "declaration": true,
