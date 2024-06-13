@@ -1,6 +1,6 @@
-import { multipartFormRequestOptions, createForm } from '@prompt-foundry/typescript-sdk/core';
-import { Blob } from '@prompt-foundry/typescript-sdk/_shims/index';
-import { toFile } from '@prompt-foundry/typescript-sdk';
+import { multipartFormRequestOptions, createForm } from '@@@prompt-foundry/typescript-sdk/core';
+import { Blob } from '@@@prompt-foundry/typescript-sdk/_shims/index';
+import { toFile } from '@@@prompt-foundry/typescript-sdk';
 
 describe('form data validation', () => {
   test('valid values do not error', async () => {

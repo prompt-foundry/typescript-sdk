@@ -1,51 +1,13 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import PromptFoundry from '@prompt-foundry/typescript-sdk';
+import PromptFoundry, { toFile } from '@@@prompt-foundry/typescript-sdk';
 import { Response } from 'node-fetch';
 
-const promptFoundry = new PromptFoundry({
-  apiKey: 'My API Key',
-  baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
-});
+const promptFoundry = new PromptFoundry({ apiKey: 'My API Key', baseURL: process.env["TEST_API_BASE_URL"] ?? 'http://127.0.0.1:4010' });
 
 describe('resource evaluations', () => {
   test('create: only required params', async () => {
-    const responsePromise = promptFoundry.evaluations.create({
-      appendedMessages: [
-        {
-          content: 'string',
-          role: 'USER',
-          toolCallId: 'string',
-          toolCalls: [
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-          ],
-        },
-        {
-          content: 'string',
-          role: 'USER',
-          toolCallId: 'string',
-          toolCalls: [
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-          ],
-        },
-        {
-          content: 'string',
-          role: 'USER',
-          toolCallId: 'string',
-          toolCalls: [
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-          ],
-        },
-      ],
-      promptId: 'string',
-      variables: { foo: {} },
-    });
+    const responsePromise = promptFoundry.evaluations.create({ appendedMessages: [{ content: 'string', role: 'USER', toolCallId: 'string', toolCalls: [{ toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }] }, { content: 'string', role: 'USER', toolCallId: 'string', toolCalls: [{ toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }] }, { content: 'string', role: 'USER', toolCallId: 'string', toolCalls: [{ toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }] }], promptId: 'string', variables: { foo: {} } });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -56,81 +18,11 @@ describe('resource evaluations', () => {
   });
 
   test('create: required and optional params', async () => {
-    const response = await promptFoundry.evaluations.create({
-      appendedMessages: [
-        {
-          content: 'string',
-          role: 'USER',
-          toolCallId: 'string',
-          toolCalls: [
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-          ],
-        },
-        {
-          content: 'string',
-          role: 'USER',
-          toolCallId: 'string',
-          toolCalls: [
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-          ],
-        },
-        {
-          content: 'string',
-          role: 'USER',
-          toolCallId: 'string',
-          toolCalls: [
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-          ],
-        },
-      ],
-      promptId: 'string',
-      variables: { foo: {} },
-    });
+    const response = await promptFoundry.evaluations.create({ appendedMessages: [{ content: 'string', role: 'USER', toolCallId: 'string', toolCalls: [{ toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }] }, { content: 'string', role: 'USER', toolCallId: 'string', toolCalls: [{ toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }] }, { content: 'string', role: 'USER', toolCallId: 'string', toolCalls: [{ toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }] }], promptId: 'string', variables: { foo: {} } });
   });
 
   test('update: only required params', async () => {
-    const responsePromise = promptFoundry.evaluations.update('1212121', {
-      appendedMessages: [
-        {
-          content: 'string',
-          role: 'USER',
-          toolCallId: 'string',
-          toolCalls: [
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-          ],
-        },
-        {
-          content: 'string',
-          role: 'USER',
-          toolCallId: 'string',
-          toolCalls: [
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-          ],
-        },
-        {
-          content: 'string',
-          role: 'USER',
-          toolCallId: 'string',
-          toolCalls: [
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-          ],
-        },
-      ],
-      promptId: 'string',
-      variables: { foo: {} },
-    });
+    const responsePromise = promptFoundry.evaluations.update('1212121', { appendedMessages: [{ content: 'string', role: 'USER', toolCallId: 'string', toolCalls: [{ toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }] }, { content: 'string', role: 'USER', toolCallId: 'string', toolCalls: [{ toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }] }, { content: 'string', role: 'USER', toolCallId: 'string', toolCalls: [{ toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }] }], promptId: 'string', variables: { foo: {} } });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -141,42 +33,7 @@ describe('resource evaluations', () => {
   });
 
   test('update: required and optional params', async () => {
-    const response = await promptFoundry.evaluations.update('1212121', {
-      appendedMessages: [
-        {
-          content: 'string',
-          role: 'USER',
-          toolCallId: 'string',
-          toolCalls: [
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-          ],
-        },
-        {
-          content: 'string',
-          role: 'USER',
-          toolCallId: 'string',
-          toolCalls: [
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-          ],
-        },
-        {
-          content: 'string',
-          role: 'USER',
-          toolCallId: 'string',
-          toolCalls: [
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-          ],
-        },
-      ],
-      promptId: 'string',
-      variables: { foo: {} },
-    });
+    const response = await promptFoundry.evaluations.update('1212121', { appendedMessages: [{ content: 'string', role: 'USER', toolCallId: 'string', toolCalls: [{ toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }] }, { content: 'string', role: 'USER', toolCallId: 'string', toolCalls: [{ toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }] }, { content: 'string', role: 'USER', toolCallId: 'string', toolCalls: [{ toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }] }], promptId: 'string', variables: { foo: {} } });
   });
 
   test('list', async () => {
@@ -192,9 +49,9 @@ describe('resource evaluations', () => {
 
   test('list: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(promptFoundry.evaluations.list({ path: '/_stainless_unknown_path' })).rejects.toThrow(
-      PromptFoundry.NotFoundError,
-    );
+    await expect(promptFoundry.evaluations.list({ path: '/_stainless_unknown_path' }))
+      .rejects
+      .toThrow(PromptFoundry.NotFoundError);
   });
 
   test('delete', async () => {
@@ -210,9 +67,9 @@ describe('resource evaluations', () => {
 
   test('delete: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(
-      promptFoundry.evaluations.delete('1212121', { path: '/_stainless_unknown_path' }),
-    ).rejects.toThrow(PromptFoundry.NotFoundError);
+    await expect(promptFoundry.evaluations.delete('1212121', { path: '/_stainless_unknown_path' }))
+      .rejects
+      .toThrow(PromptFoundry.NotFoundError);
   });
 
   test('get', async () => {
@@ -228,8 +85,8 @@ describe('resource evaluations', () => {
 
   test('get: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(
-      promptFoundry.evaluations.get('1212121', { path: '/_stainless_unknown_path' }),
-    ).rejects.toThrow(PromptFoundry.NotFoundError);
+    await expect(promptFoundry.evaluations.get('1212121', { path: '/_stainless_unknown_path' }))
+      .rejects
+      .toThrow(PromptFoundry.NotFoundError);
   });
 });
