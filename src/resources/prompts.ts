@@ -252,7 +252,7 @@ export namespace ModelParameters {
 
         description?: string;
 
-        parameters?: unknown;
+        parameters?: Record<string, unknown>;
       }
     }
   }
