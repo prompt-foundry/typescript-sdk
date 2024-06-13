@@ -113,7 +113,7 @@ export namespace ModelParameters {
 
     stream?: false | null;
 
-    stream_options?: OpenAICreateCompletionNonStreamingRequest.StreamOptions | null;
+    stream_options?: unknown | null;
 
     temperature?: number | null;
 
@@ -230,10 +230,6 @@ export namespace ModelParameters {
 
     export interface ResponseFormat {
       type?: 'text' | 'json_object';
-    }
-
-    export interface StreamOptions {
-      include_usage: boolean;
     }
 
     export interface OpenAIChatCompletionNamedToolChoice {
