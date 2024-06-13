@@ -5,8 +5,8 @@
   "compilerOptions": {
     "rootDir": "./dist/src",
     "paths": {
-      "@@@prompt-foundry/typescript-sdk/*": ["dist/src/*"],
-      "@@@prompt-foundry/typescript-sdk": ["dist/src/index.ts"],
+      "@@@@prompt-foundry/typescript-sdk/*": ["dist/src/*"],
+      "@@@@prompt-foundry/typescript-sdk": ["dist/src/index.ts"],
     },
     "noEmit": false,
     "declaration": true,

@@ -7,9 +7,9 @@ const config: JestConfigWithTsJest = {
     '^.+\\.(t|j)sx?$': ['@swc/jest', { sourceMaps: 'inline' }],
   },
   moduleNameMapper: {
-    '^@@@prompt-foundry/typescript-sdk$': '<rootDir>/src/index.ts',
-    '^@@@prompt-foundry/typescript-sdk/_shims/auto/(.*)$': '<rootDir>/src/_shims/auto/$1-node',
-    '^@@@prompt-foundry/typescript-sdk/(.*)$': '<rootDir>/src/$1',
+    '^@@@@prompt-foundry/typescript-sdk$': '<rootDir>/src/index.ts',
+    '^@@@@prompt-foundry/typescript-sdk/_shims/auto/(.*)$': '<rootDir>/src/_shims/auto/$1-node',
+    '^@@@@prompt-foundry/typescript-sdk/(.*)$': '<rootDir>/src/$1',
   },
   modulePathIgnorePatterns: [
     '<rootDir>/ecosystem-tests/',

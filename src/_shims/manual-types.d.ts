@@ -4,8 +4,8 @@
 /**
  * Types will get added to this namespace when you import one of the following:
  *
- *   import '@@@prompt-foundry/typescript-sdk/shims/node'
- *   import '@@@prompt-foundry/typescript-sdk/shims/web'
+ *   import '@@@@prompt-foundry/typescript-sdk/shims/node'
+ *   import '@@@@prompt-foundry/typescript-sdk/shims/web'
  *
  * Importing more than one will cause type and runtime errors.
  */

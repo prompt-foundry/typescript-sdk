@@ -1,11 +1,11 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from '@@@prompt-foundry/typescript-sdk/core';
-import { APIPromise } from '@@@prompt-foundry/typescript-sdk/core';
-import { APIResource } from '@@@prompt-foundry/typescript-sdk/resource';
-import { isRequestOptions } from '@@@prompt-foundry/typescript-sdk/core';
-import { type Response } from '@@@prompt-foundry/typescript-sdk/_shims/index';
-import * as PromptsAPI from '@@@prompt-foundry/typescript-sdk/resources/prompts';
+import * as Core from '@@@@prompt-foundry/typescript-sdk/core';
+import { APIPromise } from '@@@@prompt-foundry/typescript-sdk/core';
+import { APIResource } from '@@@@prompt-foundry/typescript-sdk/resource';
+import { isRequestOptions } from '@@@@prompt-foundry/typescript-sdk/core';
+import { type Response } from '@@@@prompt-foundry/typescript-sdk/_shims/index';
+import * as PromptsAPI from '@@@@prompt-foundry/typescript-sdk/resources/prompts';
 
 export class Prompts extends APIResource {
   /**

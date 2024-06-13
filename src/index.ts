@@ -5,7 +5,7 @@ import * as Errors from './error';
 import { isRequestOptions } from './core';
 import { type Agent, type RequestInit } from './_shims/index';
 import * as Uploads from './uploads';
-import * as API from '@@@prompt-foundry/typescript-sdk/resources/index';
+import * as API from '@@@@prompt-foundry/typescript-sdk/resources/index';
 
 export interface ClientOptions {
   /**

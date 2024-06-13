@@ -1,6 +1,6 @@
 # Prompt Foundry Node API Library
 
-[![NPM version](https://img.shields.io/npm/v/@@@prompt-foundry/typescript-sdk.svg)](https://npmjs.org/package/@@@prompt-foundry/typescript-sdk) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@@@prompt-foundry/typescript-sdk)
+[![NPM version](https://img.shields.io/npm/v/@@@@prompt-foundry/typescript-sdk.svg)](https://npmjs.org/package/@@@@prompt-foundry/typescript-sdk) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@@@@prompt-foundry/typescript-sdk)
 
 This library provides convenient access to the Prompt Foundry REST API from server-side TypeScript or JavaScript.
 
@@ -11,7 +11,7 @@ It is generated with [Stainless](https://www.stainlessapi.com/).
 ## Installation
 
 ```sh
-npm install @@@prompt-foundry/typescript-sdk
+npm install @@@@prompt-foundry/typescript-sdk
 ```
 
 ## Usage
@@ -20,7 +20,7 @@ The full API of this library can be found in [api.md](api.md).
 
 <!-- prettier-ignore -->
 ```js
-import PromptFoundry from '@@@prompt-foundry/typescript-sdk';
+import PromptFoundry from '@@@@prompt-foundry/typescript-sdk';
 
 const promptFoundry = new PromptFoundry({
   apiKey: process.env['PROMPT_FOUNDRY_API_KEY'], // This is the default and can be omitted
@@ -41,7 +41,7 @@ This library includes TypeScript definitions for all request params and response
 
 <!-- prettier-ignore -->
 ```ts
-import PromptFoundry from '@@@prompt-foundry/typescript-sdk';
+import PromptFoundry from '@@@@prompt-foundry/typescript-sdk';
 
 const promptFoundry = new PromptFoundry({
   apiKey: process.env['PROMPT_FOUNDRY_API_KEY'], // This is the default and can be omitted
@@ -212,11 +212,11 @@ add the following import before your first import `from "PromptFoundry"`:
 ```ts
 // Tell TypeScript and the package to use the global web fetch instead of node-fetch.
 // Note, despite the name, this does not add any polyfills, but expects them to be provided if needed.
-import '@@@prompt-foundry/typescript-sdk/shims/web';
-import PromptFoundry from '@@@prompt-foundry/typescript-sdk';
+import '@@@@prompt-foundry/typescript-sdk/shims/web';
+import PromptFoundry from '@@@@prompt-foundry/typescript-sdk';
 ```
 
-To do the inverse, add `import "@@@prompt-foundry/typescript-sdk/shims/node"` (which does import polyfills).
+To do the inverse, add `import "@@@@prompt-foundry/typescript-sdk/shims/node"` (which does import polyfills).
 This can also be useful if you are getting the wrong TypeScript types for `Response` ([more details](https://github.com/prompt-foundry/typescript-sdk/tree/main/src/_shims#readme)).
 
 ### Logging and middleware
@@ -226,7 +226,7 @@ which can be used to inspect or alter the `Request` or `Response` before/after e
 
 ```ts
 import { fetch } from 'undici'; // as one example
-import PromptFoundry from '@@@prompt-foundry/typescript-sdk';
+import PromptFoundry from '@@@@prompt-foundry/typescript-sdk';
 
 const client = new PromptFoundry({
   fetch: async (url: RequestInfo, init?: RequestInit): Promise<Response> => {
@@ -282,7 +282,7 @@ TypeScript >= 4.5 is supported.
 The following runtimes are supported:
 
 - Node.js 18 LTS or later ([non-EOL](https://endoflife.date/nodejs)) versions.
-- Deno v1.28.0 or higher, using `import PromptFoundry from "npm:@@@prompt-foundry/typescript-sdk"`.
+- Deno v1.28.0 or higher, using `import PromptFoundry from "npm:@@@@prompt-foundry/typescript-sdk"`.
 - Bun 1.0 or later.
 - Cloudflare Workers.
 - Vercel Edge Runtime.
