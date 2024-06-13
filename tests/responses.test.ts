@@ -1,5 +1,5 @@
-import { createResponseHeaders } from '@@@@prompt-foundry/typescript-sdk/core';
-import { Headers } from '@@@@prompt-foundry/typescript-sdk/_shims/index';
+import { createResponseHeaders } from '@prompt-foundry/typescript-sdk/core';
+import { Headers } from '@prompt-foundry/typescript-sdk/_shims/index';
 
 describe('response parsing', () => {
   // TODO: test unicode characters

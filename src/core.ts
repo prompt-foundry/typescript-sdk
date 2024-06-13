@@ -1,5 +1,4 @@
 import { VERSION } from './version';
-;
 import {
   PromptFoundryError,
   APIError,
@@ -39,8 +38,6 @@ type APIResponseProps = {
 
 async function defaultParseResponse<T>(props: APIResponseProps): Promise<T> {
   const { response } = props;
-  ;
-
   // fetch refuses to read the body when the status code is 204.
   if (response.status === 204) {
     return null as T;
@@ -100,9 +97,9 @@ export class APIPromise<T> extends Promise<T> {
    *
    * 👋 Getting the wrong TypeScript type for `Response`?
    * Try setting `"moduleResolution": "NodeNext"` if you can,
-   * or add one of these imports before your first `import … from '@@@@prompt-foundry/typescript-sdk'`:
-   * - `import '@@@@prompt-foundry/typescript-sdk/shims/node'` (if you're running on Node)
-   * - `import '@@@@prompt-foundry/typescript-sdk/shims/web'` (otherwise)
+   * or add one of these imports before your first `import … from '@prompt-foundry/typescript-sdk'`:
+   * - `import '@prompt-foundry/typescript-sdk/shims/node'` (if you're running on Node)
+   * - `import '@prompt-foundry/typescript-sdk/shims/web'` (otherwise)
    */
   asResponse(): Promise<Response> {
     return this.responsePromise.then((p) => p.response);
@@ -116,9 +113,9 @@ export class APIPromise<T> extends Promise<T> {
    *
    * 👋 Getting the wrong TypeScript type for `Response`?
    * Try setting `"moduleResolution": "NodeNext"` if you can,
-   * or add one of these imports before your first `import … from '@@@@prompt-foundry/typescript-sdk'`:
-   * - `import '@@@@prompt-foundry/typescript-sdk/shims/node'` (if you're running on Node)
-   * - `import '@@@@prompt-foundry/typescript-sdk/shims/web'` (otherwise)
+   * or add one of these imports before your first `import … from '@prompt-foundry/typescript-sdk'`:
+   * - `import '@prompt-foundry/typescript-sdk/shims/node'` (if you're running on Node)
+   * - `import '@prompt-foundry/typescript-sdk/shims/web'` (otherwise)
    */
   async withResponse(): Promise<{ data: T; response: Response }> {
     const [data, response] = await Promise.all([this.parse(), this.asResponse()]);
@@ -197,7 +194,7 @@ export abstract class APIClient {
       Accept: 'application/json',
       'Content-Type': 'application/json',
       'User-Agent': this.getUserAgent(),
-...getPlatformHeaders(),
+      ...getPlatformHeaders(),
       ...this.authHeaders(opts),
     };
   }
@@ -754,11 +751,8 @@ export type RequestOptions<
   signal?: AbortSignal | undefined | null;
   idempotencyKey?: string;
 
-
-
   __binaryRequest?: boolean | undefined;
   __binaryResponse?: boolean | undefined;
-
 };
 
 // This is required so that we can determine if a given object matches the RequestOptions
@@ -778,11 +772,8 @@ const requestOptionsKeys: KeysEnum<RequestOptions> = {
   signal: true,
   idempotencyKey: true,
 
-
-
   __binaryRequest: true,
   __binaryResponse: true,
-
 };
 
 export const isRequestOptions = (obj: unknown): obj is RequestOptions => {
