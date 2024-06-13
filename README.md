@@ -1,4 +1,4 @@
-# Prompt Foundry Node API Library
+# Prompt Foundry TypeScript SDK
 
 The prompt engineering, prompt management, and prompt evaluation tool for TypeScript, JavaScript, and NodeJS.
 
