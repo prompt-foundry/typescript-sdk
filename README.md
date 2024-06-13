@@ -27,7 +27,9 @@ const promptFoundry = new PromptFoundry({
 });
 
 async function main() {
-  const modelParameters = await promptFoundry.prompts.getParameters('1212121');
+  const modelParameters = await promptFoundry.prompts.getParameters('1212121', {
+    variables: { hello: 'world' },
+  });
 
   console.log(modelParameters.parameters);
 }
