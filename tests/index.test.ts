@@ -1,8 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import PromptFoundry from '@@@prompt-foundry/typescript-sdk';
-import { APIUserAbortError } from '@@@prompt-foundry/typescript-sdk';
-import { Headers } from '@@@prompt-foundry/typescript-sdk/core';
+import PromptFoundry from '@@@@prompt-foundry/typescript-sdk';
+import { APIUserAbortError } from '@@@@prompt-foundry/typescript-sdk';
+import { Headers } from '@@@@prompt-foundry/typescript-sdk/core';
 import defaultFetch, { Response, type RequestInit, type RequestInfo } from 'node-fetch'
 
 describe('instantiate client', () => {

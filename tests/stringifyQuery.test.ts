@@ -1,4 +1,4 @@
-import { APIClient } from '@@@prompt-foundry/typescript-sdk/core';
+import { APIClient } from '@@@@prompt-foundry/typescript-sdk/core';
 
 const { stringifyQuery } = APIClient.prototype as any;
 
