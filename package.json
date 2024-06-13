@@ -1,91 +1,124 @@
 {
   "name": "@prompt-foundry/typescript-sdk",
   "version": "1.0.0",
-  "description": "The Typescript SDK for the prompt engineering, prompt management, and prompt testing tool Prompt Foundry.",
-  "main": "build/main/index.js",
-  "typings": "build/main/index.d.ts",
-  "module": "build/module/index.js",
-  "homepage": "https://promptfoundry.ai",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/prompt-foundry/typescript-sdk.git"
-  },
+  "description": "The official TypeScript library for the Prompt Foundry API",
+  "author": "Prompt Foundry <dev-feedback@promptfoundry.ai>",
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "type": "commonjs",
+  "repository": "github:prompt-foundry/typescript-sdk",
   "license": "Apache-2.0",
-  "keywords": [
-    "typescript",
-    "sdk",
-    "prompt",
-    "prompt-engineering",
-    "prompt-management",
-    "prompt-testing"
+  "packageManager": "yarn@1.22.22",
+  "files": [
+    "*"
   ],
+  "private": false,
   "scripts": {
-    "build": "run-p build:*",
-    "build:main": "tsc -p tsconfig.json",
-    "build:module": "tsc -p tsconfig.module.json",
-    "fix": "run-s fix:*",
-    "lint": "eslint .",
-    "prettier": "npm run lint -- --fix",
-    "test": "run-s test:*",
-    "test:unit": "jest",
-    "typecheck": "tsc --noEmit --incremental",
-    "watch:build": "tsc -p tsconfig.json -w",
-    "watch:test": "npm run test:unit -- --watchAll",
-    "doc": "run-s doc:html && open-cli build/docs/index.html",
-    "doc:html": "typedoc src/ --exclude **/*.spec.ts --target ES6 --mode file --out build/docs",
-    "doc:json": "typedoc src/ --exclude **/*.spec.ts --target ES6 --mode file --json build/docs/typedoc.json",
-    "doc:publish": "gh-pages -m \"[ci skip] Updates\" -d build/docs",
-    "version": "standard-version",
-    "reset-hard": "git clean -dfx && git reset --hard && npm i",
-    "prepare-release": "run-s reset-hard test doc:html version doc:publish",
-    "openapi": "openapi-zod-client https://api.promptfoundry.ai/sdk/openapi -o ./src/openapi/client.ts --export-types --export-schemas && npm run prettier"
-  },
-  "engines": {
-    "node": ">=10"
-  },
-  "devDependencies": {
-    "@jest/globals": "^29.7.0",
-    "@types/jest": "^29.5.12",
-    "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^8.57.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-airbnb-typescript": "^18.0.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-better-mutation": "^1.4.1",
-    "eslint-plugin-jest": "^28.5.0",
-    "eslint-plugin-prettier": "^5.1.3",
-    "gh-pages": "^6.1.1",
-    "jest": "^29.7.0",
-    "npm-run-all": "^4.1.5",
-    "openapi-zod-client": "^1.18.1",
-    "prettier": "^3.3.2",
-    "prettier-plugin-properties": "^0.3.0",
-    "standard-version": "^9.5.0",
-    "ts-jest": "^29.1.4",
-    "ts-node": "^10.9.2",
-    "typedoc": "^0.25.13",
-    "typescript": "^5.4.5"
+    "test": "./scripts/test",
+    "build": "./scripts/build",
+    "prepublishOnly": "echo 'to publish, run yarn build && (cd dist; yarn publish)' && exit 1",
+    "format": "prettier --write --cache --cache-strategy metadata . !dist",
+    "prepare": "if ./scripts/utils/check-is-in-git-install.sh; then ./scripts/build; fi",
+    "tsn": "ts-node -r tsconfig-paths/register",
+    "lint": "./scripts/lint",
+    "fix": "eslint --fix --ext ts,js ."
   },
   "dependencies": {
-    "@zodios/core": "^10.9.6",
-    "axios": "^1.7.2",
-    "openai": "^4.50.0",
-    "zod": "^3.23.8"
+    "@types/node": "^18.11.18",
+    "@types/node-fetch": "^2.6.4",
+    "abort-controller": "^3.0.0",
+    "agentkeepalive": "^4.2.1",
+    "form-data-encoder": "1.7.2",
+    "formdata-node": "^4.3.2",
+    "node-fetch": "^2.6.7",
+    "web-streams-polyfill": "^3.2.1"
   },
-  "files": [
-    "build/main",
-    "build/module",
-    "!**/*.spec.*",
-    "!**/*.test.*",
-    "!**/test/*",
-    "!**/*.json",
-    "CHANGELOG.md",
-    "LICENSE",
-    "README.md"
+  "devDependencies": {
+    "@swc/core": "^1.3.102",
+    "@swc/jest": "^0.2.29",
+    "@types/jest": "^29.4.0",
+    "@typescript-eslint/eslint-plugin": "^6.7.0",
+    "@typescript-eslint/parser": "^6.7.0",
+    "eslint": "^8.49.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-unused-imports": "^3.0.0",
+    "jest": "^29.4.0",
+    "prettier": "^3.0.0",
+    "ts-jest": "^29.1.0",
+    "ts-morph": "^19.0.0",
+    "ts-node": "^10.5.0",
+    "tsc-multi": "^1.1.0",
+    "tsconfig-paths": "^4.0.0",
+    "typescript": "^4.8.2"
+  },
+  "sideEffects": [
+    "./_shims/index.js",
+    "./_shims/index.mjs",
+    "./shims/node.js",
+    "./shims/node.mjs",
+    "./shims/web.js",
+    "./shims/web.mjs"
   ],
-  "config": {
-    "commitizen": {
-      "path": "cz-conventional-changelog"
+  "imports": {
+    "@prompt-foundry/typescript-sdk": ".",
+    "@prompt-foundry/typescript-sdk/*": "./src/*"
+  },
+  "exports": {
+    "./_shims/auto/*": {
+      "deno": {
+        "types": "./dist/_shims/auto/*.d.ts",
+        "require": "./dist/_shims/auto/*.js",
+        "default": "./dist/_shims/auto/*.mjs"
+      },
+      "bun": {
+        "types": "./dist/_shims/auto/*.d.ts",
+        "require": "./dist/_shims/auto/*-bun.js",
+        "default": "./dist/_shims/auto/*-bun.mjs"
+      },
+      "browser": {
+        "types": "./dist/_shims/auto/*.d.ts",
+        "require": "./dist/_shims/auto/*.js",
+        "default": "./dist/_shims/auto/*.mjs"
+      },
+      "worker": {
+        "types": "./dist/_shims/auto/*.d.ts",
+        "require": "./dist/_shims/auto/*.js",
+        "default": "./dist/_shims/auto/*.mjs"
+      },
+      "workerd": {
+        "types": "./dist/_shims/auto/*.d.ts",
+        "require": "./dist/_shims/auto/*.js",
+        "default": "./dist/_shims/auto/*.mjs"
+      },
+      "node": {
+        "types": "./dist/_shims/auto/*-node.d.ts",
+        "require": "./dist/_shims/auto/*-node.js",
+        "default": "./dist/_shims/auto/*-node.mjs"
+      },
+      "types": "./dist/_shims/auto/*.d.ts",
+      "require": "./dist/_shims/auto/*.js",
+      "default": "./dist/_shims/auto/*.mjs"
+    },
+    ".": {
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "types": "./dist/index.d.mts",
+      "default": "./dist/index.mjs"
+    },
+    "./*.mjs": {
+      "types": "./dist/*.d.ts",
+      "default": "./dist/*.mjs"
+    },
+    "./*.js": {
+      "types": "./dist/*.d.ts",
+      "default": "./dist/*.js"
+    },
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "require": "./dist/*.js",
+      "default": "./dist/*.mjs"
     }
   }
 }
