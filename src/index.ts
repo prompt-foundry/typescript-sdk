@@ -2,9 +2,10 @@
 
 import * as Core from './core';
 import * as Errors from './error';
-import { type Agent } from './_shims/index';
+import { isRequestOptions } from './core';
+import { type Agent, type RequestInit } from './_shims/index';
 import * as Uploads from './uploads';
-import * as API from '@prompt-foundry/typescript-sdk/resources/index';
+import * as API from '@@@prompt-foundry/typescript-sdk/resources/index';
 
 export interface ClientOptions {
   /**
@@ -94,7 +95,7 @@ export class PromptFoundry extends Core.APIClient {
   }: ClientOptions = {}) {
     if (apiKey === undefined) {
       throw new Errors.PromptFoundryError(
-        "The PROMPT_FOUNDRY_API_KEY environment variable is missing or empty; either provide it, or instantiate the PromptFoundry client with an apiKey option, like new PromptFoundry({ apiKey: 'My API Key' }).",
+        'The PROMPT_FOUNDRY_API_KEY environment variable is missing or empty; either provide it, or instantiate the PromptFoundry client with an apiKey option, like new PromptFoundry({ apiKey: \'My API Key\' }).'
       );
     }
 
@@ -105,9 +106,7 @@ export class PromptFoundry extends Core.APIClient {
     };
 
     if (Core.isRunningInBrowser()) {
-      throw new Errors.PromptFoundryError(
-        "It looks like you're running in a browser-like environment, which is disabled to protect your secret API credentials from attackers. If you have a strong business need for client-side use of this API, please open a GitHub issue with your use-case and security mitigations.",
-      );
+      throw new Errors.PromptFoundryError("It looks like you're running in a browser-like environment, which is disabled to protect your secret API credentials from attackers. If you have a strong business need for client-side use of this API, please open a GitHub issue with your use-case and security mitigations.")
     }
 
     super({
@@ -162,21 +161,7 @@ export class PromptFoundry extends Core.APIClient {
   static fileFromPath = Uploads.fileFromPath;
 }
 
-export const {
-  PromptFoundryError,
-  APIError,
-  APIConnectionError,
-  APIConnectionTimeoutError,
-  APIUserAbortError,
-  NotFoundError,
-  ConflictError,
-  RateLimitError,
-  BadRequestError,
-  AuthenticationError,
-  InternalServerError,
-  PermissionDeniedError,
-  UnprocessableEntityError,
-} = Errors;
+export const { PromptFoundryError, APIError, APIConnectionError, APIConnectionTimeoutError, APIUserAbortError, NotFoundError, ConflictError, RateLimitError, BadRequestError, AuthenticationError, InternalServerError, PermissionDeniedError, UnprocessableEntityError } = Errors
 
 export import toFile = Uploads.toFile;
 export import fileFromPath = Uploads.fileFromPath;

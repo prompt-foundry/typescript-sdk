@@ -1,8 +1,11 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from '@prompt-foundry/typescript-sdk/core';
-import { APIResource } from '@prompt-foundry/typescript-sdk/resource';
-import * as EvaluationsAPI from '@prompt-foundry/typescript-sdk/resources/evaluations';
+import * as Core from '@@@prompt-foundry/typescript-sdk/core';
+import { APIPromise } from '@@@prompt-foundry/typescript-sdk/core';
+import { APIResource } from '@@@prompt-foundry/typescript-sdk/resource';
+import { isRequestOptions } from '@@@prompt-foundry/typescript-sdk/core';
+import { type Response } from '@@@prompt-foundry/typescript-sdk/_shims/index';
+import * as EvaluationsAPI from '@@@prompt-foundry/typescript-sdk/resources/evaluations';
 
 export class Evaluations extends APIResource {
   /**
@@ -15,11 +18,7 @@ export class Evaluations extends APIResource {
   /**
    * Update a evaluation by ID.
    */
-  update(
-    id: string,
-    body: EvaluationUpdateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<Evaluation> {
+  update(id: string, body: EvaluationUpdateParams, options?: Core.RequestOptions): Core.APIPromise<Evaluation> {
     return this._client.put(`/sdk/v1/evaluations/${id}`, { body, ...options });
   }
 
@@ -112,7 +111,7 @@ export namespace Evaluation {
   }
 }
 
-export type EvaluationListResponse = Array<Evaluation>;
+export type EvaluationListResponse = Array<Evaluation>
 
 export interface EvaluationDeleteResponse {
   success?: boolean;

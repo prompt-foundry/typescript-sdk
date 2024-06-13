@@ -1,8 +1,11 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from '@prompt-foundry/typescript-sdk/core';
-import { APIResource } from '@prompt-foundry/typescript-sdk/resource';
-import * as ToolsAPI from '@prompt-foundry/typescript-sdk/resources/tools';
+import * as Core from '@@@prompt-foundry/typescript-sdk/core';
+import { APIPromise } from '@@@prompt-foundry/typescript-sdk/core';
+import { APIResource } from '@@@prompt-foundry/typescript-sdk/resource';
+import { isRequestOptions } from '@@@prompt-foundry/typescript-sdk/core';
+import { type Response } from '@@@prompt-foundry/typescript-sdk/_shims/index';
+import * as ToolsAPI from '@@@prompt-foundry/typescript-sdk/resources/tools';
 
 export class Tools extends APIResource {
   /**
@@ -67,7 +70,7 @@ export interface Tool {
   parameters: Record<string, unknown>;
 }
 
-export type ToolListResponse = Array<Tool>;
+export type ToolListResponse = Array<Tool>
 
 export interface ToolDeleteResponse {
   success?: boolean;

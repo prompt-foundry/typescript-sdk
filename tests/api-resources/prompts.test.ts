@@ -1,62 +1,13 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import PromptFoundry from '@prompt-foundry/typescript-sdk';
+import PromptFoundry, { toFile } from '@@@prompt-foundry/typescript-sdk';
 import { Response } from 'node-fetch';
 
-const promptFoundry = new PromptFoundry({
-  apiKey: 'My API Key',
-  baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
-});
+const promptFoundry = new PromptFoundry({ apiKey: 'My API Key', baseURL: process.env["TEST_API_BASE_URL"] ?? 'http://127.0.0.1:4010' });
 
 describe('resource prompts', () => {
   test('create: only required params', async () => {
-    const responsePromise = promptFoundry.prompts.create({
-      messages: [
-        {
-          content: 'string',
-          role: 'USER',
-          toolCallId: 'string',
-          toolCalls: [
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-          ],
-        },
-        {
-          content: 'string',
-          role: 'USER',
-          toolCallId: 'string',
-          toolCalls: [
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-          ],
-        },
-        {
-          content: 'string',
-          role: 'USER',
-          toolCallId: 'string',
-          toolCalls: [
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-          ],
-        },
-      ],
-      name: 'string',
-      parameters: {
-        modelName: 'string',
-        responseFormat: 'TEXT',
-        temperature: 0,
-        topP: 0,
-        frequencyPenalty: 0,
-        presencePenalty: 0,
-        maxTokens: 0,
-        seed: 0,
-        toolChoice: 'string',
-      },
-      tools: [{ toolId: 'string' }, { toolId: 'string' }, { toolId: 'string' }],
-    });
+    const responsePromise = promptFoundry.prompts.create({ messages: [{ content: 'string', role: 'USER', toolCallId: 'string', toolCalls: [{ toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }] }, { content: 'string', role: 'USER', toolCallId: 'string', toolCalls: [{ toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }] }, { content: 'string', role: 'USER', toolCallId: 'string', toolCalls: [{ toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }] }], name: 'string', parameters: { modelName: 'string', responseFormat: 'TEXT', temperature: 0, topP: 0, frequencyPenalty: 0, presencePenalty: 0, maxTokens: 0, seed: 0, toolChoice: 'string' }, tools: [{ toolId: 'string' }, { toolId: 'string' }, { toolId: 'string' }] });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -67,103 +18,11 @@ describe('resource prompts', () => {
   });
 
   test('create: required and optional params', async () => {
-    const response = await promptFoundry.prompts.create({
-      messages: [
-        {
-          content: 'string',
-          role: 'USER',
-          toolCallId: 'string',
-          toolCalls: [
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-          ],
-        },
-        {
-          content: 'string',
-          role: 'USER',
-          toolCallId: 'string',
-          toolCalls: [
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-          ],
-        },
-        {
-          content: 'string',
-          role: 'USER',
-          toolCallId: 'string',
-          toolCalls: [
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-          ],
-        },
-      ],
-      name: 'string',
-      parameters: {
-        modelName: 'string',
-        responseFormat: 'TEXT',
-        temperature: 0,
-        topP: 0,
-        frequencyPenalty: 0,
-        presencePenalty: 0,
-        maxTokens: 0,
-        seed: 0,
-        toolChoice: 'string',
-      },
-      tools: [{ toolId: 'string' }, { toolId: 'string' }, { toolId: 'string' }],
-    });
+    const response = await promptFoundry.prompts.create({ messages: [{ content: 'string', role: 'USER', toolCallId: 'string', toolCalls: [{ toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }] }, { content: 'string', role: 'USER', toolCallId: 'string', toolCalls: [{ toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }] }, { content: 'string', role: 'USER', toolCallId: 'string', toolCalls: [{ toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }] }], name: 'string', parameters: { modelName: 'string', responseFormat: 'TEXT', temperature: 0, topP: 0, frequencyPenalty: 0, presencePenalty: 0, maxTokens: 0, seed: 0, toolChoice: 'string' }, tools: [{ toolId: 'string' }, { toolId: 'string' }, { toolId: 'string' }] });
   });
 
   test('update: only required params', async () => {
-    const responsePromise = promptFoundry.prompts.update('1212121', {
-      messages: [
-        {
-          content: 'string',
-          role: 'USER',
-          toolCallId: 'string',
-          toolCalls: [
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-          ],
-        },
-        {
-          content: 'string',
-          role: 'USER',
-          toolCallId: 'string',
-          toolCalls: [
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-          ],
-        },
-        {
-          content: 'string',
-          role: 'USER',
-          toolCallId: 'string',
-          toolCalls: [
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-          ],
-        },
-      ],
-      name: 'string',
-      parameters: {
-        modelName: 'string',
-        responseFormat: 'TEXT',
-        temperature: 0,
-        topP: 0,
-        frequencyPenalty: 0,
-        presencePenalty: 0,
-        maxTokens: 0,
-        seed: 0,
-        toolChoice: 'string',
-      },
-      tools: [{ toolId: 'string' }, { toolId: 'string' }, { toolId: 'string' }],
-    });
+    const responsePromise = promptFoundry.prompts.update('1212121', { messages: [{ content: 'string', role: 'USER', toolCallId: 'string', toolCalls: [{ toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }] }, { content: 'string', role: 'USER', toolCallId: 'string', toolCalls: [{ toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }] }, { content: 'string', role: 'USER', toolCallId: 'string', toolCalls: [{ toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }] }], name: 'string', parameters: { modelName: 'string', responseFormat: 'TEXT', temperature: 0, topP: 0, frequencyPenalty: 0, presencePenalty: 0, maxTokens: 0, seed: 0, toolChoice: 'string' }, tools: [{ toolId: 'string' }, { toolId: 'string' }, { toolId: 'string' }] });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -174,53 +33,7 @@ describe('resource prompts', () => {
   });
 
   test('update: required and optional params', async () => {
-    const response = await promptFoundry.prompts.update('1212121', {
-      messages: [
-        {
-          content: 'string',
-          role: 'USER',
-          toolCallId: 'string',
-          toolCalls: [
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-          ],
-        },
-        {
-          content: 'string',
-          role: 'USER',
-          toolCallId: 'string',
-          toolCalls: [
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-          ],
-        },
-        {
-          content: 'string',
-          role: 'USER',
-          toolCallId: 'string',
-          toolCalls: [
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-          ],
-        },
-      ],
-      name: 'string',
-      parameters: {
-        modelName: 'string',
-        responseFormat: 'TEXT',
-        temperature: 0,
-        topP: 0,
-        frequencyPenalty: 0,
-        presencePenalty: 0,
-        maxTokens: 0,
-        seed: 0,
-        toolChoice: 'string',
-      },
-      tools: [{ toolId: 'string' }, { toolId: 'string' }, { toolId: 'string' }],
-    });
+    const response = await promptFoundry.prompts.update('1212121', { messages: [{ content: 'string', role: 'USER', toolCallId: 'string', toolCalls: [{ toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }] }, { content: 'string', role: 'USER', toolCallId: 'string', toolCalls: [{ toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }] }, { content: 'string', role: 'USER', toolCallId: 'string', toolCalls: [{ toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }] }], name: 'string', parameters: { modelName: 'string', responseFormat: 'TEXT', temperature: 0, topP: 0, frequencyPenalty: 0, presencePenalty: 0, maxTokens: 0, seed: 0, toolChoice: 'string' }, tools: [{ toolId: 'string' }, { toolId: 'string' }, { toolId: 'string' }] });
   });
 
   test('list', async () => {
@@ -236,9 +49,9 @@ describe('resource prompts', () => {
 
   test('list: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(promptFoundry.prompts.list({ path: '/_stainless_unknown_path' })).rejects.toThrow(
-      PromptFoundry.NotFoundError,
-    );
+    await expect(promptFoundry.prompts.list({ path: '/_stainless_unknown_path' }))
+      .rejects
+      .toThrow(PromptFoundry.NotFoundError);
   });
 
   test('delete', async () => {
@@ -254,9 +67,9 @@ describe('resource prompts', () => {
 
   test('delete: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(
-      promptFoundry.prompts.delete('1212121', { path: '/_stainless_unknown_path' }),
-    ).rejects.toThrow(PromptFoundry.NotFoundError);
+    await expect(promptFoundry.prompts.delete('1212121', { path: '/_stainless_unknown_path' }))
+      .rejects
+      .toThrow(PromptFoundry.NotFoundError);
   });
 
   test('get', async () => {
@@ -272,9 +85,9 @@ describe('resource prompts', () => {
 
   test('get: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(promptFoundry.prompts.get('1212121', { path: '/_stainless_unknown_path' })).rejects.toThrow(
-      PromptFoundry.NotFoundError,
-    );
+    await expect(promptFoundry.prompts.get('1212121', { path: '/_stainless_unknown_path' }))
+      .rejects
+      .toThrow(PromptFoundry.NotFoundError);
   });
 
   test('getParameters', async () => {
@@ -290,86 +103,15 @@ describe('resource prompts', () => {
 
   test('getParameters: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(
-      promptFoundry.prompts.getParameters('1212121', { path: '/_stainless_unknown_path' }),
-    ).rejects.toThrow(PromptFoundry.NotFoundError);
+    await expect(promptFoundry.prompts.getParameters('1212121', { path: '/_stainless_unknown_path' }))
+      .rejects
+      .toThrow(PromptFoundry.NotFoundError);
   });
 
   test('getParameters: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(
-      promptFoundry.prompts.getParameters(
-        '1212121',
-        {
-          appendMessages: [
-            {
-              content: 'string',
-              role: 'USER',
-              toolCallId: 'string',
-              toolCalls: [
-                { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-                { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-                { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-              ],
-            },
-            {
-              content: 'string',
-              role: 'USER',
-              toolCallId: 'string',
-              toolCalls: [
-                { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-                { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-                { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-              ],
-            },
-            {
-              content: 'string',
-              role: 'USER',
-              toolCallId: 'string',
-              toolCalls: [
-                { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-                { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-                { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-              ],
-            },
-          ],
-          overrideMessages: [
-            {
-              content: 'string',
-              role: 'USER',
-              toolCallId: 'string',
-              toolCalls: [
-                { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-                { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-                { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-              ],
-            },
-            {
-              content: 'string',
-              role: 'USER',
-              toolCallId: 'string',
-              toolCalls: [
-                { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-                { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-                { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-              ],
-            },
-            {
-              content: 'string',
-              role: 'USER',
-              toolCallId: 'string',
-              toolCalls: [
-                { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-                { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-                { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-              ],
-            },
-          ],
-          user: 'string',
-          variables: { foo: {} },
-        },
-        { path: '/_stainless_unknown_path' },
-      ),
-    ).rejects.toThrow(PromptFoundry.NotFoundError);
+    await expect(promptFoundry.prompts.getParameters('1212121', { appendMessages: [{ content: 'string', role: 'USER', toolCallId: 'string', toolCalls: [{ toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }] }, { content: 'string', role: 'USER', toolCallId: 'string', toolCalls: [{ toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }] }, { content: 'string', role: 'USER', toolCallId: 'string', toolCalls: [{ toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }] }], overrideMessages: [{ content: 'string', role: 'USER', toolCallId: 'string', toolCalls: [{ toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }] }, { content: 'string', role: 'USER', toolCallId: 'string', toolCalls: [{ toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }] }, { content: 'string', role: 'USER', toolCallId: 'string', toolCalls: [{ toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }, { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } }] }], user: 'string', variables: { foo: {} } }, { path: '/_stainless_unknown_path' }))
+      .rejects
+      .toThrow(PromptFoundry.NotFoundError);
   });
 });
