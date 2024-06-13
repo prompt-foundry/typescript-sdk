@@ -157,13 +157,13 @@ describe('instantiate client', () => {
     test('empty env variable', () => {
       process.env['PROMPT_FOUNDRY_BASE_URL'] = ''; // empty
       const client = new PromptFoundry({ apiKey: 'My API Key' });
-      expect(client.baseURL).toEqual('https://api.promptfoundry.ai/sdk/v1');
+      expect(client.baseURL).toEqual('https://api.promptfoundry.ai');
     });
 
     test('blank env variable', () => {
       process.env['PROMPT_FOUNDRY_BASE_URL'] = '  '; // blank
       const client = new PromptFoundry({ apiKey: 'My API Key' });
-      expect(client.baseURL).toEqual('https://api.promptfoundry.ai/sdk/v1');
+      expect(client.baseURL).toEqual('https://api.promptfoundry.ai');
     });
   });
 
