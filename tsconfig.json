@@ -1,38 +1,38 @@
 {
+  "include": ["src", "tests", "examples"],
+  "exclude": ["src/_shims/**/*-deno.ts"],
   "compilerOptions": {
-    "incremental": true,
-    "target": "es2017",
-    "outDir": "build/main",
-    "rootDir": "src",
-    "moduleResolution": "node",
+    "target": "es2020",
+    "lib": ["es2020"],
     "module": "commonjs",
-    "declaration": true,
-    "inlineSourceMap": true,
+    "moduleResolution": "node",
     "esModuleInterop": true,
+    "baseUrl": "./",
+    "paths": {
+      "@prompt-foundry/typescript-sdk/_shims/auto/*": ["src/_shims/auto/*-node"],
+      "@prompt-foundry/typescript-sdk/*": ["src/*"],
+      "@prompt-foundry/typescript-sdk": ["src/index.ts"],
+    },
+    "noEmit": true,
+
     "resolveJsonModule": true,
+
+    "forceConsistentCasingInFileNames": true,
+
     "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "noImplicitThis": true,
     "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "traceResolution": false,
-    "listEmittedFiles": false,
-    "listFiles": false,
-    "pretty": true,
-    "lib": [
-      "es2017"
-    ],
-    "types": [
-      "jest",
-      "node"
-    ]
-  },
-  "include": [
-    "src/**/*.ts",
-    "src/test/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules/**"
-  ],
-  "compileOnSave": false
+    "alwaysStrict": true,
+    "exactOptionalPropertyTypes": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+
+    "skipLibCheck": true
+  }
 }
