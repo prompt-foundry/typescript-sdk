@@ -55,12 +55,12 @@ cd typescript-sdk
 # With yarn
 yarn link
 cd ../my-package
-yarn link @@@@prompt-foundry/typescript-sdk
+yarn link @prompt-foundry/typescript-sdk
 
 # With pnpm
 pnpm link --global
 cd ../my-package
-pnpm link -—global @@@@prompt-foundry/typescript-sdk
+pnpm link -—global @prompt-foundry/typescript-sdk
 ```
 
 ## Running tests

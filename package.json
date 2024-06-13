@@ -1,5 +1,5 @@
 {
-  "name": "@@@@prompt-foundry/typescript-sdk",
+  "name": "@prompt-foundry/typescript-sdk",
   "version": "1.0.0",
   "description": "The official TypeScript library for the Prompt Foundry API",
   "author": "Prompt Foundry <dev-feedback@promptfoundry.ai>",
@@ -60,8 +60,8 @@
     "./shims/web.mjs"
   ],
   "imports": {
-    "@@@@prompt-foundry/typescript-sdk": ".",
-    "@@@@prompt-foundry/typescript-sdk/*": "./src/*"
+    "@prompt-foundry/typescript-sdk": ".",
+    "@prompt-foundry/typescript-sdk/*": "./src/*"
   },
   "exports": {
     "./_shims/auto/*": {

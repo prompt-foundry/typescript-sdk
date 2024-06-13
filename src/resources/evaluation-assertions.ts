@@ -1,33 +1,44 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from '@@@@prompt-foundry/typescript-sdk/core';
-import { APIPromise } from '@@@@prompt-foundry/typescript-sdk/core';
-import { APIResource } from '@@@@prompt-foundry/typescript-sdk/resource';
-import { isRequestOptions } from '@@@@prompt-foundry/typescript-sdk/core';
-import { type Response } from '@@@@prompt-foundry/typescript-sdk/_shims/index';
-import * as EvaluationAssertionsAPI from '@@@@prompt-foundry/typescript-sdk/resources/evaluation-assertions';
+import * as Core from '@prompt-foundry/typescript-sdk/core';
+import { APIResource } from '@prompt-foundry/typescript-sdk/resource';
+import { isRequestOptions } from '@prompt-foundry/typescript-sdk/core';
+import * as EvaluationAssertionsAPI from '@prompt-foundry/typescript-sdk/resources/evaluation-assertions';
 
 export class EvaluationAssertions extends APIResource {
   /**
    * Creates a new evaluation assertion
    */
-  create(body: EvaluationAssertionCreateParams, options?: Core.RequestOptions): Core.APIPromise<EvaluationAssertion> {
+  create(
+    body: EvaluationAssertionCreateParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<EvaluationAssertion> {
     return this._client.post('/sdk/v1/evaluation-assertions', { body, ...options });
   }
 
   /**
    * Update an existing evaluation assertion by providing its ID and new data.
    */
-  update(id: string, body: EvaluationAssertionUpdateParams, options?: Core.RequestOptions): Core.APIPromise<EvaluationAssertion> {
+  update(
+    id: string,
+    body: EvaluationAssertionUpdateParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<EvaluationAssertion> {
     return this._client.put(`/sdk/v1/evaluation-assertions/${id}`, { body, ...options });
   }
 
   /**
    * Retrieve all evaluation assertions optionally filtered by evaluation ID
    */
-  list(query?: EvaluationAssertionListParams, options?: Core.RequestOptions): Core.APIPromise<EvaluationAssertionListResponse>
-  list(options?: Core.RequestOptions): Core.APIPromise<EvaluationAssertionListResponse>
-  list(query: EvaluationAssertionListParams | Core.RequestOptions = {}, options?: Core.RequestOptions): Core.APIPromise<EvaluationAssertionListResponse> {
+  list(
+    query?: EvaluationAssertionListParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<EvaluationAssertionListResponse>;
+  list(options?: Core.RequestOptions): Core.APIPromise<EvaluationAssertionListResponse>;
+  list(
+    query: EvaluationAssertionListParams | Core.RequestOptions = {},
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<EvaluationAssertionListResponse> {
     if (isRequestOptions(query)) {
       return this.list({}, query);
     }
@@ -74,7 +85,7 @@ export namespace EvaluationAssertion {
   }
 }
 
-export type EvaluationAssertionListResponse = Array<EvaluationAssertion>
+export type EvaluationAssertionListResponse = Array<EvaluationAssertion>;
 
 export interface EvaluationAssertionDeleteResponse {
   success?: boolean;

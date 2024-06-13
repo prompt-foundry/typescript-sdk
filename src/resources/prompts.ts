@@ -1,11 +1,9 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from '@@@@prompt-foundry/typescript-sdk/core';
-import { APIPromise } from '@@@@prompt-foundry/typescript-sdk/core';
-import { APIResource } from '@@@@prompt-foundry/typescript-sdk/resource';
-import { isRequestOptions } from '@@@@prompt-foundry/typescript-sdk/core';
-import { type Response } from '@@@@prompt-foundry/typescript-sdk/_shims/index';
-import * as PromptsAPI from '@@@@prompt-foundry/typescript-sdk/resources/prompts';
+import * as Core from '@prompt-foundry/typescript-sdk/core';
+import { APIResource } from '@prompt-foundry/typescript-sdk/resource';
+import { isRequestOptions } from '@prompt-foundry/typescript-sdk/core';
+import * as PromptsAPI from '@prompt-foundry/typescript-sdk/resources/prompts';
 
 export class Prompts extends APIResource {
   /**
@@ -18,7 +16,11 @@ export class Prompts extends APIResource {
   /**
    * Update the configuration of an existing prompt and deploys it.
    */
-  update(id: string, body: PromptUpdateParams, options?: Core.RequestOptions): Core.APIPromise<PromptConfiguration> {
+  update(
+    id: string,
+    body: PromptUpdateParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<PromptConfiguration> {
     return this._client.put(`/sdk/v1/prompts/${id}`, { body, ...options });
   }
 
@@ -49,9 +51,17 @@ export class Prompts extends APIResource {
    * penalty settings, response format, and the model messages rendered with the
    * given variables mapped to the set LLM provider.
    */
-  getParameters(id: string, body?: PromptGetParametersParams, options?: Core.RequestOptions): Core.APIPromise<ModelParameters>
-  getParameters(id: string, options?: Core.RequestOptions): Core.APIPromise<ModelParameters>
-  getParameters(id: string, body: PromptGetParametersParams | Core.RequestOptions = {}, options?: Core.RequestOptions): Core.APIPromise<ModelParameters> {
+  getParameters(
+    id: string,
+    body?: PromptGetParametersParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<ModelParameters>;
+  getParameters(id: string, options?: Core.RequestOptions): Core.APIPromise<ModelParameters>;
+  getParameters(
+    id: string,
+    body: PromptGetParametersParams | Core.RequestOptions = {},
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<ModelParameters> {
     if (isRequestOptions(body)) {
       return this.getParameters(id, {}, body);
     }
@@ -67,7 +77,13 @@ export interface ModelParameters {
 
 export namespace ModelParameters {
   export interface Parameters {
-    messages: Array<Parameters.OpenAIChatCompletionRequestSystemMessage | Parameters.OpenAIChatCompletionRequestUserMessage | Parameters.OpenAIChatCompletionRequestAssistantMessage | Parameters.OpenAIChatCompletionRequestToolMessage | Parameters.OpenAIChatCompletionRequestFunctionMessage>;
+    messages: Array<
+      | Parameters.OpenAIChatCompletionRequestSystemMessage
+      | Parameters.OpenAIChatCompletionRequestUserMessage
+      | Parameters.OpenAIChatCompletionRequestAssistantMessage
+      | Parameters.OpenAIChatCompletionRequestToolMessage
+      | Parameters.OpenAIChatCompletionRequestFunctionMessage
+    >;
 
     model: string;
 
@@ -118,7 +134,12 @@ export namespace ModelParameters {
     }
 
     export interface OpenAIChatCompletionRequestUserMessage {
-      content: string | Array<OpenAIChatCompletionRequestUserMessage.OpenAIChatCompletionRequestMessageContentPartText | OpenAIChatCompletionRequestUserMessage.OpenAIChatCompletionRequestMessageContentPartImage>;
+      content:
+        | string
+        | Array<
+            | OpenAIChatCompletionRequestUserMessage.OpenAIChatCompletionRequestMessageContentPartText
+            | OpenAIChatCompletionRequestUserMessage.OpenAIChatCompletionRequestMessageContentPartImage
+          >;
 
       role: 'user';
 
@@ -382,7 +403,7 @@ export namespace PromptConfiguration {
   }
 }
 
-export type PromptListResponse = Array<PromptConfiguration>
+export type PromptListResponse = Array<PromptConfiguration>;
 
 export interface PromptDeleteResponse {
   success?: boolean;

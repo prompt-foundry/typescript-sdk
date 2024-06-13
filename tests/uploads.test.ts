@@ -1,6 +1,6 @@
 import fs from 'fs';
-import { toFile, type ResponseLike } from '@@@@prompt-foundry/typescript-sdk/uploads';
-import { File } from '@@@@prompt-foundry/typescript-sdk/_shims/index';
+import { toFile, type ResponseLike } from '@prompt-foundry/typescript-sdk/uploads';
+import { File } from '@prompt-foundry/typescript-sdk/_shims/index';
 
 class MyClass {
   name: string = 'foo';
