@@ -72,21 +72,19 @@ export class Prompts extends APIResource {
 export interface ModelParameters {
   name: string;
 
-  parameters:
-    | ModelParameters.OpenAICreateCompletionNonStreamingRequest
-    | ModelParameters.OpenAICreateCompletionStreamingRequest;
+  parameters: ModelParameters.Parameters;
 
   provider: 'openai';
 }
 
 export namespace ModelParameters {
-  export interface OpenAICreateCompletionNonStreamingRequest {
+  export interface Parameters {
     messages: Array<
-      | OpenAICreateCompletionNonStreamingRequest.OpenAIChatCompletionRequestSystemMessage
-      | OpenAICreateCompletionNonStreamingRequest.OpenAIChatCompletionRequestUserMessage
-      | OpenAICreateCompletionNonStreamingRequest.OpenAIChatCompletionRequestAssistantMessage
-      | OpenAICreateCompletionNonStreamingRequest.OpenAIChatCompletionRequestToolMessage
-      | OpenAICreateCompletionNonStreamingRequest.OpenAIChatCompletionRequestFunctionMessage
+      | Parameters.OpenAIChatCompletionRequestSystemMessage
+      | Parameters.OpenAIChatCompletionRequestUserMessage
+      | Parameters.OpenAIChatCompletionRequestAssistantMessage
+      | Parameters.OpenAIChatCompletionRequestToolMessage
+      | Parameters.OpenAIChatCompletionRequestFunctionMessage
     >;
 
     model: string;
@@ -105,25 +103,21 @@ export namespace ModelParameters {
 
     presence_penalty?: number | null;
 
-    response_format?: OpenAICreateCompletionNonStreamingRequest.ResponseFormat;
+    response_format?: Parameters.ResponseFormat;
 
     seed?: number | null;
 
     stop?: string | Array<string>;
 
-    stream?: false | null;
+    stream?: boolean | null;
 
-    stream_options?: unknown | null;
+    stream_options?: Parameters.StreamOptions | null;
 
     temperature?: number | null;
 
-    tool_choice?:
-      | 'none'
-      | 'auto'
-      | 'required'
-      | OpenAICreateCompletionNonStreamingRequest.OpenAIChatCompletionNamedToolChoice;
+    tool_choice?: 'none' | 'auto' | 'required' | Parameters.OpenAIChatCompletionNamedToolChoice;
 
-    tools?: Array<OpenAICreateCompletionNonStreamingRequest.Tool>;
+    tools?: Array<Parameters.Tool>;
 
     top_logprobs?: number | null;
 
@@ -132,188 +126,7 @@ export namespace ModelParameters {
     user?: string;
   }
 
-  export namespace OpenAICreateCompletionNonStreamingRequest {
-    export interface OpenAIChatCompletionRequestSystemMessage {
-      content: string;
-
-      role: 'system';
-
-      name?: string;
-    }
-
-    export interface OpenAIChatCompletionRequestUserMessage {
-      content:
-        | string
-        | Array<
-            | OpenAIChatCompletionRequestUserMessage.OpenAIChatCompletionRequestMessageContentPartText
-            | OpenAIChatCompletionRequestUserMessage.OpenAIChatCompletionRequestMessageContentPartImage
-          >;
-
-      role: 'user';
-
-      name?: string;
-    }
-
-    export namespace OpenAIChatCompletionRequestUserMessage {
-      export interface OpenAIChatCompletionRequestMessageContentPartText {
-        text: string;
-
-        type: 'text';
-      }
-
-      export interface OpenAIChatCompletionRequestMessageContentPartImage {
-        image_url: OpenAIChatCompletionRequestMessageContentPartImage.ImageURL;
-
-        type: 'image_url';
-      }
-
-      export namespace OpenAIChatCompletionRequestMessageContentPartImage {
-        export interface ImageURL {
-          url: string;
-
-          detail?: 'auto' | 'low' | 'high';
-        }
-      }
-    }
-
-    export interface OpenAIChatCompletionRequestAssistantMessage {
-      role: 'assistant';
-
-      content?: string | null;
-
-      function_call?: OpenAIChatCompletionRequestAssistantMessage.FunctionCall | null;
-
-      name?: string;
-
-      tool_calls?: Array<OpenAIChatCompletionRequestAssistantMessage.ToolCall>;
-    }
-
-    export namespace OpenAIChatCompletionRequestAssistantMessage {
-      export interface FunctionCall {
-        arguments: string;
-
-        name: string;
-      }
-
-      export interface ToolCall {
-        id: string;
-
-        function: ToolCall.Function;
-
-        type: 'function';
-      }
-
-      export namespace ToolCall {
-        export interface Function {
-          arguments: string;
-
-          name: string;
-        }
-      }
-    }
-
-    export interface OpenAIChatCompletionRequestToolMessage {
-      content: string;
-
-      role: 'tool';
-
-      tool_call_id: string;
-    }
-
-    export interface OpenAIChatCompletionRequestFunctionMessage {
-      content: string | null;
-
-      name: string;
-
-      role: 'function';
-    }
-
-    export interface ResponseFormat {
-      type?: 'text' | 'json_object';
-    }
-
-    export interface OpenAIChatCompletionNamedToolChoice {
-      function: OpenAIChatCompletionNamedToolChoice.Function;
-
-      type: 'function';
-    }
-
-    export namespace OpenAIChatCompletionNamedToolChoice {
-      export interface Function {
-        name: string;
-      }
-    }
-
-    export interface Tool {
-      function: Tool.Function;
-
-      type: 'function';
-    }
-
-    export namespace Tool {
-      export interface Function {
-        name: string;
-
-        description?: string;
-
-        parameters?: Record<string, unknown>;
-      }
-    }
-  }
-
-  export interface OpenAICreateCompletionStreamingRequest {
-    messages: Array<
-      | OpenAICreateCompletionStreamingRequest.OpenAIChatCompletionRequestSystemMessage
-      | OpenAICreateCompletionStreamingRequest.OpenAIChatCompletionRequestUserMessage
-      | OpenAICreateCompletionStreamingRequest.OpenAIChatCompletionRequestAssistantMessage
-      | OpenAICreateCompletionStreamingRequest.OpenAIChatCompletionRequestToolMessage
-      | OpenAICreateCompletionStreamingRequest.OpenAIChatCompletionRequestFunctionMessage
-    >;
-
-    model: string;
-
-    stream: true;
-
-    frequency_penalty?: number | null;
-
-    logit_bias?: Record<string, number> | null;
-
-    logprobs?: boolean | null;
-
-    max_tokens?: number | null;
-
-    n?: number | null;
-
-    parallel_tool_calls?: boolean;
-
-    presence_penalty?: number | null;
-
-    response_format?: OpenAICreateCompletionStreamingRequest.ResponseFormat;
-
-    seed?: number | null;
-
-    stop?: string | Array<string>;
-
-    stream_options?: OpenAICreateCompletionStreamingRequest.StreamOptions | null;
-
-    temperature?: number | null;
-
-    tool_choice?:
-      | 'none'
-      | 'auto'
-      | 'required'
-      | OpenAICreateCompletionStreamingRequest.OpenAIChatCompletionNamedToolChoice;
-
-    tools?: Array<OpenAICreateCompletionStreamingRequest.Tool>;
-
-    top_logprobs?: number | null;
-
-    top_p?: number | null;
-
-    user?: string;
-  }
-
-  export namespace OpenAICreateCompletionStreamingRequest {
+  export namespace Parameters {
     export interface OpenAIChatCompletionRequestSystemMessage {
       content: string;
 
