@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.5.0 (2024-06-14)
+
+Full Changelog: [v1.4.0...v1.5.0](https://github.com/prompt-foundry/typescript-sdk/compare/v1.4.0...v1.5.0)
+
+### Features
+
+* Bump braces in the npm_and_yarn group across 1 directory ([f87d85e](https://github.com/prompt-foundry/typescript-sdk/commit/f87d85ef5cfad6d3939561f104fe53cff82bfd46))
+
 ## 1.4.0 (2024-06-14)
 
 Full Changelog: [v1.3.0...v1.4.0](https://github.com/prompt-foundry/typescript-sdk/compare/v1.3.0...v1.4.0)
