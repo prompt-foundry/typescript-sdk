@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.4.0 (2024-06-14)
+
+Full Changelog: [v1.3.0...v1.4.0](https://github.com/prompt-foundry/typescript-sdk/compare/v1.3.0...v1.4.0)
+
+### Features
+
+* **api:** OpenAPI spec update via Stainless API ([#23](https://github.com/prompt-foundry/typescript-sdk/issues/23)) ([ce520cf](https://github.com/prompt-foundry/typescript-sdk/commit/ce520cf918bac70bf5fcc06689f0b6a871be1488))
+
 ## 1.3.0 (2024-06-13)
 
 Full Changelog: [v1.2.0...v1.3.0](https://github.com/prompt-foundry/typescript-sdk/compare/v1.2.0...v1.3.0)
