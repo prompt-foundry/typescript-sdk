@@ -291,7 +291,7 @@ export namespace PromptConfiguration {
      */
     content: string | null;
 
-    role: 'user' | 'assistant' | 'system' | 'tool';
+    role: 'USER' | 'ASSISTANT' | 'SYSTEM' | 'TOOL';
 
     toolCallId: string | null;
 
@@ -431,7 +431,7 @@ export namespace PromptCreateParams {
      */
     content: string | null;
 
-    role: 'user' | 'assistant' | 'system' | 'tool';
+    role: 'USER' | 'ASSISTANT' | 'SYSTEM' | 'TOOL';
 
     toolCallId: string | null;
 
@@ -543,7 +543,7 @@ export namespace PromptUpdateParams {
      */
     content: string | null;
 
-    role: 'user' | 'assistant' | 'system' | 'tool';
+    role: 'USER' | 'ASSISTANT' | 'SYSTEM' | 'TOOL';
 
     toolCallId: string | null;
 
@@ -669,7 +669,7 @@ export namespace PromptGetParametersParams {
      */
     content: string | null;
 
-    role: 'user' | 'assistant' | 'system' | 'tool';
+    role: 'USER' | 'ASSISTANT' | 'SYSTEM' | 'TOOL';
 
     toolCallId: string | null;
 
@@ -718,7 +718,7 @@ export namespace PromptGetParametersParams {
      */
     content: string | null;
 
-    role: 'user' | 'assistant' | 'system' | 'tool';
+    role: 'USER' | 'ASSISTANT' | 'SYSTEM' | 'TOOL';
 
     toolCallId: string | null;
 
