@@ -71,7 +71,7 @@ export namespace Evaluation {
      */
     content: string | null;
 
-    role: 'user' | 'assistant' | 'system' | 'tool';
+    role: 'USER' | 'ASSISTANT' | 'SYSTEM' | 'TOOL';
 
     toolCallId: string | null;
 
@@ -142,7 +142,7 @@ export namespace EvaluationCreateParams {
      */
     content: string | null;
 
-    role: 'user' | 'assistant' | 'system' | 'tool';
+    role: 'USER' | 'ASSISTANT' | 'SYSTEM' | 'TOOL';
 
     toolCallId: string | null;
 
@@ -207,7 +207,7 @@ export namespace EvaluationUpdateParams {
      */
     content: string | null;
 
-    role: 'user' | 'assistant' | 'system' | 'tool';
+    role: 'USER' | 'ASSISTANT' | 'SYSTEM' | 'TOOL';
 
     toolCallId: string | null;
 
