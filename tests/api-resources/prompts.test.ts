@@ -54,6 +54,7 @@ describe('resource prompts', () => {
         maxTokens: 0,
         seed: 0,
         toolChoice: 'string',
+        stream: true,
       },
       tools: [{ toolId: 'string' }, { toolId: 'string' }, { toolId: 'string' }],
     });
@@ -111,6 +112,7 @@ describe('resource prompts', () => {
         maxTokens: 0,
         seed: 0,
         toolChoice: 'string',
+        stream: true,
       },
       tools: [{ toolId: 'string' }, { toolId: 'string' }, { toolId: 'string' }],
     });
@@ -161,6 +163,7 @@ describe('resource prompts', () => {
         maxTokens: 0,
         seed: 0,
         toolChoice: 'string',
+        stream: true,
       },
       tools: [{ toolId: 'string' }, { toolId: 'string' }, { toolId: 'string' }],
     });
@@ -218,6 +221,7 @@ describe('resource prompts', () => {
         maxTokens: 0,
         seed: 0,
         toolChoice: 'string',
+        stream: true,
       },
       tools: [{ toolId: 'string' }, { toolId: 'string' }, { toolId: 'string' }],
     });
