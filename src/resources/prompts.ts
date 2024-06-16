@@ -291,7 +291,7 @@ export namespace PromptConfiguration {
      */
     content: string | null;
 
-    role: 'USER' | 'ASSISTANT' | 'SYSTEM' | 'TOOL';
+    role: 'user' | 'assistant' | 'system' | 'tool';
 
     toolCallId: string | null;
 
@@ -362,14 +362,13 @@ export namespace PromptConfiguration {
      */
     seed: number | null;
 
+    stream: boolean;
+
     /**
      * Example: 1
      */
     temperature: number;
 
-    /**
-     * Example: "checkWeather"
-     */
     toolChoice: string | null;
 
     /**
@@ -431,7 +430,7 @@ export namespace PromptCreateParams {
      */
     content: string | null;
 
-    role: 'USER' | 'ASSISTANT' | 'SYSTEM' | 'TOOL';
+    role: 'user' | 'assistant' | 'system' | 'tool';
 
     toolCallId: string | null;
 
@@ -502,14 +501,13 @@ export namespace PromptCreateParams {
      */
     seed: number | null;
 
+    stream: boolean;
+
     /**
      * Example: 1
      */
     temperature: number;
 
-    /**
-     * Example: "checkWeather"
-     */
     toolChoice: string | null;
 
     /**
@@ -543,7 +541,7 @@ export namespace PromptUpdateParams {
      */
     content: string | null;
 
-    role: 'USER' | 'ASSISTANT' | 'SYSTEM' | 'TOOL';
+    role: 'user' | 'assistant' | 'system' | 'tool';
 
     toolCallId: string | null;
 
@@ -614,14 +612,13 @@ export namespace PromptUpdateParams {
      */
     seed: number | null;
 
+    stream: boolean;
+
     /**
      * Example: 1
      */
     temperature: number;
 
-    /**
-     * Example: "checkWeather"
-     */
     toolChoice: string | null;
 
     /**
@@ -669,7 +666,7 @@ export namespace PromptGetParametersParams {
      */
     content: string | null;
 
-    role: 'USER' | 'ASSISTANT' | 'SYSTEM' | 'TOOL';
+    role: 'user' | 'assistant' | 'system' | 'tool';
 
     toolCallId: string | null;
 
@@ -718,7 +715,7 @@ export namespace PromptGetParametersParams {
      */
     content: string | null;
 
-    role: 'USER' | 'ASSISTANT' | 'SYSTEM' | 'TOOL';
+    role: 'user' | 'assistant' | 'system' | 'tool';
 
     toolCallId: string | null;
 
