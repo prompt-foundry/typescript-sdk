@@ -65,24 +65,30 @@ export interface EvaluationAssertion {
 
   evaluationId: string;
 
-  matcher: EvaluationAssertion.Matcher;
+  /**
+   * A JSON path to use when matching the response. Only required when type is
+   * `JSON_EXACT_MATCH` or `JSON_CONTAINS`.
+   */
+  jsonPath: string | null;
 
-  target: string;
-}
+  targetValue: string;
 
-export namespace EvaluationAssertion {
-  export interface Matcher {
-    /**
-     * A JSON path to use when matching the response. Only required when type is
-     * `jsonPath`.
-     */
-    jsonPath: string | null;
+  /**
+   * The name of the tool to match. Only required when type is `TOOL_CALLED` or
+   * `TOOL_CALLED_WITH`.
+   */
+  toolName: string | null;
 
-    /**
-     * The type of evaluation matcher to use.
-     */
-    type: 'CONTAINS' | 'EQUALS' | 'JSON';
-  }
+  /**
+   * The type of evaluation matcher to use.
+   */
+  type:
+    | 'EXACT_MATCH'
+    | 'CONTAINS'
+    | 'JSON_EXACT_MATCH'
+    | 'JSON_CONTAINS'
+    | 'TOOL_CALLED'
+    | 'TOOL_CALLED_WITH';
 }
 
 export type EvaluationAssertionListResponse = Array<EvaluationAssertion>;
@@ -94,47 +100,59 @@ export interface EvaluationAssertionDeleteResponse {
 export interface EvaluationAssertionCreateParams {
   evaluationId: string;
 
-  matcher: EvaluationAssertionCreateParams.Matcher;
+  /**
+   * A JSON path to use when matching the response. Only required when type is
+   * `JSON_EXACT_MATCH` or `JSON_CONTAINS`.
+   */
+  jsonPath: string | null;
 
-  target: string;
-}
+  targetValue: string;
 
-export namespace EvaluationAssertionCreateParams {
-  export interface Matcher {
-    /**
-     * A JSON path to use when matching the response. Only required when type is
-     * `jsonPath`.
-     */
-    jsonPath: string | null;
+  /**
+   * The name of the tool to match. Only required when type is `TOOL_CALLED` or
+   * `TOOL_CALLED_WITH`.
+   */
+  toolName: string | null;
 
-    /**
-     * The type of evaluation matcher to use.
-     */
-    type: 'CONTAINS' | 'EQUALS' | 'JSON';
-  }
+  /**
+   * The type of evaluation matcher to use.
+   */
+  type:
+    | 'EXACT_MATCH'
+    | 'CONTAINS'
+    | 'JSON_EXACT_MATCH'
+    | 'JSON_CONTAINS'
+    | 'TOOL_CALLED'
+    | 'TOOL_CALLED_WITH';
 }
 
 export interface EvaluationAssertionUpdateParams {
   evaluationId: string;
 
-  matcher: EvaluationAssertionUpdateParams.Matcher;
+  /**
+   * A JSON path to use when matching the response. Only required when type is
+   * `JSON_EXACT_MATCH` or `JSON_CONTAINS`.
+   */
+  jsonPath: string | null;
 
-  target: string;
-}
+  targetValue: string;
 
-export namespace EvaluationAssertionUpdateParams {
-  export interface Matcher {
-    /**
-     * A JSON path to use when matching the response. Only required when type is
-     * `jsonPath`.
-     */
-    jsonPath: string | null;
+  /**
+   * The name of the tool to match. Only required when type is `TOOL_CALLED` or
+   * `TOOL_CALLED_WITH`.
+   */
+  toolName: string | null;
 
-    /**
-     * The type of evaluation matcher to use.
-     */
-    type: 'CONTAINS' | 'EQUALS' | 'JSON';
-  }
+  /**
+   * The type of evaluation matcher to use.
+   */
+  type:
+    | 'EXACT_MATCH'
+    | 'CONTAINS'
+    | 'JSON_EXACT_MATCH'
+    | 'JSON_CONTAINS'
+    | 'TOOL_CALLED'
+    | 'TOOL_CALLED_WITH';
 }
 
 export interface EvaluationAssertionListParams {
