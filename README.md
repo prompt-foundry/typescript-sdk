@@ -1,10 +1,12 @@
-# Prompt Foundry Node API Library
+# Prompt Foundry TypeScript SDK
+
+The prompt engineering, prompt management, and prompt evaluation tool for TypeScript, JavaScript, and NodeJS.
 
 [![NPM version](https://img.shields.io/npm/v/@prompt-foundry/typescript-sdk.svg)](https://npmjs.org/package/@prompt-foundry/typescript-sdk) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@prompt-foundry/typescript-sdk)
 
 This library provides convenient access to the Prompt Foundry REST API from server-side TypeScript or JavaScript.
 
-The REST API documentation can be found [on docs.promptfoundry.ai](https://docs.promptfoundry.ai). The full API of this library can be found in [api.md](api.md).
+The REST API documentation can be found on [docs.promptfoundry.ai](https://docs.promptfoundry.ai). The full API of this library can be found in [api.md](api.md).
 
 It is generated with [Stainless](https://www.stainlessapi.com/).
 
@@ -31,7 +33,9 @@ async function main() {
     variables: { hello: 'world' },
   });
 
-  console.log(modelParameters.parameters);
+  const modelResponse = await openai.chat.completions.create(modelParameters.parameters)
+
+  console.log(modelResponse);
 }
 
 main();
