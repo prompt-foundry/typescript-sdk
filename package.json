@@ -1,6 +1,6 @@
 {
   "name": "@prompt-foundry/typescript-sdk",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "description": "The prompt engineering, prompt management, and prompt evaluation tool for TypeScript, JavaScript, and NodeJS.",
   "keywords": [
     "typescript",
