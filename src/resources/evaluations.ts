@@ -31,7 +31,7 @@ export class Evaluations extends APIResource {
   }
 
   /**
-   * Delete an evaluation by ID.
+   * Delete a evaluation by ID.
    */
   delete(id: string, options?: Core.RequestOptions): Core.APIPromise<EvaluationDeleteResponse> {
     return this._client.delete(`/sdk/v1/evaluations/${id}`, options);
