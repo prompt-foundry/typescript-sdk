@@ -55,6 +55,7 @@ describe('resource prompts', () => {
         seed: 0,
         toolChoice: 'string',
         stream: true,
+        parallelToolCalls: true,
       },
       tools: [{ toolId: 'string' }, { toolId: 'string' }, { toolId: 'string' }],
     });
@@ -113,6 +114,7 @@ describe('resource prompts', () => {
         seed: 0,
         toolChoice: 'string',
         stream: true,
+        parallelToolCalls: true,
       },
       tools: [{ toolId: 'string' }, { toolId: 'string' }, { toolId: 'string' }],
     });
@@ -164,6 +166,7 @@ describe('resource prompts', () => {
         seed: 0,
         toolChoice: 'string',
         stream: true,
+        parallelToolCalls: true,
       },
       tools: [{ toolId: 'string' }, { toolId: 'string' }, { toolId: 'string' }],
     });
@@ -222,6 +225,7 @@ describe('resource prompts', () => {
         seed: 0,
         toolChoice: 'string',
         stream: true,
+        parallelToolCalls: true,
       },
       tools: [{ toolId: 'string' }, { toolId: 'string' }, { toolId: 'string' }],
     });
