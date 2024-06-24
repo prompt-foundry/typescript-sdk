@@ -347,6 +347,8 @@ export namespace PromptConfiguration {
      */
     modelName: string;
 
+    parallelToolCalls: boolean;
+
     /**
      * Example: 0
      */
@@ -486,6 +488,8 @@ export namespace PromptCreateParams {
      */
     modelName: string;
 
+    parallelToolCalls: boolean;
+
     /**
      * Example: 0
      */
@@ -596,6 +600,8 @@ export namespace PromptUpdateParams {
      * Example: "gpt-3.5-turbo"
      */
     modelName: string;
+
+    parallelToolCalls: boolean;
 
     /**
      * Example: 0
