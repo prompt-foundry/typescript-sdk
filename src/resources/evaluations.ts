@@ -13,7 +13,7 @@ export class Evaluations extends APIResource {
   }
 
   /**
-   * Update a evaluation by ID.
+   * Update an evaluation by ID.
    */
   update(
     id: string,
@@ -31,14 +31,14 @@ export class Evaluations extends APIResource {
   }
 
   /**
-   * Delete a evaluation by ID.
+   * Delete an evaluation by ID.
    */
   delete(id: string, options?: Core.RequestOptions): Core.APIPromise<EvaluationDeleteResponse> {
     return this._client.delete(`/sdk/v1/evaluations/${id}`, options);
   }
 
   /**
-   * Retrieve a evaluation by ID
+   * Retrieve an evaluation by ID
    */
   get(id: string, options?: Core.RequestOptions): Core.APIPromise<Evaluation> {
     return this._client.get(`/sdk/v1/evaluations/${id}`, options);
