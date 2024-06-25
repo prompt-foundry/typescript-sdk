@@ -56,7 +56,7 @@ export interface Evaluation {
   promptId: string;
 
   /**
-   * The variables to in the prompt when evaluating the prompt.
+   * The template variables added to the prompt when executing the prompt.
    */
   variables: Record<string, string | null>;
 }
@@ -127,7 +127,7 @@ export interface EvaluationCreateParams {
   promptId: string;
 
   /**
-   * The variables to in the prompt when evaluating the prompt.
+   * The template variables added to the prompt when executing the prompt.
    */
   variables: Record<string, string | null>;
 }
@@ -192,7 +192,7 @@ export interface EvaluationUpdateParams {
   promptId: string;
 
   /**
-   * The variables to in the prompt when evaluating the prompt.
+   * The template variables added to the prompt when executing the prompt.
    */
   variables: Record<string, string | null>;
 }
