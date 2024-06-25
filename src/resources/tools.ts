@@ -1,7 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from '@prompt-foundry/typescript-sdk/core';
 import { APIResource } from '@prompt-foundry/typescript-sdk/resource';
+import * as Core from '@prompt-foundry/typescript-sdk/core';
 import * as ToolsAPI from '@prompt-foundry/typescript-sdk/resources/tools';
 
 export class Tools extends APIResource {
