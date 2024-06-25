@@ -657,9 +657,9 @@ export interface PromptGetParametersParams {
   user?: string;
 
   /**
-   * The template variables added to the prompt when running the prompt.
+   * The template variables added to the prompt when executing the prompt.
    */
-  variables?: Record<string, unknown>;
+  variables?: Record<string, string | null>;
 }
 
 export namespace PromptGetParametersParams {

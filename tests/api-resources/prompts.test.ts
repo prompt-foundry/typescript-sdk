@@ -374,7 +374,7 @@ describe('resource prompts', () => {
             },
           ],
           user: 'string',
-          variables: { foo: {} },
+          variables: { foo: 'string' },
         },
         { path: '/_stainless_unknown_path' },
       ),
