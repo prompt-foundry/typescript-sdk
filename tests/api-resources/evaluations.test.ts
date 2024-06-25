@@ -44,7 +44,7 @@ describe('resource evaluations', () => {
         },
       ],
       promptId: 'string',
-      variables: { foo: {} },
+      variables: { foo: 'string' },
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -90,7 +90,7 @@ describe('resource evaluations', () => {
         },
       ],
       promptId: 'string',
-      variables: { foo: {} },
+      variables: { foo: 'string' },
     });
   });
 
@@ -129,7 +129,7 @@ describe('resource evaluations', () => {
         },
       ],
       promptId: 'string',
-      variables: { foo: {} },
+      variables: { foo: 'string' },
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -175,7 +175,7 @@ describe('resource evaluations', () => {
         },
       ],
       promptId: 'string',
-      variables: { foo: {} },
+      variables: { foo: 'string' },
     });
   });
 

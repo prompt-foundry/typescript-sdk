@@ -58,7 +58,7 @@ export interface Evaluation {
   /**
    * The variables to in the prompt when evaluating the prompt.
    */
-  variables: Record<string, unknown>;
+  variables: Record<string, string | null>;
 }
 
 export namespace Evaluation {
@@ -129,7 +129,7 @@ export interface EvaluationCreateParams {
   /**
    * The variables to in the prompt when evaluating the prompt.
    */
-  variables: Record<string, unknown>;
+  variables: Record<string, string | null>;
 }
 
 export namespace EvaluationCreateParams {
@@ -194,7 +194,7 @@ export interface EvaluationUpdateParams {
   /**
    * The variables to in the prompt when evaluating the prompt.
    */
-  variables: Record<string, unknown>;
+  variables: Record<string, string | null>;
 }
 
 export namespace EvaluationUpdateParams {
