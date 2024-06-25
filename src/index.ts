@@ -1,9 +1,9 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from './core';
 import * as Errors from './error';
-import { type Agent } from './_shims/index';
 import * as Uploads from './uploads';
+import { type Agent } from './_shims/index';
+import * as Core from '@prompt-foundry/typescript-sdk/core';
 import * as API from '@prompt-foundry/typescript-sdk/resources/index';
 
 export interface ClientOptions {
@@ -69,7 +69,9 @@ export interface ClientOptions {
   defaultQuery?: Core.DefaultQuery;
 }
 
-/** API Client for interfacing with the Prompt Foundry API. */
+/**
+ * API Client for interfacing with the Prompt Foundry API.
+ */
 export class PromptFoundry extends Core.APIClient {
   apiKey: string;
 
@@ -117,6 +119,7 @@ export class PromptFoundry extends Core.APIClient {
       maxRetries: options.maxRetries,
       fetch: options.fetch,
     });
+
     this._options = options;
 
     this.apiKey = apiKey;
