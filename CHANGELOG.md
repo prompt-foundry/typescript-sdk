@@ -1,5 +1,27 @@
 # Changelog
 
+## 1.11.0 (2024-06-26)
+
+Full Changelog: [v1.10.0...v1.11.0](https://github.com/prompt-foundry/typescript-sdk/compare/v1.10.0...v1.11.0)
+
+### Features
+
+* **api:** OpenAPI spec update via Stainless API ([#100](https://github.com/prompt-foundry/typescript-sdk/issues/100)) ([5757a25](https://github.com/prompt-foundry/typescript-sdk/commit/5757a2519944c2ed1c8af878b3c4281a319491c7))
+* **api:** OpenAPI spec update via Stainless API ([#101](https://github.com/prompt-foundry/typescript-sdk/issues/101)) ([3a924d4](https://github.com/prompt-foundry/typescript-sdk/commit/3a924d41c52f29c08fd3f674b6d5fcc6c8e5ae73))
+* **api:** OpenAPI spec update via Stainless API ([#102](https://github.com/prompt-foundry/typescript-sdk/issues/102)) ([d735636](https://github.com/prompt-foundry/typescript-sdk/commit/d735636df4510e1b918e7ba4c9f8e04f977c4f82))
+* **api:** OpenAPI spec update via Stainless API ([#104](https://github.com/prompt-foundry/typescript-sdk/issues/104)) ([a2463e4](https://github.com/prompt-foundry/typescript-sdk/commit/a2463e4cee6c5074ff5e037f1bcf528d158fb9f2))
+* **api:** OpenAPI spec update via Stainless API ([#105](https://github.com/prompt-foundry/typescript-sdk/issues/105)) ([512b410](https://github.com/prompt-foundry/typescript-sdk/commit/512b410ba9737c9d1e77ce2d01e5d703255fe8e8))
+* **api:** OpenAPI spec update via Stainless API ([#90](https://github.com/prompt-foundry/typescript-sdk/issues/90)) ([bd86d48](https://github.com/prompt-foundry/typescript-sdk/commit/bd86d48f525725b2a962f828e8d2e5a9a701f769))
+* **api:** OpenAPI spec update via Stainless API ([#91](https://github.com/prompt-foundry/typescript-sdk/issues/91)) ([2b08413](https://github.com/prompt-foundry/typescript-sdk/commit/2b08413a752ca27ef07945ce797d82f79de5ada4))
+* **api:** OpenAPI spec update via Stainless API ([#92](https://github.com/prompt-foundry/typescript-sdk/issues/92)) ([3527621](https://github.com/prompt-foundry/typescript-sdk/commit/35276214d07e348090e1c45c1c2b41a269be17f9))
+* **api:** OpenAPI spec update via Stainless API ([#93](https://github.com/prompt-foundry/typescript-sdk/issues/93)) ([1793f6f](https://github.com/prompt-foundry/typescript-sdk/commit/1793f6ff6421284cf62b6646842ed6eaaa97bd3e))
+* **api:** OpenAPI spec update via Stainless API ([#94](https://github.com/prompt-foundry/typescript-sdk/issues/94)) ([bedc6b0](https://github.com/prompt-foundry/typescript-sdk/commit/bedc6b0751966a04eee8f7b67899d018501a63a9))
+* **api:** OpenAPI spec update via Stainless API ([#95](https://github.com/prompt-foundry/typescript-sdk/issues/95)) ([d4d232d](https://github.com/prompt-foundry/typescript-sdk/commit/d4d232dcb07b301a90696a67e0c3d3af27095e3e))
+* **api:** OpenAPI spec update via Stainless API ([#96](https://github.com/prompt-foundry/typescript-sdk/issues/96)) ([811ef3c](https://github.com/prompt-foundry/typescript-sdk/commit/811ef3c75e986bf224269ce6dfefee1ea9d6de3b))
+* **api:** OpenAPI spec update via Stainless API ([#97](https://github.com/prompt-foundry/typescript-sdk/issues/97)) ([74d299b](https://github.com/prompt-foundry/typescript-sdk/commit/74d299b0103a05f71bdbbafa59c07496a185c89f))
+* **api:** OpenAPI spec update via Stainless API ([#98](https://github.com/prompt-foundry/typescript-sdk/issues/98)) ([1b884fd](https://github.com/prompt-foundry/typescript-sdk/commit/1b884fd4f249e48fb4e624df02c2e3a2280297c3))
+* **api:** OpenAPI spec update via Stainless API ([#99](https://github.com/prompt-foundry/typescript-sdk/issues/99)) ([36bc7ed](https://github.com/prompt-foundry/typescript-sdk/commit/36bc7ed7031eb61e13d6cde385933a793972f86a))
+
 ## 1.10.0 (2024-06-25)
 
 Full Changelog: [v1.9.0...v1.10.0](https://github.com/prompt-foundry/typescript-sdk/compare/v1.9.0...v1.10.0)
