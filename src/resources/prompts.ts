@@ -347,6 +347,11 @@ export namespace PromptConfiguration {
      */
     modelName: string;
 
+    /**
+     * The provider of the provided model.
+     */
+    modelProvider: 'OPENAI';
+
     parallelToolCalls: boolean;
 
     /**
@@ -488,6 +493,11 @@ export namespace PromptCreateParams {
      */
     modelName: string;
 
+    /**
+     * The provider of the provided model.
+     */
+    modelProvider: 'OPENAI';
+
     parallelToolCalls: boolean;
 
     /**
@@ -600,6 +610,11 @@ export namespace PromptUpdateParams {
      * Example: "gpt-3.5-turbo"
      */
     modelName: string;
+
+    /**
+     * The provider of the provided model.
+     */
+    modelProvider: 'OPENAI';
 
     parallelToolCalls: boolean;
 
