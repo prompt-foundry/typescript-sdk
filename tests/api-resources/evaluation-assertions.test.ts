@@ -15,7 +15,7 @@ describe('resource evaluationAssertions', () => {
       jsonPath: 'string',
       targetValue: 'string',
       toolName: 'string',
-      type: 'EXACT_MATCH',
+      type: 'CONTAINS',
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -32,7 +32,7 @@ describe('resource evaluationAssertions', () => {
       jsonPath: 'string',
       targetValue: 'string',
       toolName: 'string',
-      type: 'EXACT_MATCH',
+      type: 'CONTAINS',
     });
   });
 
@@ -42,7 +42,7 @@ describe('resource evaluationAssertions', () => {
       jsonPath: 'string',
       targetValue: 'string',
       toolName: 'string',
-      type: 'EXACT_MATCH',
+      type: 'CONTAINS',
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -59,7 +59,7 @@ describe('resource evaluationAssertions', () => {
       jsonPath: 'string',
       targetValue: 'string',
       toolName: 'string',
-      type: 'EXACT_MATCH',
+      type: 'CONTAINS',
     });
   });
 

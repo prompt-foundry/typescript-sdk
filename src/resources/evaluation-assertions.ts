@@ -83,10 +83,10 @@ export interface EvaluationAssertion {
    * The type of evaluation matcher to use.
    */
   type:
-    | 'EXACT_MATCH'
     | 'CONTAINS'
-    | 'JSON_EXACT_MATCH'
+    | 'EXACT_MATCH'
     | 'JSON_CONTAINS'
+    | 'JSON_EXACT_MATCH'
     | 'TOOL_CALLED'
     | 'TOOL_CALLED_WITH';
 }
@@ -118,10 +118,10 @@ export interface EvaluationAssertionCreateParams {
    * The type of evaluation matcher to use.
    */
   type:
-    | 'EXACT_MATCH'
     | 'CONTAINS'
-    | 'JSON_EXACT_MATCH'
+    | 'EXACT_MATCH'
     | 'JSON_CONTAINS'
+    | 'JSON_EXACT_MATCH'
     | 'TOOL_CALLED'
     | 'TOOL_CALLED_WITH';
 }
@@ -147,10 +147,10 @@ export interface EvaluationAssertionUpdateParams {
    * The type of evaluation matcher to use.
    */
   type:
-    | 'EXACT_MATCH'
     | 'CONTAINS'
-    | 'JSON_EXACT_MATCH'
+    | 'EXACT_MATCH'
     | 'JSON_CONTAINS'
+    | 'JSON_EXACT_MATCH'
     | 'TOOL_CALLED'
     | 'TOOL_CALLED_WITH';
 }

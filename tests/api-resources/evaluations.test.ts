@@ -14,7 +14,7 @@ describe('resource evaluations', () => {
       appendedMessages: [
         {
           content: 'string',
-          role: 'user',
+          role: 'assistant',
           toolCallId: 'string',
           toolCalls: [
             { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
@@ -24,7 +24,7 @@ describe('resource evaluations', () => {
         },
         {
           content: 'string',
-          role: 'user',
+          role: 'assistant',
           toolCallId: 'string',
           toolCalls: [
             { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
@@ -34,7 +34,7 @@ describe('resource evaluations', () => {
         },
         {
           content: 'string',
-          role: 'user',
+          role: 'assistant',
           toolCallId: 'string',
           toolCalls: [
             { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
@@ -60,7 +60,7 @@ describe('resource evaluations', () => {
       appendedMessages: [
         {
           content: 'string',
-          role: 'user',
+          role: 'assistant',
           toolCallId: 'string',
           toolCalls: [
             { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
@@ -70,7 +70,7 @@ describe('resource evaluations', () => {
         },
         {
           content: 'string',
-          role: 'user',
+          role: 'assistant',
           toolCallId: 'string',
           toolCalls: [
             { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
@@ -80,7 +80,7 @@ describe('resource evaluations', () => {
         },
         {
           content: 'string',
-          role: 'user',
+          role: 'assistant',
           toolCallId: 'string',
           toolCalls: [
             { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
@@ -99,7 +99,7 @@ describe('resource evaluations', () => {
       appendedMessages: [
         {
           content: 'string',
-          role: 'user',
+          role: 'assistant',
           toolCallId: 'string',
           toolCalls: [
             { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
@@ -109,7 +109,7 @@ describe('resource evaluations', () => {
         },
         {
           content: 'string',
-          role: 'user',
+          role: 'assistant',
           toolCallId: 'string',
           toolCalls: [
             { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
@@ -119,7 +119,7 @@ describe('resource evaluations', () => {
         },
         {
           content: 'string',
-          role: 'user',
+          role: 'assistant',
           toolCallId: 'string',
           toolCalls: [
             { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
@@ -145,7 +145,7 @@ describe('resource evaluations', () => {
       appendedMessages: [
         {
           content: 'string',
-          role: 'user',
+          role: 'assistant',
           toolCallId: 'string',
           toolCalls: [
             { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
@@ -155,7 +155,7 @@ describe('resource evaluations', () => {
         },
         {
           content: 'string',
-          role: 'user',
+          role: 'assistant',
           toolCallId: 'string',
           toolCalls: [
             { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
@@ -165,7 +165,7 @@ describe('resource evaluations', () => {
         },
         {
           content: 'string',
-          role: 'user',
+          role: 'assistant',
           toolCallId: 'string',
           toolCalls: [
             { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
