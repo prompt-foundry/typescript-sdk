@@ -14,7 +14,7 @@ describe('resource prompts', () => {
       messages: [
         {
           content: 'string',
-          role: 'user',
+          role: 'assistant',
           toolCallId: 'string',
           toolCalls: [
             { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
@@ -24,7 +24,7 @@ describe('resource prompts', () => {
         },
         {
           content: 'string',
-          role: 'user',
+          role: 'assistant',
           toolCallId: 'string',
           toolCalls: [
             { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
@@ -34,7 +34,7 @@ describe('resource prompts', () => {
         },
         {
           content: 'string',
-          role: 'user',
+          role: 'assistant',
           toolCallId: 'string',
           toolCalls: [
             { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
@@ -46,7 +46,7 @@ describe('resource prompts', () => {
       name: 'string',
       parameters: {
         modelName: 'string',
-        responseFormat: 'TEXT',
+        responseFormat: 'JSON',
         temperature: 0,
         topP: 0,
         frequencyPenalty: 0,
@@ -73,7 +73,7 @@ describe('resource prompts', () => {
       messages: [
         {
           content: 'string',
-          role: 'user',
+          role: 'assistant',
           toolCallId: 'string',
           toolCalls: [
             { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
@@ -83,7 +83,7 @@ describe('resource prompts', () => {
         },
         {
           content: 'string',
-          role: 'user',
+          role: 'assistant',
           toolCallId: 'string',
           toolCalls: [
             { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
@@ -93,7 +93,7 @@ describe('resource prompts', () => {
         },
         {
           content: 'string',
-          role: 'user',
+          role: 'assistant',
           toolCallId: 'string',
           toolCalls: [
             { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
@@ -105,7 +105,7 @@ describe('resource prompts', () => {
       name: 'string',
       parameters: {
         modelName: 'string',
-        responseFormat: 'TEXT',
+        responseFormat: 'JSON',
         temperature: 0,
         topP: 0,
         frequencyPenalty: 0,
@@ -125,7 +125,7 @@ describe('resource prompts', () => {
       messages: [
         {
           content: 'string',
-          role: 'user',
+          role: 'assistant',
           toolCallId: 'string',
           toolCalls: [
             { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
@@ -135,7 +135,7 @@ describe('resource prompts', () => {
         },
         {
           content: 'string',
-          role: 'user',
+          role: 'assistant',
           toolCallId: 'string',
           toolCalls: [
             { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
@@ -145,7 +145,7 @@ describe('resource prompts', () => {
         },
         {
           content: 'string',
-          role: 'user',
+          role: 'assistant',
           toolCallId: 'string',
           toolCalls: [
             { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
@@ -157,7 +157,7 @@ describe('resource prompts', () => {
       name: 'string',
       parameters: {
         modelName: 'string',
-        responseFormat: 'TEXT',
+        responseFormat: 'JSON',
         temperature: 0,
         topP: 0,
         frequencyPenalty: 0,
@@ -184,7 +184,7 @@ describe('resource prompts', () => {
       messages: [
         {
           content: 'string',
-          role: 'user',
+          role: 'assistant',
           toolCallId: 'string',
           toolCalls: [
             { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
@@ -194,7 +194,7 @@ describe('resource prompts', () => {
         },
         {
           content: 'string',
-          role: 'user',
+          role: 'assistant',
           toolCallId: 'string',
           toolCalls: [
             { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
@@ -204,7 +204,7 @@ describe('resource prompts', () => {
         },
         {
           content: 'string',
-          role: 'user',
+          role: 'assistant',
           toolCallId: 'string',
           toolCalls: [
             { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
@@ -216,7 +216,7 @@ describe('resource prompts', () => {
       name: 'string',
       parameters: {
         modelName: 'string',
-        responseFormat: 'TEXT',
+        responseFormat: 'JSON',
         temperature: 0,
         topP: 0,
         frequencyPenalty: 0,
@@ -312,7 +312,7 @@ describe('resource prompts', () => {
           appendMessages: [
             {
               content: 'string',
-              role: 'user',
+              role: 'assistant',
               toolCallId: 'string',
               toolCalls: [
                 { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
@@ -322,7 +322,7 @@ describe('resource prompts', () => {
             },
             {
               content: 'string',
-              role: 'user',
+              role: 'assistant',
               toolCallId: 'string',
               toolCalls: [
                 { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
@@ -332,7 +332,7 @@ describe('resource prompts', () => {
             },
             {
               content: 'string',
-              role: 'user',
+              role: 'assistant',
               toolCallId: 'string',
               toolCalls: [
                 { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
@@ -344,7 +344,7 @@ describe('resource prompts', () => {
           overrideMessages: [
             {
               content: 'string',
-              role: 'user',
+              role: 'assistant',
               toolCallId: 'string',
               toolCalls: [
                 { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
@@ -354,7 +354,7 @@ describe('resource prompts', () => {
             },
             {
               content: 'string',
-              role: 'user',
+              role: 'assistant',
               toolCallId: 'string',
               toolCalls: [
                 { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
@@ -364,7 +364,7 @@ describe('resource prompts', () => {
             },
             {
               content: 'string',
-              role: 'user',
+              role: 'assistant',
               toolCallId: 'string',
               toolCalls: [
                 { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },

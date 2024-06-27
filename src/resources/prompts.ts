@@ -291,7 +291,7 @@ export namespace PromptConfiguration {
      */
     content: string | null;
 
-    role: 'user' | 'assistant' | 'system' | 'tool';
+    role: 'assistant' | 'system' | 'tool' | 'user';
 
     toolCallId: string | null;
 
@@ -357,7 +357,7 @@ export namespace PromptConfiguration {
     /**
      * Example: PromptResponseFormat.TEXT
      */
-    responseFormat: 'TEXT' | 'JSON';
+    responseFormat: 'JSON' | 'TEXT';
 
     /**
      * Example: 97946543
@@ -432,7 +432,7 @@ export namespace PromptCreateParams {
      */
     content: string | null;
 
-    role: 'user' | 'assistant' | 'system' | 'tool';
+    role: 'assistant' | 'system' | 'tool' | 'user';
 
     toolCallId: string | null;
 
@@ -498,7 +498,7 @@ export namespace PromptCreateParams {
     /**
      * Example: PromptResponseFormat.TEXT
      */
-    responseFormat: 'TEXT' | 'JSON';
+    responseFormat: 'JSON' | 'TEXT';
 
     /**
      * Example: 97946543
@@ -545,7 +545,7 @@ export namespace PromptUpdateParams {
      */
     content: string | null;
 
-    role: 'user' | 'assistant' | 'system' | 'tool';
+    role: 'assistant' | 'system' | 'tool' | 'user';
 
     toolCallId: string | null;
 
@@ -611,7 +611,7 @@ export namespace PromptUpdateParams {
     /**
      * Example: PromptResponseFormat.TEXT
      */
-    responseFormat: 'TEXT' | 'JSON';
+    responseFormat: 'JSON' | 'TEXT';
 
     /**
      * Example: 97946543
@@ -672,7 +672,7 @@ export namespace PromptGetParametersParams {
      */
     content: string | null;
 
-    role: 'user' | 'assistant' | 'system' | 'tool';
+    role: 'assistant' | 'system' | 'tool' | 'user';
 
     toolCallId: string | null;
 
@@ -721,7 +721,7 @@ export namespace PromptGetParametersParams {
      */
     content: string | null;
 
-    role: 'user' | 'assistant' | 'system' | 'tool';
+    role: 'assistant' | 'system' | 'tool' | 'user';
 
     toolCallId: string | null;
 
