@@ -45,6 +45,7 @@ describe('resource prompts', () => {
       ],
       name: 'string',
       parameters: {
+        modelProvider: 'OPENAI',
         modelName: 'string',
         responseFormat: 'JSON',
         temperature: 0,
@@ -104,6 +105,7 @@ describe('resource prompts', () => {
       ],
       name: 'string',
       parameters: {
+        modelProvider: 'OPENAI',
         modelName: 'string',
         responseFormat: 'JSON',
         temperature: 0,
@@ -156,6 +158,7 @@ describe('resource prompts', () => {
       ],
       name: 'string',
       parameters: {
+        modelProvider: 'OPENAI',
         modelName: 'string',
         responseFormat: 'JSON',
         temperature: 0,
@@ -215,6 +218,7 @@ describe('resource prompts', () => {
       ],
       name: 'string',
       parameters: {
+        modelProvider: 'OPENAI',
         modelName: 'string',
         responseFormat: 'JSON',
         temperature: 0,
