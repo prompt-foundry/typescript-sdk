@@ -71,7 +71,7 @@ export interface EvaluationAssertion {
    */
   jsonPath: string | null;
 
-  targetValue: string;
+  targetValue: string | null;
 
   /**
    * The name of the tool to match. Only required when type is `TOOL_CALLED` or
@@ -106,7 +106,7 @@ export interface EvaluationAssertionCreateParams {
    */
   jsonPath: string | null;
 
-  targetValue: string;
+  targetValue: string | null;
 
   /**
    * The name of the tool to match. Only required when type is `TOOL_CALLED` or
@@ -135,7 +135,7 @@ export interface EvaluationAssertionUpdateParams {
    */
   jsonPath: string | null;
 
-  targetValue: string;
+  targetValue: string | null;
 
   /**
    * The name of the tool to match. Only required when type is `TOOL_CALLED` or
