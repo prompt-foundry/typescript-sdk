@@ -45,7 +45,7 @@ describe('resource prompts', () => {
       ],
       name: 'string',
       parameters: {
-        modelProvider: 'OPENAI',
+        modelProvider: 'ANTHROPIC',
         modelName: 'string',
         responseFormat: 'JSON',
         temperature: 0,
@@ -105,7 +105,7 @@ describe('resource prompts', () => {
       ],
       name: 'string',
       parameters: {
-        modelProvider: 'OPENAI',
+        modelProvider: 'ANTHROPIC',
         modelName: 'string',
         responseFormat: 'JSON',
         temperature: 0,
@@ -158,7 +158,7 @@ describe('resource prompts', () => {
       ],
       name: 'string',
       parameters: {
-        modelProvider: 'OPENAI',
+        modelProvider: 'ANTHROPIC',
         modelName: 'string',
         responseFormat: 'JSON',
         temperature: 0,
@@ -218,7 +218,7 @@ describe('resource prompts', () => {
       ],
       name: 'string',
       parameters: {
-        modelProvider: 'OPENAI',
+        modelProvider: 'ANTHROPIC',
         modelName: 'string',
         responseFormat: 'JSON',
         temperature: 0,
