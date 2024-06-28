@@ -69,192 +69,350 @@ export class Prompts extends APIResource {
   }
 }
 
-export interface ModelParameters {
-  name: string;
-
-  parameters: ModelParameters.Parameters;
-
-  provider: 'openai';
-}
+export type ModelParameters = ModelParameters.UnionMember0 | ModelParameters.UnionMember1;
 
 export namespace ModelParameters {
-  export interface Parameters {
-    messages: Array<
-      | Parameters.OpenAIChatCompletionRequestSystemMessage
-      | Parameters.OpenAIChatCompletionRequestUserMessage
-      | Parameters.OpenAIChatCompletionRequestAssistantMessage
-      | Parameters.OpenAIChatCompletionRequestToolMessage
-      | Parameters.OpenAIChatCompletionRequestFunctionMessage
-    >;
+  export interface UnionMember0 {
+    name: string;
 
-    model: string;
+    parameters: UnionMember0.Parameters;
 
-    frequency_penalty?: number | null;
-
-    logit_bias?: Record<string, number> | null;
-
-    logprobs?: boolean | null;
-
-    max_tokens?: number | null;
-
-    n?: number | null;
-
-    parallel_tool_calls?: boolean;
-
-    presence_penalty?: number | null;
-
-    response_format?: Parameters.ResponseFormat;
-
-    seed?: number | null;
-
-    stop?: string | Array<string>;
-
-    stream?: boolean | null;
-
-    stream_options?: Parameters.StreamOptions | null;
-
-    temperature?: number | null;
-
-    tool_choice?: 'none' | 'auto' | 'required' | Parameters.OpenAIChatCompletionNamedToolChoice;
-
-    tools?: Array<Parameters.Tool>;
-
-    top_logprobs?: number | null;
-
-    top_p?: number | null;
-
-    user?: string;
+    provider: 'openai';
   }
 
-  export namespace Parameters {
-    export interface OpenAIChatCompletionRequestSystemMessage {
-      content: string;
+  export namespace UnionMember0 {
+    export interface Parameters {
+      messages: Array<
+        | Parameters.OpenAIChatCompletionRequestSystemMessage
+        | Parameters.OpenAIChatCompletionRequestUserMessage
+        | Parameters.OpenAIChatCompletionRequestAssistantMessage
+        | Parameters.OpenAIChatCompletionRequestToolMessage
+        | Parameters.OpenAIChatCompletionRequestFunctionMessage
+      >;
 
-      role: 'system';
+      model: string;
 
-      name?: string;
+      frequency_penalty?: number | null;
+
+      logit_bias?: Record<string, number> | null;
+
+      logprobs?: boolean | null;
+
+      max_tokens?: number | null;
+
+      n?: number | null;
+
+      parallel_tool_calls?: boolean;
+
+      presence_penalty?: number | null;
+
+      response_format?: Parameters.ResponseFormat;
+
+      seed?: number | null;
+
+      stop?: string | Array<string>;
+
+      stream?: boolean | null;
+
+      stream_options?: Parameters.StreamOptions | null;
+
+      temperature?: number | null;
+
+      tool_choice?: 'none' | 'auto' | 'required' | Parameters.OpenAIChatCompletionNamedToolChoice;
+
+      tools?: Array<Parameters.Tool>;
+
+      top_logprobs?: number | null;
+
+      top_p?: number | null;
+
+      user?: string;
     }
 
-    export interface OpenAIChatCompletionRequestUserMessage {
-      content:
-        | string
-        | Array<
-            | OpenAIChatCompletionRequestUserMessage.OpenAIChatCompletionRequestMessageContentPartText
-            | OpenAIChatCompletionRequestUserMessage.OpenAIChatCompletionRequestMessageContentPartImage
-          >;
+    export namespace Parameters {
+      export interface OpenAIChatCompletionRequestSystemMessage {
+        content: string;
 
-      role: 'user';
+        role: 'system';
 
-      name?: string;
-    }
-
-    export namespace OpenAIChatCompletionRequestUserMessage {
-      export interface OpenAIChatCompletionRequestMessageContentPartText {
-        text: string;
-
-        type: 'text';
+        name?: string;
       }
 
-      export interface OpenAIChatCompletionRequestMessageContentPartImage {
-        image_url: OpenAIChatCompletionRequestMessageContentPartImage.ImageURL;
+      export interface OpenAIChatCompletionRequestUserMessage {
+        content:
+          | string
+          | Array<
+              | OpenAIChatCompletionRequestUserMessage.OpenAIChatCompletionRequestMessageContentPartText
+              | OpenAIChatCompletionRequestUserMessage.OpenAIChatCompletionRequestMessageContentPartImage
+            >;
 
-        type: 'image_url';
+        role: 'user';
+
+        name?: string;
       }
 
-      export namespace OpenAIChatCompletionRequestMessageContentPartImage {
-        export interface ImageURL {
-          url: string;
+      export namespace OpenAIChatCompletionRequestUserMessage {
+        export interface OpenAIChatCompletionRequestMessageContentPartText {
+          text: string;
 
-          detail?: 'auto' | 'low' | 'high';
+          type: 'text';
+        }
+
+        export interface OpenAIChatCompletionRequestMessageContentPartImage {
+          image_url: OpenAIChatCompletionRequestMessageContentPartImage.ImageURL;
+
+          type: 'image_url';
+        }
+
+        export namespace OpenAIChatCompletionRequestMessageContentPartImage {
+          export interface ImageURL {
+            url: string;
+
+            detail?: 'auto' | 'low' | 'high';
+          }
         }
       }
-    }
 
-    export interface OpenAIChatCompletionRequestAssistantMessage {
-      role: 'assistant';
+      export interface OpenAIChatCompletionRequestAssistantMessage {
+        role: 'assistant';
 
-      content?: string | null;
+        content?: string | null;
 
-      function_call?: OpenAIChatCompletionRequestAssistantMessage.FunctionCall | null;
+        function_call?: OpenAIChatCompletionRequestAssistantMessage.FunctionCall | null;
 
-      name?: string;
+        name?: string;
 
-      tool_calls?: Array<OpenAIChatCompletionRequestAssistantMessage.ToolCall>;
-    }
-
-    export namespace OpenAIChatCompletionRequestAssistantMessage {
-      export interface FunctionCall {
-        arguments: string;
-
-        name: string;
+        tool_calls?: Array<OpenAIChatCompletionRequestAssistantMessage.ToolCall>;
       }
 
-      export interface ToolCall {
-        id: string;
-
-        function: ToolCall.Function;
-
-        type: 'function';
-      }
-
-      export namespace ToolCall {
-        export interface Function {
+      export namespace OpenAIChatCompletionRequestAssistantMessage {
+        export interface FunctionCall {
           arguments: string;
 
           name: string;
         }
+
+        export interface ToolCall {
+          id: string;
+
+          function: ToolCall.Function;
+
+          type: 'function';
+        }
+
+        export namespace ToolCall {
+          export interface Function {
+            arguments: string;
+
+            name: string;
+          }
+        }
       }
-    }
 
-    export interface OpenAIChatCompletionRequestToolMessage {
-      content: string;
+      export interface OpenAIChatCompletionRequestToolMessage {
+        content: string;
 
-      role: 'tool';
+        role: 'tool';
 
-      tool_call_id: string;
-    }
+        tool_call_id: string;
+      }
 
-    export interface OpenAIChatCompletionRequestFunctionMessage {
-      content: string | null;
+      export interface OpenAIChatCompletionRequestFunctionMessage {
+        content: string | null;
 
-      name: string;
-
-      role: 'function';
-    }
-
-    export interface ResponseFormat {
-      type?: 'text' | 'json_object';
-    }
-
-    export interface StreamOptions {
-      include_usage: boolean;
-    }
-
-    export interface OpenAIChatCompletionNamedToolChoice {
-      function: OpenAIChatCompletionNamedToolChoice.Function;
-
-      type: 'function';
-    }
-
-    export namespace OpenAIChatCompletionNamedToolChoice {
-      export interface Function {
         name: string;
+
+        role: 'function';
+      }
+
+      export interface ResponseFormat {
+        type?: 'text' | 'json_object';
+      }
+
+      export interface StreamOptions {
+        include_usage: boolean;
+      }
+
+      export interface OpenAIChatCompletionNamedToolChoice {
+        function: OpenAIChatCompletionNamedToolChoice.Function;
+
+        type: 'function';
+      }
+
+      export namespace OpenAIChatCompletionNamedToolChoice {
+        export interface Function {
+          name: string;
+        }
+      }
+
+      export interface Tool {
+        function: Tool.Function;
+
+        type: 'function';
+      }
+
+      export namespace Tool {
+        export interface Function {
+          name: string;
+
+          description?: string;
+
+          parameters?: Record<string, unknown>;
+        }
       }
     }
+  }
 
-    export interface Tool {
-      function: Tool.Function;
+  export interface UnionMember1 {
+    name: string;
 
-      type: 'function';
+    parameters: UnionMember1.Parameters;
+
+    provider: 'anthropic';
+  }
+
+  export namespace UnionMember1 {
+    export interface Parameters {
+      max_tokens: number;
+
+      messages: Array<Parameters.Message>;
+
+      model:
+        | (string & {})
+        | 'claude-3-5-sonnet-20240620'
+        | 'claude-3-opus-20240229'
+        | 'claude-3-sonnet-20240229'
+        | 'claude-3-haiku-20240307';
+
+      metadata?: Parameters.Metadata;
+
+      stop_sequences?: Array<string>;
+
+      stream?: boolean;
+
+      system?: string;
+
+      temperature?: number;
+
+      tool_choice?: Parameters.Type | Parameters.Type | Parameters.UnionMember2;
+
+      tools?: Array<Parameters.Tool>;
+
+      top_k?: number;
+
+      top_p?: number;
     }
 
-    export namespace Tool {
-      export interface Function {
+    export namespace Parameters {
+      export interface Message {
+        content:
+          | string
+          | Array<Message.UnionMember0 | Message.UnionMember1 | Message.UnionMember2 | Message.UnionMember3>;
+
+        role: 'user' | 'assistant';
+      }
+
+      export namespace Message {
+        export interface UnionMember0 {
+          text: string;
+
+          type: 'text';
+        }
+
+        export interface UnionMember1 {
+          source: UnionMember1.Source;
+
+          type: 'image';
+        }
+
+        export namespace UnionMember1 {
+          export interface Source {
+            data: string;
+
+            media_type: 'image/jpeg' | 'image/png' | 'image/gif' | 'image/webp';
+
+            type: 'base64';
+          }
+        }
+
+        export interface UnionMember2 {
+          id: string;
+
+          input: Record<string, string>;
+
+          name: string;
+
+          type: 'tool_use';
+        }
+
+        export interface UnionMember3 {
+          tool_use_id: string;
+
+          type: 'tool_result';
+
+          content?: string | Array<UnionMember3.UnionMember0 | UnionMember3.UnionMember1>;
+
+          is_error?: boolean;
+        }
+
+        export namespace UnionMember3 {
+          export interface UnionMember0 {
+            text: string;
+
+            type: 'text';
+          }
+
+          export interface UnionMember1 {
+            source: UnionMember1.Source;
+
+            type: 'image';
+          }
+
+          export namespace UnionMember1 {
+            export interface Source {
+              data: string;
+
+              media_type: 'image/jpeg' | 'image/png' | 'image/gif' | 'image/webp';
+
+              type: 'base64';
+            }
+          }
+        }
+      }
+
+      export interface Metadata {
+        user_id?: string | null;
+      }
+
+      export interface Type {
+        type: 'auto';
+      }
+
+      export interface Type {
+        type: 'any';
+      }
+
+      export interface UnionMember2 {
+        name: string;
+
+        type: 'tool';
+      }
+
+      export interface Tool {
+        input_schema: Tool.InputSchema;
+
         name: string;
 
         description?: string;
+      }
 
-        parameters?: Record<string, unknown>;
+      export namespace Tool {
+        export interface InputSchema {
+          type: 'object';
+
+          properties?: unknown | null;
+          [k: string]: unknown;
+        }
       }
     }
   }
@@ -350,7 +508,7 @@ export namespace PromptConfiguration {
     /**
      * The provider of the provided model.
      */
-    modelProvider: 'OPENAI';
+    modelProvider: 'ANTHROPIC' | 'OPENAI';
 
     parallelToolCalls: boolean;
 
@@ -496,7 +654,7 @@ export namespace PromptCreateParams {
     /**
      * The provider of the provided model.
      */
-    modelProvider: 'OPENAI';
+    modelProvider: 'ANTHROPIC' | 'OPENAI';
 
     parallelToolCalls: boolean;
 
@@ -614,7 +772,7 @@ export namespace PromptUpdateParams {
     /**
      * The provider of the provided model.
      */
-    modelProvider: 'OPENAI';
+    modelProvider: 'ANTHROPIC' | 'OPENAI';
 
     parallelToolCalls: boolean;
 
