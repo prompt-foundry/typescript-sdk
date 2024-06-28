@@ -160,7 +160,7 @@ const { data: modelParameters, response: raw } = await promptFoundry.prompts
   .getParameters('1212121')
   .withResponse();
 console.log(raw.headers.get('X-My-Header'));
-console.log(modelParameters.provider);
+console.log(modelParameters);
 ```
 
 ### Making custom/undocumented requests
