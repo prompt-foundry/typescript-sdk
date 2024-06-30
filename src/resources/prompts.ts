@@ -69,18 +69,184 @@ export class Prompts extends APIResource {
   }
 }
 
-export type ModelParameters = ModelParameters.UnionMember0 | ModelParameters.UnionMember1;
+export type ModelParameters =
+  | ModelParameters.AnthropicModelParameters
+  | ModelParameters.OpenAIModelParameters;
 
 export namespace ModelParameters {
-  export interface UnionMember0 {
+  export interface AnthropicModelParameters {
     name: string;
 
-    parameters: UnionMember0.Parameters;
+    parameters: AnthropicModelParameters.Parameters;
+
+    provider: 'anthropic';
+  }
+
+  export namespace AnthropicModelParameters {
+    export interface Parameters {
+      max_tokens: number;
+
+      messages: Array<Parameters.Message>;
+
+      model:
+        | (string & {})
+        | 'claude-3-5-sonnet-20240620'
+        | 'claude-3-opus-20240229'
+        | 'claude-3-sonnet-20240229'
+        | 'claude-3-haiku-20240307';
+
+      metadata?: Parameters.Metadata;
+
+      stop_sequences?: Array<string>;
+
+      stream?: boolean;
+
+      system?: string;
+
+      temperature?: number;
+
+      tool_choice?:
+        | Parameters.MessageCreateParamsToolChoiceAuto
+        | Parameters.MessageCreateParamsToolChoiceAny
+        | Parameters.MessageCreateParamsToolChoiceTool;
+
+      tools?: Array<Parameters.Tool>;
+
+      top_k?: number;
+
+      top_p?: number;
+    }
+
+    export namespace Parameters {
+      export interface Message {
+        content:
+          | string
+          | Array<
+              | Message.TextBlockParam
+              | Message.ImageBlockParam
+              | Message.ToolUseBlockParam
+              | Message.ToolResultBlockParam
+            >;
+
+        role: 'user' | 'assistant';
+      }
+
+      export namespace Message {
+        export interface TextBlockParam {
+          text: string;
+
+          type: 'text';
+        }
+
+        export interface ImageBlockParam {
+          source: ImageBlockParam.Source;
+
+          type: 'image';
+        }
+
+        export namespace ImageBlockParam {
+          export interface Source {
+            data: string;
+
+            media_type: 'image/jpeg' | 'image/png' | 'image/gif' | 'image/webp';
+
+            type: 'base64';
+          }
+        }
+
+        export interface ToolUseBlockParam {
+          id: string;
+
+          input: Record<string, string>;
+
+          name: string;
+
+          type: 'tool_use';
+        }
+
+        export interface ToolResultBlockParam {
+          tool_use_id: string;
+
+          type: 'tool_result';
+
+          content?:
+            | string
+            | Array<ToolResultBlockParam.TextBlockParam | ToolResultBlockParam.ImageBlockParam>;
+
+          is_error?: boolean;
+        }
+
+        export namespace ToolResultBlockParam {
+          export interface TextBlockParam {
+            text: string;
+
+            type: 'text';
+          }
+
+          export interface ImageBlockParam {
+            source: ImageBlockParam.Source;
+
+            type: 'image';
+          }
+
+          export namespace ImageBlockParam {
+            export interface Source {
+              data: string;
+
+              media_type: 'image/jpeg' | 'image/png' | 'image/gif' | 'image/webp';
+
+              type: 'base64';
+            }
+          }
+        }
+      }
+
+      export interface Metadata {
+        user_id?: string | null;
+      }
+
+      export interface MessageCreateParamsToolChoiceAuto {
+        type: 'auto';
+      }
+
+      export interface MessageCreateParamsToolChoiceAny {
+        type: 'any';
+      }
+
+      export interface MessageCreateParamsToolChoiceTool {
+        name: string;
+
+        type: 'tool';
+      }
+
+      export interface Tool {
+        input_schema: Tool.InputSchema;
+
+        name: string;
+
+        description?: string;
+      }
+
+      export namespace Tool {
+        export interface InputSchema {
+          type: 'object';
+
+          properties?: unknown | null;
+          [k: string]: unknown;
+        }
+      }
+    }
+  }
+
+  export interface OpenAIModelParameters {
+    name: string;
+
+    parameters: OpenAIModelParameters.Parameters;
 
     provider: 'openai';
   }
 
-  export namespace UnionMember0 {
+  export namespace OpenAIModelParameters {
     export interface Parameters {
       messages: Array<
         | Parameters.OpenAIChatCompletionRequestSystemMessage
@@ -258,160 +424,6 @@ export namespace ModelParameters {
           description?: string;
 
           parameters?: Record<string, unknown>;
-        }
-      }
-    }
-  }
-
-  export interface UnionMember1 {
-    name: string;
-
-    parameters: UnionMember1.Parameters;
-
-    provider: 'anthropic';
-  }
-
-  export namespace UnionMember1 {
-    export interface Parameters {
-      max_tokens: number;
-
-      messages: Array<Parameters.Message>;
-
-      model:
-        | (string & {})
-        | 'claude-3-5-sonnet-20240620'
-        | 'claude-3-opus-20240229'
-        | 'claude-3-sonnet-20240229'
-        | 'claude-3-haiku-20240307';
-
-      metadata?: Parameters.Metadata;
-
-      stop_sequences?: Array<string>;
-
-      stream?: boolean;
-
-      system?: string;
-
-      temperature?: number;
-
-      tool_choice?: Parameters.Type | Parameters.Type | Parameters.UnionMember2;
-
-      tools?: Array<Parameters.Tool>;
-
-      top_k?: number;
-
-      top_p?: number;
-    }
-
-    export namespace Parameters {
-      export interface Message {
-        content:
-          | string
-          | Array<Message.UnionMember0 | Message.UnionMember1 | Message.UnionMember2 | Message.UnionMember3>;
-
-        role: 'user' | 'assistant';
-      }
-
-      export namespace Message {
-        export interface UnionMember0 {
-          text: string;
-
-          type: 'text';
-        }
-
-        export interface UnionMember1 {
-          source: UnionMember1.Source;
-
-          type: 'image';
-        }
-
-        export namespace UnionMember1 {
-          export interface Source {
-            data: string;
-
-            media_type: 'image/jpeg' | 'image/png' | 'image/gif' | 'image/webp';
-
-            type: 'base64';
-          }
-        }
-
-        export interface UnionMember2 {
-          id: string;
-
-          input: Record<string, string>;
-
-          name: string;
-
-          type: 'tool_use';
-        }
-
-        export interface UnionMember3 {
-          tool_use_id: string;
-
-          type: 'tool_result';
-
-          content?: string | Array<UnionMember3.UnionMember0 | UnionMember3.UnionMember1>;
-
-          is_error?: boolean;
-        }
-
-        export namespace UnionMember3 {
-          export interface UnionMember0 {
-            text: string;
-
-            type: 'text';
-          }
-
-          export interface UnionMember1 {
-            source: UnionMember1.Source;
-
-            type: 'image';
-          }
-
-          export namespace UnionMember1 {
-            export interface Source {
-              data: string;
-
-              media_type: 'image/jpeg' | 'image/png' | 'image/gif' | 'image/webp';
-
-              type: 'base64';
-            }
-          }
-        }
-      }
-
-      export interface Metadata {
-        user_id?: string | null;
-      }
-
-      export interface Type {
-        type: 'auto';
-      }
-
-      export interface Type {
-        type: 'any';
-      }
-
-      export interface UnionMember2 {
-        name: string;
-
-        type: 'tool';
-      }
-
-      export interface Tool {
-        input_schema: Tool.InputSchema;
-
-        name: string;
-
-        description?: string;
-      }
-
-      export namespace Tool {
-        export interface InputSchema {
-          type: 'object';
-
-          properties?: unknown | null;
-          [k: string]: unknown;
         }
       }
     }
