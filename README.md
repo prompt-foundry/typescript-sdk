@@ -20,25 +20,93 @@ npm install @prompt-foundry/typescript-sdk
 
 The full API of this library can be found in [api.md](api.md).
 
-<!-- prettier-ignore -->
-```js
-import PromptFoundry from '@prompt-foundry/typescript-sdk';
+### OpenAI Integration
 
+Install the OpenAI SDK
+
+```sh
+npm install openai
+```
+
+Import the OpenAI and Prompt Foundry SDKs
+
+```js
+import PromptFoundry from "@prompt-foundry/typescript-sdk";
+import { Configuration, OpenAIApi } from "openai";
+
+// Initialize Prompt Foundry SDK with your API key
 const promptFoundry = new PromptFoundry({
-  apiKey: process.env['PROMPT_FOUNDRY_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["PROMPT_FOUNDRY_API_KEY"],
+});
+
+// Initialize OpenAI SDK with your API key
+const configuration = new Configuration({
+  apiKey: process.env["OPENAI_API_KEY"],
+});
+const openai = new OpenAIApi(configuration);
+
+async function main() {
+  // Retrieve model parameters for the prompt
+  const modelParameters = await promptFoundry.prompts.getParameters("1212121", {
+    variables: { hello: "world" },
+  });
+
+  // check if provider is Open AI
+  if (modelParameters.provider === "openai") {
+    // Use the retrieved parameters to create a chat completion request
+    const modelResponse = await openai.chat.completions.create(
+      modelParameters.parameters
+    );
+
+    // Print the response from OpenAI
+    console.log(modelResponse.data);
+  }
+}
+
+main().catch(console.error);
+```
+
+### Anthropic Integration
+
+Install the Anthropic SDK
+
+```sh
+npm install @anthropic-ai/sdk
+```
+
+Import the Anthropic and Prompt Foundry SDKs
+
+```js
+import PromptFoundry from "@prompt-foundry/typescript-sdk";
+import Anthropic from "@anthropic-ai/sdk";
+
+// Initialize Prompt Foundry SDK with your API key
+const promptFoundry = new PromptFoundry({
+  apiKey: process.env["PROMPT_FOUNDRY_API_KEY"],
+});
+
+// Initialize Anthropic SDK with your API key
+const anthropic = new Anthropic({
+  apiKey: process.env["ANTHROPIC_API_KEY"],
 });
 
 async function main() {
-  const modelParameters = await promptFoundry.prompts.getParameters('1212121', {
-    variables: { hello: 'world' },
+  // Retrieve model parameters for the prompt
+  const modelParameters = await promptFoundry.prompts.getParameters("1212121", {
+    variables: { hello: "world" },
   });
 
-  const modelResponse = await openai.chat.completions.create(modelParameters.parameters)
+  // check if provider is Open AI
+  if (modelParameters.provider === "anthropic") {
+    // Use the retrieved parameters to create a chat completion request
+    const message = await anthropic.messages.create(modelParameters.parameters);
 
-  console.log(modelResponse);
+    // Print the response from Anthropic
+    console.log(message.content);
+  }
 }
 
-main();
+main().catch(console.error);
 ```
 
 ### Request & Response types
