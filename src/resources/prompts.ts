@@ -549,6 +549,11 @@ export namespace PromptConfiguration {
     toolChoice: string | null;
 
     /**
+     * Example: 50
+     */
+    topK: number | null;
+
+    /**
      * Example: 1
      */
     topP: number;
@@ -695,6 +700,11 @@ export namespace PromptCreateParams {
     toolChoice: string | null;
 
     /**
+     * Example: 50
+     */
+    topK: number | null;
+
+    /**
      * Example: 1
      */
     topP: number;
@@ -811,6 +821,11 @@ export namespace PromptUpdateParams {
     temperature: number;
 
     toolChoice: string | null;
+
+    /**
+     * Example: 50
+     */
+    topK: number | null;
 
     /**
      * Example: 1
