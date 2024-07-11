@@ -11,10 +11,10 @@ const promptFoundry = new PromptFoundry({
 describe('resource evaluationAssertions', () => {
   test('create: only required params', async () => {
     const responsePromise = promptFoundry.evaluationAssertions.create({
-      evaluationId: 'string',
-      jsonPath: 'string',
-      targetValue: 'string',
-      toolName: 'string',
+      evaluationId: 'evaluationId',
+      jsonPath: 'jsonPath',
+      targetValue: 'targetValue',
+      toolName: 'toolName',
       type: 'CONTAINS',
     });
     const rawResponse = await responsePromise.asResponse();
@@ -28,20 +28,20 @@ describe('resource evaluationAssertions', () => {
 
   test('create: required and optional params', async () => {
     const response = await promptFoundry.evaluationAssertions.create({
-      evaluationId: 'string',
-      jsonPath: 'string',
-      targetValue: 'string',
-      toolName: 'string',
+      evaluationId: 'evaluationId',
+      jsonPath: 'jsonPath',
+      targetValue: 'targetValue',
+      toolName: 'toolName',
       type: 'CONTAINS',
     });
   });
 
   test('update: only required params', async () => {
     const responsePromise = promptFoundry.evaluationAssertions.update('1212121', {
-      evaluationId: 'string',
-      jsonPath: 'string',
-      targetValue: 'string',
-      toolName: 'string',
+      evaluationId: 'evaluationId',
+      jsonPath: 'jsonPath',
+      targetValue: 'targetValue',
+      toolName: 'toolName',
       type: 'CONTAINS',
     });
     const rawResponse = await responsePromise.asResponse();
@@ -55,10 +55,10 @@ describe('resource evaluationAssertions', () => {
 
   test('update: required and optional params', async () => {
     const response = await promptFoundry.evaluationAssertions.update('1212121', {
-      evaluationId: 'string',
-      jsonPath: 'string',
-      targetValue: 'string',
-      toolName: 'string',
+      evaluationId: 'evaluationId',
+      jsonPath: 'jsonPath',
+      targetValue: 'targetValue',
+      toolName: 'toolName',
       type: 'CONTAINS',
     });
   });

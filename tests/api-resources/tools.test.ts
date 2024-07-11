@@ -11,8 +11,8 @@ const promptFoundry = new PromptFoundry({
 describe('resource tools', () => {
   test('create: only required params', async () => {
     const responsePromise = promptFoundry.tools.create({
-      description: 'string',
-      name: 'string',
+      description: 'description',
+      name: 'name',
       parameters: { foo: {} },
     });
     const rawResponse = await responsePromise.asResponse();
@@ -26,16 +26,16 @@ describe('resource tools', () => {
 
   test('create: required and optional params', async () => {
     const response = await promptFoundry.tools.create({
-      description: 'string',
-      name: 'string',
+      description: 'description',
+      name: 'name',
       parameters: { foo: {} },
     });
   });
 
   test('update: only required params', async () => {
     const responsePromise = promptFoundry.tools.update('1212121', {
-      description: 'string',
-      name: 'string',
+      description: 'description',
+      name: 'name',
       parameters: { foo: {} },
     });
     const rawResponse = await responsePromise.asResponse();
@@ -49,8 +49,8 @@ describe('resource tools', () => {
 
   test('update: required and optional params', async () => {
     const response = await promptFoundry.tools.update('1212121', {
-      description: 'string',
-      name: 'string',
+      description: 'description',
+      name: 'name',
       parameters: { foo: {} },
     });
   });
