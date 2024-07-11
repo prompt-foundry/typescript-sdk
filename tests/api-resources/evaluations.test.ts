@@ -13,37 +13,73 @@ describe('resource evaluations', () => {
     const responsePromise = promptFoundry.evaluations.create({
       appendedMessages: [
         {
-          content: 'string',
+          content: 'content',
           role: 'assistant',
-          toolCallId: 'string',
+          toolCallId: 'toolCallId',
           toolCalls: [
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
+            {
+              toolCallId: 'toolCallId',
+              type: 'function',
+              function: { arguments: 'arguments', name: 'name' },
+            },
+            {
+              toolCallId: 'toolCallId',
+              type: 'function',
+              function: { arguments: 'arguments', name: 'name' },
+            },
+            {
+              toolCallId: 'toolCallId',
+              type: 'function',
+              function: { arguments: 'arguments', name: 'name' },
+            },
           ],
         },
         {
-          content: 'string',
+          content: 'content',
           role: 'assistant',
-          toolCallId: 'string',
+          toolCallId: 'toolCallId',
           toolCalls: [
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
+            {
+              toolCallId: 'toolCallId',
+              type: 'function',
+              function: { arguments: 'arguments', name: 'name' },
+            },
+            {
+              toolCallId: 'toolCallId',
+              type: 'function',
+              function: { arguments: 'arguments', name: 'name' },
+            },
+            {
+              toolCallId: 'toolCallId',
+              type: 'function',
+              function: { arguments: 'arguments', name: 'name' },
+            },
           ],
         },
         {
-          content: 'string',
+          content: 'content',
           role: 'assistant',
-          toolCallId: 'string',
+          toolCallId: 'toolCallId',
           toolCalls: [
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
+            {
+              toolCallId: 'toolCallId',
+              type: 'function',
+              function: { arguments: 'arguments', name: 'name' },
+            },
+            {
+              toolCallId: 'toolCallId',
+              type: 'function',
+              function: { arguments: 'arguments', name: 'name' },
+            },
+            {
+              toolCallId: 'toolCallId',
+              type: 'function',
+              function: { arguments: 'arguments', name: 'name' },
+            },
           ],
         },
       ],
-      promptId: 'string',
+      promptId: 'promptId',
       variables: { foo: 'string' },
     });
     const rawResponse = await responsePromise.asResponse();
@@ -59,37 +95,73 @@ describe('resource evaluations', () => {
     const response = await promptFoundry.evaluations.create({
       appendedMessages: [
         {
-          content: 'string',
+          content: 'content',
           role: 'assistant',
-          toolCallId: 'string',
+          toolCallId: 'toolCallId',
           toolCalls: [
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
+            {
+              toolCallId: 'toolCallId',
+              type: 'function',
+              function: { arguments: 'arguments', name: 'name' },
+            },
+            {
+              toolCallId: 'toolCallId',
+              type: 'function',
+              function: { arguments: 'arguments', name: 'name' },
+            },
+            {
+              toolCallId: 'toolCallId',
+              type: 'function',
+              function: { arguments: 'arguments', name: 'name' },
+            },
           ],
         },
         {
-          content: 'string',
+          content: 'content',
           role: 'assistant',
-          toolCallId: 'string',
+          toolCallId: 'toolCallId',
           toolCalls: [
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
+            {
+              toolCallId: 'toolCallId',
+              type: 'function',
+              function: { arguments: 'arguments', name: 'name' },
+            },
+            {
+              toolCallId: 'toolCallId',
+              type: 'function',
+              function: { arguments: 'arguments', name: 'name' },
+            },
+            {
+              toolCallId: 'toolCallId',
+              type: 'function',
+              function: { arguments: 'arguments', name: 'name' },
+            },
           ],
         },
         {
-          content: 'string',
+          content: 'content',
           role: 'assistant',
-          toolCallId: 'string',
+          toolCallId: 'toolCallId',
           toolCalls: [
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
+            {
+              toolCallId: 'toolCallId',
+              type: 'function',
+              function: { arguments: 'arguments', name: 'name' },
+            },
+            {
+              toolCallId: 'toolCallId',
+              type: 'function',
+              function: { arguments: 'arguments', name: 'name' },
+            },
+            {
+              toolCallId: 'toolCallId',
+              type: 'function',
+              function: { arguments: 'arguments', name: 'name' },
+            },
           ],
         },
       ],
-      promptId: 'string',
+      promptId: 'promptId',
       variables: { foo: 'string' },
     });
   });
@@ -98,37 +170,73 @@ describe('resource evaluations', () => {
     const responsePromise = promptFoundry.evaluations.update('1212121', {
       appendedMessages: [
         {
-          content: 'string',
+          content: 'content',
           role: 'assistant',
-          toolCallId: 'string',
+          toolCallId: 'toolCallId',
           toolCalls: [
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
+            {
+              toolCallId: 'toolCallId',
+              type: 'function',
+              function: { arguments: 'arguments', name: 'name' },
+            },
+            {
+              toolCallId: 'toolCallId',
+              type: 'function',
+              function: { arguments: 'arguments', name: 'name' },
+            },
+            {
+              toolCallId: 'toolCallId',
+              type: 'function',
+              function: { arguments: 'arguments', name: 'name' },
+            },
           ],
         },
         {
-          content: 'string',
+          content: 'content',
           role: 'assistant',
-          toolCallId: 'string',
+          toolCallId: 'toolCallId',
           toolCalls: [
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
+            {
+              toolCallId: 'toolCallId',
+              type: 'function',
+              function: { arguments: 'arguments', name: 'name' },
+            },
+            {
+              toolCallId: 'toolCallId',
+              type: 'function',
+              function: { arguments: 'arguments', name: 'name' },
+            },
+            {
+              toolCallId: 'toolCallId',
+              type: 'function',
+              function: { arguments: 'arguments', name: 'name' },
+            },
           ],
         },
         {
-          content: 'string',
+          content: 'content',
           role: 'assistant',
-          toolCallId: 'string',
+          toolCallId: 'toolCallId',
           toolCalls: [
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
+            {
+              toolCallId: 'toolCallId',
+              type: 'function',
+              function: { arguments: 'arguments', name: 'name' },
+            },
+            {
+              toolCallId: 'toolCallId',
+              type: 'function',
+              function: { arguments: 'arguments', name: 'name' },
+            },
+            {
+              toolCallId: 'toolCallId',
+              type: 'function',
+              function: { arguments: 'arguments', name: 'name' },
+            },
           ],
         },
       ],
-      promptId: 'string',
+      promptId: 'promptId',
       variables: { foo: 'string' },
     });
     const rawResponse = await responsePromise.asResponse();
@@ -144,37 +252,73 @@ describe('resource evaluations', () => {
     const response = await promptFoundry.evaluations.update('1212121', {
       appendedMessages: [
         {
-          content: 'string',
+          content: 'content',
           role: 'assistant',
-          toolCallId: 'string',
+          toolCallId: 'toolCallId',
           toolCalls: [
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
+            {
+              toolCallId: 'toolCallId',
+              type: 'function',
+              function: { arguments: 'arguments', name: 'name' },
+            },
+            {
+              toolCallId: 'toolCallId',
+              type: 'function',
+              function: { arguments: 'arguments', name: 'name' },
+            },
+            {
+              toolCallId: 'toolCallId',
+              type: 'function',
+              function: { arguments: 'arguments', name: 'name' },
+            },
           ],
         },
         {
-          content: 'string',
+          content: 'content',
           role: 'assistant',
-          toolCallId: 'string',
+          toolCallId: 'toolCallId',
           toolCalls: [
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
+            {
+              toolCallId: 'toolCallId',
+              type: 'function',
+              function: { arguments: 'arguments', name: 'name' },
+            },
+            {
+              toolCallId: 'toolCallId',
+              type: 'function',
+              function: { arguments: 'arguments', name: 'name' },
+            },
+            {
+              toolCallId: 'toolCallId',
+              type: 'function',
+              function: { arguments: 'arguments', name: 'name' },
+            },
           ],
         },
         {
-          content: 'string',
+          content: 'content',
           role: 'assistant',
-          toolCallId: 'string',
+          toolCallId: 'toolCallId',
           toolCalls: [
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
-            { toolCallId: 'string', type: 'function', function: { arguments: 'string', name: 'string' } },
+            {
+              toolCallId: 'toolCallId',
+              type: 'function',
+              function: { arguments: 'arguments', name: 'name' },
+            },
+            {
+              toolCallId: 'toolCallId',
+              type: 'function',
+              function: { arguments: 'arguments', name: 'name' },
+            },
+            {
+              toolCallId: 'toolCallId',
+              type: 'function',
+              function: { arguments: 'arguments', name: 'name' },
+            },
           ],
         },
       ],
-      promptId: 'string',
+      promptId: 'promptId',
       variables: { foo: 'string' },
     });
   });
