@@ -4,7 +4,7 @@
 
 This library provides convenient access to the Prompt Foundry REST API from server-side TypeScript or JavaScript.
 
-The REST API documentation can be found [on docs.promptfoundry.ai](https://docs.promptfoundry.ai). The full API of this library can be found in [api.md](api.md).
+The REST API documentation can be found on [docs.promptfoundry.ai](https://docs.promptfoundry.ai). The full API of this library can be found in [api.md](api.md).
 
 It is generated with [Stainless](https://www.stainlessapi.com/).
 
@@ -290,6 +290,9 @@ The following runtimes are supported:
 - Vercel Edge Runtime.
 - Jest 28 or greater with the `"node"` environment (`"jsdom"` is not supported at this time).
 - Nitro v2.6 or greater.
+
+> [!WARNING]
+> Web browser runtimes aren't supported. The SDK will throw an error if used in a browser environment.
 
 Note that React Native is not supported at this time.
 
