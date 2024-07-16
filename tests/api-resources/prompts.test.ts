@@ -13,70 +13,31 @@ describe('resource prompts', () => {
     const responsePromise = promptFoundry.prompts.create({
       messages: [
         {
-          content: 'content',
-          role: 'assistant',
-          toolCallId: 'toolCallId',
-          toolCalls: [
-            {
-              toolCallId: 'toolCallId',
-              type: 'function',
-              function: { arguments: 'arguments', name: 'name' },
-            },
-            {
-              toolCallId: 'toolCallId',
-              type: 'function',
-              function: { arguments: 'arguments', name: 'name' },
-            },
-            {
-              toolCallId: 'toolCallId',
-              type: 'function',
-              function: { arguments: 'arguments', name: 'name' },
-            },
+          content: [
+            { type: 'TEXT', text: 'text' },
+            { type: 'TEXT', text: 'text' },
+            { type: 'TEXT', text: 'text' },
           ],
+          role: 'assistant',
+          promptMessageId: 'promptMessageId',
         },
         {
-          content: 'content',
-          role: 'assistant',
-          toolCallId: 'toolCallId',
-          toolCalls: [
-            {
-              toolCallId: 'toolCallId',
-              type: 'function',
-              function: { arguments: 'arguments', name: 'name' },
-            },
-            {
-              toolCallId: 'toolCallId',
-              type: 'function',
-              function: { arguments: 'arguments', name: 'name' },
-            },
-            {
-              toolCallId: 'toolCallId',
-              type: 'function',
-              function: { arguments: 'arguments', name: 'name' },
-            },
+          content: [
+            { type: 'TEXT', text: 'text' },
+            { type: 'TEXT', text: 'text' },
+            { type: 'TEXT', text: 'text' },
           ],
+          role: 'assistant',
+          promptMessageId: 'promptMessageId',
         },
         {
-          content: 'content',
-          role: 'assistant',
-          toolCallId: 'toolCallId',
-          toolCalls: [
-            {
-              toolCallId: 'toolCallId',
-              type: 'function',
-              function: { arguments: 'arguments', name: 'name' },
-            },
-            {
-              toolCallId: 'toolCallId',
-              type: 'function',
-              function: { arguments: 'arguments', name: 'name' },
-            },
-            {
-              toolCallId: 'toolCallId',
-              type: 'function',
-              function: { arguments: 'arguments', name: 'name' },
-            },
+          content: [
+            { type: 'TEXT', text: 'text' },
+            { type: 'TEXT', text: 'text' },
+            { type: 'TEXT', text: 'text' },
           ],
+          role: 'assistant',
+          promptMessageId: 'promptMessageId',
         },
       ],
       name: 'name',
@@ -110,70 +71,31 @@ describe('resource prompts', () => {
     const response = await promptFoundry.prompts.create({
       messages: [
         {
-          content: 'content',
-          role: 'assistant',
-          toolCallId: 'toolCallId',
-          toolCalls: [
-            {
-              toolCallId: 'toolCallId',
-              type: 'function',
-              function: { arguments: 'arguments', name: 'name' },
-            },
-            {
-              toolCallId: 'toolCallId',
-              type: 'function',
-              function: { arguments: 'arguments', name: 'name' },
-            },
-            {
-              toolCallId: 'toolCallId',
-              type: 'function',
-              function: { arguments: 'arguments', name: 'name' },
-            },
+          content: [
+            { type: 'TEXT', text: 'text' },
+            { type: 'TEXT', text: 'text' },
+            { type: 'TEXT', text: 'text' },
           ],
+          role: 'assistant',
+          promptMessageId: 'promptMessageId',
         },
         {
-          content: 'content',
-          role: 'assistant',
-          toolCallId: 'toolCallId',
-          toolCalls: [
-            {
-              toolCallId: 'toolCallId',
-              type: 'function',
-              function: { arguments: 'arguments', name: 'name' },
-            },
-            {
-              toolCallId: 'toolCallId',
-              type: 'function',
-              function: { arguments: 'arguments', name: 'name' },
-            },
-            {
-              toolCallId: 'toolCallId',
-              type: 'function',
-              function: { arguments: 'arguments', name: 'name' },
-            },
+          content: [
+            { type: 'TEXT', text: 'text' },
+            { type: 'TEXT', text: 'text' },
+            { type: 'TEXT', text: 'text' },
           ],
+          role: 'assistant',
+          promptMessageId: 'promptMessageId',
         },
         {
-          content: 'content',
-          role: 'assistant',
-          toolCallId: 'toolCallId',
-          toolCalls: [
-            {
-              toolCallId: 'toolCallId',
-              type: 'function',
-              function: { arguments: 'arguments', name: 'name' },
-            },
-            {
-              toolCallId: 'toolCallId',
-              type: 'function',
-              function: { arguments: 'arguments', name: 'name' },
-            },
-            {
-              toolCallId: 'toolCallId',
-              type: 'function',
-              function: { arguments: 'arguments', name: 'name' },
-            },
+          content: [
+            { type: 'TEXT', text: 'text' },
+            { type: 'TEXT', text: 'text' },
+            { type: 'TEXT', text: 'text' },
           ],
+          role: 'assistant',
+          promptMessageId: 'promptMessageId',
         },
       ],
       name: 'name',
@@ -200,70 +122,31 @@ describe('resource prompts', () => {
     const responsePromise = promptFoundry.prompts.update('1212121', {
       messages: [
         {
-          content: 'content',
-          role: 'assistant',
-          toolCallId: 'toolCallId',
-          toolCalls: [
-            {
-              toolCallId: 'toolCallId',
-              type: 'function',
-              function: { arguments: 'arguments', name: 'name' },
-            },
-            {
-              toolCallId: 'toolCallId',
-              type: 'function',
-              function: { arguments: 'arguments', name: 'name' },
-            },
-            {
-              toolCallId: 'toolCallId',
-              type: 'function',
-              function: { arguments: 'arguments', name: 'name' },
-            },
+          content: [
+            { type: 'TEXT', text: 'text' },
+            { type: 'TEXT', text: 'text' },
+            { type: 'TEXT', text: 'text' },
           ],
+          role: 'assistant',
+          promptMessageId: 'promptMessageId',
         },
         {
-          content: 'content',
-          role: 'assistant',
-          toolCallId: 'toolCallId',
-          toolCalls: [
-            {
-              toolCallId: 'toolCallId',
-              type: 'function',
-              function: { arguments: 'arguments', name: 'name' },
-            },
-            {
-              toolCallId: 'toolCallId',
-              type: 'function',
-              function: { arguments: 'arguments', name: 'name' },
-            },
-            {
-              toolCallId: 'toolCallId',
-              type: 'function',
-              function: { arguments: 'arguments', name: 'name' },
-            },
+          content: [
+            { type: 'TEXT', text: 'text' },
+            { type: 'TEXT', text: 'text' },
+            { type: 'TEXT', text: 'text' },
           ],
+          role: 'assistant',
+          promptMessageId: 'promptMessageId',
         },
         {
-          content: 'content',
-          role: 'assistant',
-          toolCallId: 'toolCallId',
-          toolCalls: [
-            {
-              toolCallId: 'toolCallId',
-              type: 'function',
-              function: { arguments: 'arguments', name: 'name' },
-            },
-            {
-              toolCallId: 'toolCallId',
-              type: 'function',
-              function: { arguments: 'arguments', name: 'name' },
-            },
-            {
-              toolCallId: 'toolCallId',
-              type: 'function',
-              function: { arguments: 'arguments', name: 'name' },
-            },
+          content: [
+            { type: 'TEXT', text: 'text' },
+            { type: 'TEXT', text: 'text' },
+            { type: 'TEXT', text: 'text' },
           ],
+          role: 'assistant',
+          promptMessageId: 'promptMessageId',
         },
       ],
       name: 'name',
@@ -297,70 +180,31 @@ describe('resource prompts', () => {
     const response = await promptFoundry.prompts.update('1212121', {
       messages: [
         {
-          content: 'content',
-          role: 'assistant',
-          toolCallId: 'toolCallId',
-          toolCalls: [
-            {
-              toolCallId: 'toolCallId',
-              type: 'function',
-              function: { arguments: 'arguments', name: 'name' },
-            },
-            {
-              toolCallId: 'toolCallId',
-              type: 'function',
-              function: { arguments: 'arguments', name: 'name' },
-            },
-            {
-              toolCallId: 'toolCallId',
-              type: 'function',
-              function: { arguments: 'arguments', name: 'name' },
-            },
+          content: [
+            { type: 'TEXT', text: 'text' },
+            { type: 'TEXT', text: 'text' },
+            { type: 'TEXT', text: 'text' },
           ],
+          role: 'assistant',
+          promptMessageId: 'promptMessageId',
         },
         {
-          content: 'content',
-          role: 'assistant',
-          toolCallId: 'toolCallId',
-          toolCalls: [
-            {
-              toolCallId: 'toolCallId',
-              type: 'function',
-              function: { arguments: 'arguments', name: 'name' },
-            },
-            {
-              toolCallId: 'toolCallId',
-              type: 'function',
-              function: { arguments: 'arguments', name: 'name' },
-            },
-            {
-              toolCallId: 'toolCallId',
-              type: 'function',
-              function: { arguments: 'arguments', name: 'name' },
-            },
+          content: [
+            { type: 'TEXT', text: 'text' },
+            { type: 'TEXT', text: 'text' },
+            { type: 'TEXT', text: 'text' },
           ],
+          role: 'assistant',
+          promptMessageId: 'promptMessageId',
         },
         {
-          content: 'content',
-          role: 'assistant',
-          toolCallId: 'toolCallId',
-          toolCalls: [
-            {
-              toolCallId: 'toolCallId',
-              type: 'function',
-              function: { arguments: 'arguments', name: 'name' },
-            },
-            {
-              toolCallId: 'toolCallId',
-              type: 'function',
-              function: { arguments: 'arguments', name: 'name' },
-            },
-            {
-              toolCallId: 'toolCallId',
-              type: 'function',
-              function: { arguments: 'arguments', name: 'name' },
-            },
+          content: [
+            { type: 'TEXT', text: 'text' },
+            { type: 'TEXT', text: 'text' },
+            { type: 'TEXT', text: 'text' },
           ],
+          role: 'assistant',
+          promptMessageId: 'promptMessageId',
         },
       ],
       name: 'name',
@@ -463,138 +307,54 @@ describe('resource prompts', () => {
         {
           appendMessages: [
             {
-              content: 'content',
-              role: 'assistant',
-              toolCallId: 'toolCallId',
-              toolCalls: [
-                {
-                  toolCallId: 'toolCallId',
-                  type: 'function',
-                  function: { arguments: 'arguments', name: 'name' },
-                },
-                {
-                  toolCallId: 'toolCallId',
-                  type: 'function',
-                  function: { arguments: 'arguments', name: 'name' },
-                },
-                {
-                  toolCallId: 'toolCallId',
-                  type: 'function',
-                  function: { arguments: 'arguments', name: 'name' },
-                },
+              content: [
+                { type: 'TEXT', text: 'text' },
+                { type: 'TEXT', text: 'text' },
+                { type: 'TEXT', text: 'text' },
               ],
+              role: 'assistant',
             },
             {
-              content: 'content',
-              role: 'assistant',
-              toolCallId: 'toolCallId',
-              toolCalls: [
-                {
-                  toolCallId: 'toolCallId',
-                  type: 'function',
-                  function: { arguments: 'arguments', name: 'name' },
-                },
-                {
-                  toolCallId: 'toolCallId',
-                  type: 'function',
-                  function: { arguments: 'arguments', name: 'name' },
-                },
-                {
-                  toolCallId: 'toolCallId',
-                  type: 'function',
-                  function: { arguments: 'arguments', name: 'name' },
-                },
+              content: [
+                { type: 'TEXT', text: 'text' },
+                { type: 'TEXT', text: 'text' },
+                { type: 'TEXT', text: 'text' },
               ],
+              role: 'assistant',
             },
             {
-              content: 'content',
-              role: 'assistant',
-              toolCallId: 'toolCallId',
-              toolCalls: [
-                {
-                  toolCallId: 'toolCallId',
-                  type: 'function',
-                  function: { arguments: 'arguments', name: 'name' },
-                },
-                {
-                  toolCallId: 'toolCallId',
-                  type: 'function',
-                  function: { arguments: 'arguments', name: 'name' },
-                },
-                {
-                  toolCallId: 'toolCallId',
-                  type: 'function',
-                  function: { arguments: 'arguments', name: 'name' },
-                },
+              content: [
+                { type: 'TEXT', text: 'text' },
+                { type: 'TEXT', text: 'text' },
+                { type: 'TEXT', text: 'text' },
               ],
+              role: 'assistant',
             },
           ],
           overrideMessages: [
             {
-              content: 'content',
-              role: 'assistant',
-              toolCallId: 'toolCallId',
-              toolCalls: [
-                {
-                  toolCallId: 'toolCallId',
-                  type: 'function',
-                  function: { arguments: 'arguments', name: 'name' },
-                },
-                {
-                  toolCallId: 'toolCallId',
-                  type: 'function',
-                  function: { arguments: 'arguments', name: 'name' },
-                },
-                {
-                  toolCallId: 'toolCallId',
-                  type: 'function',
-                  function: { arguments: 'arguments', name: 'name' },
-                },
+              content: [
+                { type: 'TEXT', text: 'text' },
+                { type: 'TEXT', text: 'text' },
+                { type: 'TEXT', text: 'text' },
               ],
+              role: 'assistant',
             },
             {
-              content: 'content',
-              role: 'assistant',
-              toolCallId: 'toolCallId',
-              toolCalls: [
-                {
-                  toolCallId: 'toolCallId',
-                  type: 'function',
-                  function: { arguments: 'arguments', name: 'name' },
-                },
-                {
-                  toolCallId: 'toolCallId',
-                  type: 'function',
-                  function: { arguments: 'arguments', name: 'name' },
-                },
-                {
-                  toolCallId: 'toolCallId',
-                  type: 'function',
-                  function: { arguments: 'arguments', name: 'name' },
-                },
+              content: [
+                { type: 'TEXT', text: 'text' },
+                { type: 'TEXT', text: 'text' },
+                { type: 'TEXT', text: 'text' },
               ],
+              role: 'assistant',
             },
             {
-              content: 'content',
-              role: 'assistant',
-              toolCallId: 'toolCallId',
-              toolCalls: [
-                {
-                  toolCallId: 'toolCallId',
-                  type: 'function',
-                  function: { arguments: 'arguments', name: 'name' },
-                },
-                {
-                  toolCallId: 'toolCallId',
-                  type: 'function',
-                  function: { arguments: 'arguments', name: 'name' },
-                },
-                {
-                  toolCallId: 'toolCallId',
-                  type: 'function',
-                  function: { arguments: 'arguments', name: 'name' },
-                },
+              content: [
+                { type: 'TEXT', text: 'text' },
+                { type: 'TEXT', text: 'text' },
+                { type: 'TEXT', text: 'text' },
               ],
+              role: 'assistant',
             },
           ],
           user: 'user',
