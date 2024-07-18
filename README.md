@@ -22,7 +22,7 @@ The full API of this library can be found in [api.md](api.md).
 ```js
 import PromptFoundry from '@prompt-foundry/typescript-sdk';
 
-const promptFoundry = new PromptFoundry({
+const client = new PromptFoundry({
   apiKey: process.env['PROMPT_FOUNDRY_API_KEY'], // This is the default and can be omitted
 });
 
@@ -45,7 +45,7 @@ This library includes TypeScript definitions for all request params and response
 ```ts
 import PromptFoundry from '@prompt-foundry/typescript-sdk';
 
-const promptFoundry = new PromptFoundry({
+const client = new PromptFoundry({
   apiKey: process.env['PROMPT_FOUNDRY_API_KEY'], // This is the default and can be omitted
 });
 
@@ -105,7 +105,7 @@ You can use the `maxRetries` option to configure or disable this:
 <!-- prettier-ignore -->
 ```js
 // Configure the default for all requests:
-const promptFoundry = new PromptFoundry({
+const client = new PromptFoundry({
   maxRetries: 0, // default is 2
 });
 
@@ -122,7 +122,7 @@ Requests time out after 1 minute by default. You can configure this with a `time
 <!-- prettier-ignore -->
 ```ts
 // Configure the default for all requests:
-const promptFoundry = new PromptFoundry({
+const client = new PromptFoundry({
   timeout: 20 * 1000, // 20 seconds (default is 1 minute)
 });
 
@@ -146,7 +146,7 @@ You can also use the `.withResponse()` method to get the raw `Response` along wi
 
 <!-- prettier-ignore -->
 ```ts
-const promptFoundry = new PromptFoundry();
+const client = new PromptFoundry();
 
 const response = await promptFoundry.prompts.getParameters('1212121').asResponse();
 console.log(response.headers.get('X-My-Header'));
@@ -255,7 +255,7 @@ import http from 'http';
 import { HttpsProxyAgent } from 'https-proxy-agent';
 
 // Configure the default for all requests:
-const promptFoundry = new PromptFoundry({
+const client = new PromptFoundry({
   httpAgent: new HttpsProxyAgent(process.env.PROXY_URL),
 });
 
