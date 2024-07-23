@@ -59,6 +59,16 @@ export interface Evaluation {
    * The template variables added to the prompt when executing the prompt.
    */
   variables: Record<string, string | null>;
+
+  /**
+   * What percentage of assertions must pass for the evaluation to pass.
+   */
+  threshold?: number;
+
+  /**
+   * How heavily to weigh the evaluation within the prompt.
+   */
+  weight?: number;
 }
 
 export namespace Evaluation {
@@ -155,6 +165,16 @@ export interface EvaluationCreateParams {
    * The template variables added to the prompt when executing the prompt.
    */
   variables: Record<string, string | null>;
+
+  /**
+   * What percentage of assertions must pass for the evaluation to pass.
+   */
+  threshold?: number;
+
+  /**
+   * How heavily to weigh the evaluation within the prompt.
+   */
+  weight?: number;
 }
 
 export namespace EvaluationCreateParams {
@@ -245,6 +265,16 @@ export interface EvaluationUpdateParams {
    * The template variables added to the prompt when executing the prompt.
    */
   variables: Record<string, string | null>;
+
+  /**
+   * What percentage of assertions must pass for the evaluation to pass.
+   */
+  threshold?: number;
+
+  /**
+   * How heavily to weigh the evaluation within the prompt.
+   */
+  weight?: number;
 }
 
 export namespace EvaluationUpdateParams {
