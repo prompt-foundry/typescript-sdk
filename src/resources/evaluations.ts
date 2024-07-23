@@ -1,8 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '@prompt-foundry/typescript-sdk/resource';
-import * as Core from '@prompt-foundry/typescript-sdk/core';
-import * as EvaluationsAPI from '@prompt-foundry/typescript-sdk/resources/evaluations';
+import { APIResource } from '../resource';
+import * as Core from '../core';
+import * as EvaluationsAPI from './evaluations';
 
 export class Evaluations extends APIResource {
   /**
