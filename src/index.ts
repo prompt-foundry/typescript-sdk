@@ -3,8 +3,8 @@
 import * as Errors from './error';
 import * as Uploads from './uploads';
 import { type Agent } from './_shims/index';
-import * as Core from '@prompt-foundry/typescript-sdk/core';
-import * as API from '@prompt-foundry/typescript-sdk/resources/index';
+import * as Core from './core';
+import * as API from './resources/index';
 
 export interface ClientOptions {
   /**
