@@ -89,6 +89,11 @@ export interface EvaluationAssertion {
     | 'JSON_EXACT_MATCH'
     | 'TOOL_CALLED'
     | 'TOOL_CALLED_WITH';
+
+  /**
+   * How heavily to weigh the assertion within the evaluation.
+   */
+  weight?: number;
 }
 
 export type EvaluationAssertionListResponse = Array<EvaluationAssertion>;
@@ -124,6 +129,11 @@ export interface EvaluationAssertionCreateParams {
     | 'JSON_EXACT_MATCH'
     | 'TOOL_CALLED'
     | 'TOOL_CALLED_WITH';
+
+  /**
+   * How heavily to weigh the assertion within the evaluation.
+   */
+  weight?: number;
 }
 
 export interface EvaluationAssertionUpdateParams {
@@ -153,6 +163,11 @@ export interface EvaluationAssertionUpdateParams {
     | 'JSON_EXACT_MATCH'
     | 'TOOL_CALLED'
     | 'TOOL_CALLED_WITH';
+
+  /**
+   * How heavily to weigh the assertion within the evaluation.
+   */
+  weight?: number;
 }
 
 export interface EvaluationAssertionListParams {
