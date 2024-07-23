@@ -33,6 +33,7 @@ describe('resource evaluationAssertions', () => {
       targetValue: 'targetValue',
       toolName: 'toolName',
       type: 'CONTAINS',
+      weight: 0,
     });
   });
 
@@ -60,6 +61,7 @@ describe('resource evaluationAssertions', () => {
       targetValue: 'targetValue',
       toolName: 'toolName',
       type: 'CONTAINS',
+      weight: 0,
     });
   });
 

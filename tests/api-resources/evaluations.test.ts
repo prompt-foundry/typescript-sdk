@@ -79,6 +79,8 @@ describe('resource evaluations', () => {
       ],
       promptId: 'promptId',
       variables: { foo: 'string' },
+      threshold: 0,
+      weight: 0,
     });
   });
 
@@ -152,6 +154,8 @@ describe('resource evaluations', () => {
       ],
       promptId: 'promptId',
       variables: { foo: 'string' },
+      threshold: 0,
+      weight: 0,
     });
   });
 
