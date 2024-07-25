@@ -71,7 +71,9 @@ export interface EvaluationAssertion {
    */
   jsonPath: string | null;
 
-  targetValue: string | null;
+  targetThreshold: number | null;
+
+  targetValues: Array<string> | null;
 
   /**
    * The name of the tool to match. Only required when type is `TOOL_CALLED` or
@@ -83,12 +85,18 @@ export interface EvaluationAssertion {
    * The type of evaluation matcher to use.
    */
   type:
-    | 'CONTAINS'
+    | 'CONTAINS_ALL'
+    | 'CONTAINS_ANY'
+    | 'COST'
     | 'EXACT_MATCH'
-    | 'JSON_CONTAINS'
-    | 'JSON_EXACT_MATCH'
+    | 'LATENCY'
+    | 'STARTS_WITH'
     | 'TOOL_CALLED'
     | 'TOOL_CALLED_WITH';
+
+  ignoreCase?: boolean;
+
+  negate?: boolean;
 
   /**
    * How heavily to weigh the assertion within the evaluation.
@@ -111,7 +119,9 @@ export interface EvaluationAssertionCreateParams {
    */
   jsonPath: string | null;
 
-  targetValue: string | null;
+  targetThreshold: number | null;
+
+  targetValues: Array<string> | null;
 
   /**
    * The name of the tool to match. Only required when type is `TOOL_CALLED` or
@@ -123,12 +133,18 @@ export interface EvaluationAssertionCreateParams {
    * The type of evaluation matcher to use.
    */
   type:
-    | 'CONTAINS'
+    | 'CONTAINS_ALL'
+    | 'CONTAINS_ANY'
+    | 'COST'
     | 'EXACT_MATCH'
-    | 'JSON_CONTAINS'
-    | 'JSON_EXACT_MATCH'
+    | 'LATENCY'
+    | 'STARTS_WITH'
     | 'TOOL_CALLED'
     | 'TOOL_CALLED_WITH';
+
+  ignoreCase?: boolean;
+
+  negate?: boolean;
 
   /**
    * How heavily to weigh the assertion within the evaluation.
@@ -145,7 +161,9 @@ export interface EvaluationAssertionUpdateParams {
    */
   jsonPath: string | null;
 
-  targetValue: string | null;
+  targetThreshold: number | null;
+
+  targetValues: Array<string> | null;
 
   /**
    * The name of the tool to match. Only required when type is `TOOL_CALLED` or
@@ -157,12 +175,18 @@ export interface EvaluationAssertionUpdateParams {
    * The type of evaluation matcher to use.
    */
   type:
-    | 'CONTAINS'
+    | 'CONTAINS_ALL'
+    | 'CONTAINS_ANY'
+    | 'COST'
     | 'EXACT_MATCH'
-    | 'JSON_CONTAINS'
-    | 'JSON_EXACT_MATCH'
+    | 'LATENCY'
+    | 'STARTS_WITH'
     | 'TOOL_CALLED'
     | 'TOOL_CALLED_WITH';
+
+  ignoreCase?: boolean;
+
+  negate?: boolean;
 
   /**
    * How heavily to weigh the assertion within the evaluation.
