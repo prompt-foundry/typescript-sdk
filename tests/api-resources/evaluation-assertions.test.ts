@@ -13,9 +13,10 @@ describe('resource evaluationAssertions', () => {
     const responsePromise = promptFoundry.evaluationAssertions.create({
       evaluationId: 'evaluationId',
       jsonPath: 'jsonPath',
-      targetValue: 'targetValue',
+      targetThreshold: 0,
+      targetValues: ['string', 'string', 'string'],
       toolName: 'toolName',
-      type: 'CONTAINS',
+      type: 'CONTAINS_ALL',
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -30,9 +31,12 @@ describe('resource evaluationAssertions', () => {
     const response = await promptFoundry.evaluationAssertions.create({
       evaluationId: 'evaluationId',
       jsonPath: 'jsonPath',
-      targetValue: 'targetValue',
+      targetThreshold: 0,
+      targetValues: ['string', 'string', 'string'],
       toolName: 'toolName',
-      type: 'CONTAINS',
+      type: 'CONTAINS_ALL',
+      ignoreCase: true,
+      negate: true,
       weight: 0,
     });
   });
@@ -41,9 +45,10 @@ describe('resource evaluationAssertions', () => {
     const responsePromise = promptFoundry.evaluationAssertions.update('1212121', {
       evaluationId: 'evaluationId',
       jsonPath: 'jsonPath',
-      targetValue: 'targetValue',
+      targetThreshold: 0,
+      targetValues: ['string', 'string', 'string'],
       toolName: 'toolName',
-      type: 'CONTAINS',
+      type: 'CONTAINS_ALL',
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -58,9 +63,12 @@ describe('resource evaluationAssertions', () => {
     const response = await promptFoundry.evaluationAssertions.update('1212121', {
       evaluationId: 'evaluationId',
       jsonPath: 'jsonPath',
-      targetValue: 'targetValue',
+      targetThreshold: 0,
+      targetValues: ['string', 'string', 'string'],
       toolName: 'toolName',
-      type: 'CONTAINS',
+      type: 'CONTAINS_ALL',
+      ignoreCase: true,
+      negate: true,
       weight: 0,
     });
   });
