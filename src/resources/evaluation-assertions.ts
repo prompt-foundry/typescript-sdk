@@ -60,40 +60,235 @@ export class EvaluationAssertions extends APIResource {
   }
 }
 
-export interface EvaluationAssertion {
-  id: string;
+export type EvaluationAssertion =
+  | EvaluationAssertion.EvaluationAssertionExactMatch
+  | EvaluationAssertion.EvaluationAssertionContainsAll
+  | EvaluationAssertion.EvaluationAssertionContainsAny
+  | EvaluationAssertion.EvaluationAssertionStartsWith
+  | EvaluationAssertion.EvaluationAssertionCost
+  | EvaluationAssertion.EvaluationAssertionLatency
+  | EvaluationAssertion.EvaluationAssertionToolCalled
+  | EvaluationAssertion.EvaluationAssertionToolCalledWith;
 
-  evaluationId: string;
+export namespace EvaluationAssertion {
+  export interface EvaluationAssertionExactMatch {
+    id: string;
 
-  /**
-   * A JSON path to use when matching the response. Only required when type is
-   * `JSON_EXACT_MATCH` or `JSON_CONTAINS`.
-   */
-  jsonPath: string | null;
+    evaluationId: string;
 
-  targetValue: string | null;
+    /**
+     * The value to match.
+     */
+    targetValue: string;
 
-  /**
-   * The name of the tool to match. Only required when type is `TOOL_CALLED` or
-   * `TOOL_CALLED_WITH`.
-   */
-  toolName: string | null;
+    type: 'EXACT_MATCH';
 
-  /**
-   * The type of evaluation matcher to use.
-   */
-  type:
-    | 'CONTAINS'
-    | 'EXACT_MATCH'
-    | 'JSON_CONTAINS'
-    | 'JSON_EXACT_MATCH'
-    | 'TOOL_CALLED'
-    | 'TOOL_CALLED_WITH';
+    /**
+     * Whether to ignore case when comparing strings.
+     */
+    ignoreCase?: boolean;
 
-  /**
-   * How heavily to weigh the assertion within the evaluation.
-   */
-  weight?: number;
+    /**
+     * A JSON path to use when matching a JSON response.
+     */
+    jsonPath?: string | null;
+
+    /**
+     * Whether to negate the assertion. "true" means the assertion must NOT be true.
+     */
+    negate?: boolean;
+
+    /**
+     * How heavily to weigh the assertion within the evaluation.
+     */
+    weight?: number;
+  }
+
+  export interface EvaluationAssertionContainsAll {
+    id: string;
+
+    evaluationId: string;
+
+    /**
+     * List of values any of which may be present.
+     */
+    targetValues: Array<string>;
+
+    type: 'CONTAINS_ALL';
+
+    /**
+     * Whether to ignore case when comparing strings.
+     */
+    ignoreCase?: boolean;
+
+    /**
+     * A JSON path to use when matching a JSON response.
+     */
+    jsonPath?: string | null;
+
+    /**
+     * Whether to negate the assertion. "true" means the assertion must NOT be true.
+     */
+    negate?: boolean;
+
+    /**
+     * How heavily to weigh the assertion within the evaluation.
+     */
+    weight?: number;
+  }
+
+  export interface EvaluationAssertionContainsAny {
+    id: string;
+
+    evaluationId: string;
+
+    /**
+     * List of values any of which may be present.
+     */
+    targetValues: Array<string>;
+
+    type: 'CONTAINS_ANY';
+
+    /**
+     * Whether to ignore case when comparing strings.
+     */
+    ignoreCase?: boolean;
+
+    /**
+     * A JSON path to use when matching a JSON response.
+     */
+    jsonPath?: string | null;
+
+    /**
+     * Whether to negate the assertion. "true" means the assertion must NOT be true.
+     */
+    negate?: boolean;
+
+    /**
+     * How heavily to weigh the assertion within the evaluation.
+     */
+    weight?: number;
+  }
+
+  export interface EvaluationAssertionStartsWith {
+    id: string;
+
+    evaluationId: string;
+
+    /**
+     * The value that the response should start with.
+     */
+    targetValue: string;
+
+    type: 'STARTS_WITH';
+
+    /**
+     * Whether to ignore case when comparing strings.
+     */
+    ignoreCase?: boolean;
+
+    /**
+     * A JSON path to use when matching a JSON response.
+     */
+    jsonPath?: string | null;
+
+    /**
+     * Whether to negate the assertion. "true" means the assertion must NOT be true.
+     */
+    negate?: boolean;
+
+    /**
+     * How heavily to weigh the assertion within the evaluation.
+     */
+    weight?: number;
+  }
+
+  export interface EvaluationAssertionCost {
+    id: string;
+
+    evaluationId: string;
+
+    /**
+     * The cost threshold to be evaluated against.
+     */
+    targetThreshold: number;
+
+    type: 'COST';
+
+    /**
+     * How heavily to weigh the assertion within the evaluation.
+     */
+    weight?: number;
+  }
+
+  export interface EvaluationAssertionLatency {
+    id: string;
+
+    evaluationId: string;
+
+    /**
+     * The latency threshold to be evaluated against.
+     */
+    targetThreshold: number;
+
+    type: 'LATENCY';
+
+    /**
+     * How heavily to weigh the assertion within the evaluation.
+     */
+    weight?: number;
+  }
+
+  export interface EvaluationAssertionToolCalled {
+    id: string;
+
+    evaluationId: string;
+
+    /**
+     * The name of the tool that should have been called.
+     */
+    toolName: string;
+
+    type: 'TOOL_CALLED';
+
+    /**
+     * How heavily to weigh the assertion within the evaluation.
+     */
+    weight?: number;
+  }
+
+  export interface EvaluationAssertionToolCalledWith {
+    id: string;
+
+    /**
+     * The argument name to be matched.
+     */
+    argKeyName: string;
+
+    evaluationId: string;
+
+    /**
+     * The name of the tool that should have been called.
+     */
+    toolName: string;
+
+    type: 'TOOL_CALLED_WITH';
+
+    /**
+     * Whether to ignore case when comparing argument names.
+     */
+    ignoreCase?: boolean;
+
+    /**
+     * Whether to negate the assertion. "true" means the assertion must NOT be true.
+     */
+    negate?: boolean;
+
+    /**
+     * How heavily to weigh the assertion within the evaluation.
+     */
+    weight?: number;
+  }
 }
 
 export type EvaluationAssertionListResponse = Array<EvaluationAssertion>;
@@ -102,72 +297,434 @@ export interface EvaluationAssertionDeleteResponse {
   success?: boolean;
 }
 
-export interface EvaluationAssertionCreateParams {
-  evaluationId: string;
+export type EvaluationAssertionCreateParams =
+  | EvaluationAssertionCreateParams.EvaluationAssertionExactMatchBody
+  | EvaluationAssertionCreateParams.EvaluationAssertionContainsAllBody
+  | EvaluationAssertionCreateParams.EvaluationAssertionContainsAnyBody
+  | EvaluationAssertionCreateParams.EvaluationAssertionStartsWithBody
+  | EvaluationAssertionCreateParams.EvaluationAssertionCostBody
+  | EvaluationAssertionCreateParams.EvaluationAssertionLatencyBody
+  | EvaluationAssertionCreateParams.EvaluationAssertionToolCalledBody
+  | EvaluationAssertionCreateParams.EvaluationAssertionToolCalledWithBody;
 
-  /**
-   * A JSON path to use when matching the response. Only required when type is
-   * `JSON_EXACT_MATCH` or `JSON_CONTAINS`.
-   */
-  jsonPath: string | null;
+export namespace EvaluationAssertionCreateParams {
+  export interface EvaluationAssertionExactMatchBody {
+    evaluationId: string;
 
-  targetValue: string | null;
+    /**
+     * The value to match.
+     */
+    targetValue: string;
 
-  /**
-   * The name of the tool to match. Only required when type is `TOOL_CALLED` or
-   * `TOOL_CALLED_WITH`.
-   */
-  toolName: string | null;
+    type: 'EXACT_MATCH';
 
-  /**
-   * The type of evaluation matcher to use.
-   */
-  type:
-    | 'CONTAINS'
-    | 'EXACT_MATCH'
-    | 'JSON_CONTAINS'
-    | 'JSON_EXACT_MATCH'
-    | 'TOOL_CALLED'
-    | 'TOOL_CALLED_WITH';
+    /**
+     * Whether to ignore case when comparing strings.
+     */
+    ignoreCase?: boolean;
 
-  /**
-   * How heavily to weigh the assertion within the evaluation.
-   */
-  weight?: number;
+    /**
+     * A JSON path to use when matching a JSON response.
+     */
+    jsonPath?: string | null;
+
+    /**
+     * Whether to negate the assertion. "true" means the assertion must NOT be true.
+     */
+    negate?: boolean;
+
+    /**
+     * How heavily to weigh the assertion within the evaluation.
+     */
+    weight?: number;
+  }
+
+  export interface EvaluationAssertionContainsAllBody {
+    evaluationId: string;
+
+    /**
+     * List of values any of which may be present.
+     */
+    targetValues: Array<string>;
+
+    type: 'CONTAINS_ALL';
+
+    /**
+     * Whether to ignore case when comparing strings.
+     */
+    ignoreCase?: boolean;
+
+    /**
+     * A JSON path to use when matching a JSON response.
+     */
+    jsonPath?: string | null;
+
+    /**
+     * Whether to negate the assertion. "true" means the assertion must NOT be true.
+     */
+    negate?: boolean;
+
+    /**
+     * How heavily to weigh the assertion within the evaluation.
+     */
+    weight?: number;
+  }
+
+  export interface EvaluationAssertionContainsAnyBody {
+    evaluationId: string;
+
+    /**
+     * List of values any of which may be present.
+     */
+    targetValues: Array<string>;
+
+    type: 'CONTAINS_ANY';
+
+    /**
+     * Whether to ignore case when comparing strings.
+     */
+    ignoreCase?: boolean;
+
+    /**
+     * A JSON path to use when matching a JSON response.
+     */
+    jsonPath?: string | null;
+
+    /**
+     * Whether to negate the assertion. "true" means the assertion must NOT be true.
+     */
+    negate?: boolean;
+
+    /**
+     * How heavily to weigh the assertion within the evaluation.
+     */
+    weight?: number;
+  }
+
+  export interface EvaluationAssertionStartsWithBody {
+    evaluationId: string;
+
+    /**
+     * The value that the response should start with.
+     */
+    targetValue: string;
+
+    type: 'STARTS_WITH';
+
+    /**
+     * Whether to ignore case when comparing strings.
+     */
+    ignoreCase?: boolean;
+
+    /**
+     * A JSON path to use when matching a JSON response.
+     */
+    jsonPath?: string | null;
+
+    /**
+     * Whether to negate the assertion. "true" means the assertion must NOT be true.
+     */
+    negate?: boolean;
+
+    /**
+     * How heavily to weigh the assertion within the evaluation.
+     */
+    weight?: number;
+  }
+
+  export interface EvaluationAssertionCostBody {
+    evaluationId: string;
+
+    /**
+     * The cost threshold to be evaluated against.
+     */
+    targetThreshold: number;
+
+    type: 'COST';
+
+    /**
+     * How heavily to weigh the assertion within the evaluation.
+     */
+    weight?: number;
+  }
+
+  export interface EvaluationAssertionLatencyBody {
+    evaluationId: string;
+
+    /**
+     * The latency threshold to be evaluated against.
+     */
+    targetThreshold: number;
+
+    type: 'LATENCY';
+
+    /**
+     * How heavily to weigh the assertion within the evaluation.
+     */
+    weight?: number;
+  }
+
+  export interface EvaluationAssertionToolCalledBody {
+    evaluationId: string;
+
+    /**
+     * The name of the tool that should have been called.
+     */
+    toolName: string;
+
+    type: 'TOOL_CALLED';
+
+    /**
+     * How heavily to weigh the assertion within the evaluation.
+     */
+    weight?: number;
+  }
+
+  export interface EvaluationAssertionToolCalledWithBody {
+    /**
+     * The argument name to be matched.
+     */
+    argKeyName: string;
+
+    evaluationId: string;
+
+    /**
+     * The name of the tool that should have been called.
+     */
+    toolName: string;
+
+    type: 'TOOL_CALLED_WITH';
+
+    /**
+     * Whether to ignore case when comparing argument names.
+     */
+    ignoreCase?: boolean;
+
+    /**
+     * Whether to negate the assertion. "true" means the assertion must NOT be true.
+     */
+    negate?: boolean;
+
+    /**
+     * How heavily to weigh the assertion within the evaluation.
+     */
+    weight?: number;
+  }
 }
 
-export interface EvaluationAssertionUpdateParams {
-  evaluationId: string;
+export type EvaluationAssertionUpdateParams =
+  | EvaluationAssertionUpdateParams.EvaluationAssertionExactMatchBody
+  | EvaluationAssertionUpdateParams.EvaluationAssertionContainsAllBody
+  | EvaluationAssertionUpdateParams.EvaluationAssertionContainsAnyBody
+  | EvaluationAssertionUpdateParams.EvaluationAssertionStartsWithBody
+  | EvaluationAssertionUpdateParams.EvaluationAssertionCostBody
+  | EvaluationAssertionUpdateParams.EvaluationAssertionLatencyBody
+  | EvaluationAssertionUpdateParams.EvaluationAssertionToolCalledBody
+  | EvaluationAssertionUpdateParams.EvaluationAssertionToolCalledWithBody;
 
-  /**
-   * A JSON path to use when matching the response. Only required when type is
-   * `JSON_EXACT_MATCH` or `JSON_CONTAINS`.
-   */
-  jsonPath: string | null;
+export namespace EvaluationAssertionUpdateParams {
+  export interface EvaluationAssertionExactMatchBody {
+    evaluationId: string;
 
-  targetValue: string | null;
+    /**
+     * The value to match.
+     */
+    targetValue: string;
 
-  /**
-   * The name of the tool to match. Only required when type is `TOOL_CALLED` or
-   * `TOOL_CALLED_WITH`.
-   */
-  toolName: string | null;
+    type: 'EXACT_MATCH';
 
-  /**
-   * The type of evaluation matcher to use.
-   */
-  type:
-    | 'CONTAINS'
-    | 'EXACT_MATCH'
-    | 'JSON_CONTAINS'
-    | 'JSON_EXACT_MATCH'
-    | 'TOOL_CALLED'
-    | 'TOOL_CALLED_WITH';
+    /**
+     * Whether to ignore case when comparing strings.
+     */
+    ignoreCase?: boolean;
 
-  /**
-   * How heavily to weigh the assertion within the evaluation.
-   */
-  weight?: number;
+    /**
+     * A JSON path to use when matching a JSON response.
+     */
+    jsonPath?: string | null;
+
+    /**
+     * Whether to negate the assertion. "true" means the assertion must NOT be true.
+     */
+    negate?: boolean;
+
+    /**
+     * How heavily to weigh the assertion within the evaluation.
+     */
+    weight?: number;
+  }
+
+  export interface EvaluationAssertionContainsAllBody {
+    evaluationId: string;
+
+    /**
+     * List of values any of which may be present.
+     */
+    targetValues: Array<string>;
+
+    type: 'CONTAINS_ALL';
+
+    /**
+     * Whether to ignore case when comparing strings.
+     */
+    ignoreCase?: boolean;
+
+    /**
+     * A JSON path to use when matching a JSON response.
+     */
+    jsonPath?: string | null;
+
+    /**
+     * Whether to negate the assertion. "true" means the assertion must NOT be true.
+     */
+    negate?: boolean;
+
+    /**
+     * How heavily to weigh the assertion within the evaluation.
+     */
+    weight?: number;
+  }
+
+  export interface EvaluationAssertionContainsAnyBody {
+    evaluationId: string;
+
+    /**
+     * List of values any of which may be present.
+     */
+    targetValues: Array<string>;
+
+    type: 'CONTAINS_ANY';
+
+    /**
+     * Whether to ignore case when comparing strings.
+     */
+    ignoreCase?: boolean;
+
+    /**
+     * A JSON path to use when matching a JSON response.
+     */
+    jsonPath?: string | null;
+
+    /**
+     * Whether to negate the assertion. "true" means the assertion must NOT be true.
+     */
+    negate?: boolean;
+
+    /**
+     * How heavily to weigh the assertion within the evaluation.
+     */
+    weight?: number;
+  }
+
+  export interface EvaluationAssertionStartsWithBody {
+    evaluationId: string;
+
+    /**
+     * The value that the response should start with.
+     */
+    targetValue: string;
+
+    type: 'STARTS_WITH';
+
+    /**
+     * Whether to ignore case when comparing strings.
+     */
+    ignoreCase?: boolean;
+
+    /**
+     * A JSON path to use when matching a JSON response.
+     */
+    jsonPath?: string | null;
+
+    /**
+     * Whether to negate the assertion. "true" means the assertion must NOT be true.
+     */
+    negate?: boolean;
+
+    /**
+     * How heavily to weigh the assertion within the evaluation.
+     */
+    weight?: number;
+  }
+
+  export interface EvaluationAssertionCostBody {
+    evaluationId: string;
+
+    /**
+     * The cost threshold to be evaluated against.
+     */
+    targetThreshold: number;
+
+    type: 'COST';
+
+    /**
+     * How heavily to weigh the assertion within the evaluation.
+     */
+    weight?: number;
+  }
+
+  export interface EvaluationAssertionLatencyBody {
+    evaluationId: string;
+
+    /**
+     * The latency threshold to be evaluated against.
+     */
+    targetThreshold: number;
+
+    type: 'LATENCY';
+
+    /**
+     * How heavily to weigh the assertion within the evaluation.
+     */
+    weight?: number;
+  }
+
+  export interface EvaluationAssertionToolCalledBody {
+    evaluationId: string;
+
+    /**
+     * The name of the tool that should have been called.
+     */
+    toolName: string;
+
+    type: 'TOOL_CALLED';
+
+    /**
+     * How heavily to weigh the assertion within the evaluation.
+     */
+    weight?: number;
+  }
+
+  export interface EvaluationAssertionToolCalledWithBody {
+    /**
+     * The argument name to be matched.
+     */
+    argKeyName: string;
+
+    evaluationId: string;
+
+    /**
+     * The name of the tool that should have been called.
+     */
+    toolName: string;
+
+    type: 'TOOL_CALLED_WITH';
+
+    /**
+     * Whether to ignore case when comparing argument names.
+     */
+    ignoreCase?: boolean;
+
+    /**
+     * Whether to negate the assertion. "true" means the assertion must NOT be true.
+     */
+    negate?: boolean;
+
+    /**
+     * How heavily to weigh the assertion within the evaluation.
+     */
+    weight?: number;
+  }
 }
 
 export interface EvaluationAssertionListParams {
