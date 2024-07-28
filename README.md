@@ -149,7 +149,7 @@ const client = new PromptFoundry({
 });
 
 async function main() {
-  const modelParameters: PromptFoundry.ModelParameters = await promptFoundry.prompts.getParameters('1212121');
+  const modelParameters: PromptFoundry.ModelParameters = await client.prompts.getParameters('1212121');
 }
 
 main();
@@ -166,7 +166,7 @@ a subclass of `APIError` will be thrown:
 <!-- prettier-ignore -->
 ```ts
 async function main() {
-  const modelParameters = await promptFoundry.prompts.getParameters('1212121').catch(async (err) => {
+  const modelParameters = await client.prompts.getParameters('1212121').catch(async (err) => {
     if (err instanceof PromptFoundry.APIError) {
       console.log(err.status); // 400
       console.log(err.name); // BadRequestError
@@ -209,7 +209,7 @@ const client = new PromptFoundry({
 });
 
 // Or, configure per-request:
-await promptFoundry.prompts.getParameters('1212121', {
+await client.prompts.getParameters('1212121', {
   maxRetries: 5,
 });
 ```
@@ -226,7 +226,7 @@ const client = new PromptFoundry({
 });
 
 // Override per-request:
-await promptFoundry.prompts.getParameters('1212121', {
+await client.prompts.getParameters('1212121', {
   timeout: 5 * 1000,
 });
 ```
@@ -247,13 +247,11 @@ You can also use the `.withResponse()` method to get the raw `Response` along wi
 ```ts
 const client = new PromptFoundry();
 
-const response = await promptFoundry.prompts.getParameters('1212121').asResponse();
+const response = await client.prompts.getParameters('1212121').asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: modelParameters, response: raw } = await promptFoundry.prompts
-  .getParameters('1212121')
-  .withResponse();
+const { data: modelParameters, response: raw } = await client.prompts.getParameters('1212121').withResponse();
 console.log(raw.headers.get('X-My-Header'));
 console.log(modelParameters);
 ```
@@ -359,7 +357,7 @@ const client = new PromptFoundry({
 });
 
 // Override per-request:
-await promptFoundry.prompts.getParameters('1212121', {
+await client.prompts.getParameters('1212121', {
   httpAgent: new http.Agent({ keepAlive: false }),
 });
 ```
