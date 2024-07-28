@@ -12,10 +12,8 @@ describe('resource evaluationAssertions', () => {
   test('create: only required params', async () => {
     const responsePromise = promptFoundry.evaluationAssertions.create({
       evaluationId: 'evaluationId',
-      jsonPath: 'jsonPath',
       targetValue: 'targetValue',
-      toolName: 'toolName',
-      type: 'CONTAINS',
+      type: 'EXACT_MATCH',
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -29,10 +27,11 @@ describe('resource evaluationAssertions', () => {
   test('create: required and optional params', async () => {
     const response = await promptFoundry.evaluationAssertions.create({
       evaluationId: 'evaluationId',
-      jsonPath: 'jsonPath',
       targetValue: 'targetValue',
-      toolName: 'toolName',
-      type: 'CONTAINS',
+      type: 'EXACT_MATCH',
+      ignoreCase: true,
+      jsonPath: 'jsonPath',
+      negate: true,
       weight: 0,
     });
   });
@@ -40,10 +39,8 @@ describe('resource evaluationAssertions', () => {
   test('update: only required params', async () => {
     const responsePromise = promptFoundry.evaluationAssertions.update('1212121', {
       evaluationId: 'evaluationId',
-      jsonPath: 'jsonPath',
       targetValue: 'targetValue',
-      toolName: 'toolName',
-      type: 'CONTAINS',
+      type: 'EXACT_MATCH',
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -57,10 +54,11 @@ describe('resource evaluationAssertions', () => {
   test('update: required and optional params', async () => {
     const response = await promptFoundry.evaluationAssertions.update('1212121', {
       evaluationId: 'evaluationId',
-      jsonPath: 'jsonPath',
       targetValue: 'targetValue',
-      toolName: 'toolName',
-      type: 'CONTAINS',
+      type: 'EXACT_MATCH',
+      ignoreCase: true,
+      jsonPath: 'jsonPath',
+      negate: true,
       weight: 0,
     });
   });
