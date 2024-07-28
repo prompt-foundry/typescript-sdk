@@ -3,14 +3,14 @@
 import PromptFoundry from '@prompt-foundry/typescript-sdk';
 import { Response } from 'node-fetch';
 
-const promptFoundry = new PromptFoundry({
+const client = new PromptFoundry({
   apiKey: 'My API Key',
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
 describe('resource evaluationAssertions', () => {
   test('create: only required params', async () => {
-    const responsePromise = promptFoundry.evaluationAssertions.create({
+    const responsePromise = client.evaluationAssertions.create({
       evaluationId: 'evaluationId',
       targetValue: 'targetValue',
       type: 'EXACT_MATCH',
@@ -25,7 +25,7 @@ describe('resource evaluationAssertions', () => {
   });
 
   test('create: required and optional params', async () => {
-    const response = await promptFoundry.evaluationAssertions.create({
+    const response = await client.evaluationAssertions.create({
       evaluationId: 'evaluationId',
       targetValue: 'targetValue',
       type: 'EXACT_MATCH',
@@ -37,7 +37,7 @@ describe('resource evaluationAssertions', () => {
   });
 
   test('update: only required params', async () => {
-    const responsePromise = promptFoundry.evaluationAssertions.update('1212121', {
+    const responsePromise = client.evaluationAssertions.update('1212121', {
       evaluationId: 'evaluationId',
       targetValue: 'targetValue',
       type: 'EXACT_MATCH',
@@ -52,7 +52,7 @@ describe('resource evaluationAssertions', () => {
   });
 
   test('update: required and optional params', async () => {
-    const response = await promptFoundry.evaluationAssertions.update('1212121', {
+    const response = await client.evaluationAssertions.update('1212121', {
       evaluationId: 'evaluationId',
       targetValue: 'targetValue',
       type: 'EXACT_MATCH',
@@ -64,7 +64,7 @@ describe('resource evaluationAssertions', () => {
   });
 
   test('list', async () => {
-    const responsePromise = promptFoundry.evaluationAssertions.list();
+    const responsePromise = client.evaluationAssertions.list();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -76,23 +76,20 @@ describe('resource evaluationAssertions', () => {
 
   test('list: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(
-      promptFoundry.evaluationAssertions.list({ path: '/_stainless_unknown_path' }),
-    ).rejects.toThrow(PromptFoundry.NotFoundError);
+    await expect(client.evaluationAssertions.list({ path: '/_stainless_unknown_path' })).rejects.toThrow(
+      PromptFoundry.NotFoundError,
+    );
   });
 
   test('list: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      promptFoundry.evaluationAssertions.list(
-        { evaluationId: 'eval-1234' },
-        { path: '/_stainless_unknown_path' },
-      ),
+      client.evaluationAssertions.list({ evaluationId: 'eval-1234' }, { path: '/_stainless_unknown_path' }),
     ).rejects.toThrow(PromptFoundry.NotFoundError);
   });
 
   test('delete', async () => {
-    const responsePromise = promptFoundry.evaluationAssertions.delete('1212121');
+    const responsePromise = client.evaluationAssertions.delete('1212121');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -105,12 +102,12 @@ describe('resource evaluationAssertions', () => {
   test('delete: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      promptFoundry.evaluationAssertions.delete('1212121', { path: '/_stainless_unknown_path' }),
+      client.evaluationAssertions.delete('1212121', { path: '/_stainless_unknown_path' }),
     ).rejects.toThrow(PromptFoundry.NotFoundError);
   });
 
   test('get', async () => {
-    const responsePromise = promptFoundry.evaluationAssertions.get('1212121');
+    const responsePromise = client.evaluationAssertions.get('1212121');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -123,7 +120,7 @@ describe('resource evaluationAssertions', () => {
   test('get: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      promptFoundry.evaluationAssertions.get('1212121', { path: '/_stainless_unknown_path' }),
+      client.evaluationAssertions.get('1212121', { path: '/_stainless_unknown_path' }),
     ).rejects.toThrow(PromptFoundry.NotFoundError);
   });
 });
