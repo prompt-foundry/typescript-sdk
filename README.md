@@ -31,32 +31,30 @@ npm install openai
 Import the OpenAI and Prompt Foundry SDKs
 
 ```js
-import PromptFoundry from "@prompt-foundry/typescript-sdk";
-import { Configuration, OpenAIApi } from "openai";
+import PromptFoundry from '@prompt-foundry/typescript-sdk';
+import { Configuration, OpenAIApi } from 'openai';
 
 // Initialize Prompt Foundry SDK with your API key
 const promptFoundry = new PromptFoundry({
-  apiKey: process.env["PROMPT_FOUNDRY_API_KEY"],
+  apiKey: process.env['PROMPT_FOUNDRY_API_KEY'],
 });
 
 // Initialize OpenAI SDK with your API key
 const configuration = new Configuration({
-  apiKey: process.env["OPENAI_API_KEY"],
+  apiKey: process.env['OPENAI_API_KEY'],
 });
 const openai = new OpenAIApi(configuration);
 
 async function main() {
   // Retrieve model parameters for the prompt
-  const modelParameters = await promptFoundry.prompts.getParameters("1212121", {
-    variables: { hello: "world" },
+  const modelParameters = await promptFoundry.prompts.getParameters('1212121', {
+    variables: { hello: 'world' },
   });
 
   // check if provider is Open AI
-  if (modelParameters.provider === "openai") {
+  if (modelParameters.provider === 'openai') {
     // Use the retrieved parameters to create a chat completion request
-    const modelResponse = await openai.chat.completions.create(
-      modelParameters.parameters
-    );
+    const modelResponse = await openai.chat.completions.create(modelParameters.parameters);
 
     // Print the response from OpenAI
     console.log(modelResponse.data);
@@ -77,27 +75,27 @@ npm install @anthropic-ai/sdk
 Import the Anthropic and Prompt Foundry SDKs
 
 ```js
-import PromptFoundry from "@prompt-foundry/typescript-sdk";
-import Anthropic from "@anthropic-ai/sdk";
+import PromptFoundry from '@prompt-foundry/typescript-sdk';
+import Anthropic from '@anthropic-ai/sdk';
 
 // Initialize Prompt Foundry SDK with your API key
 const promptFoundry = new PromptFoundry({
-  apiKey: process.env["PROMPT_FOUNDRY_API_KEY"],
+  apiKey: process.env['PROMPT_FOUNDRY_API_KEY'],
 });
 
 // Initialize Anthropic SDK with your API key
 const anthropic = new Anthropic({
-  apiKey: process.env["ANTHROPIC_API_KEY"],
+  apiKey: process.env['ANTHROPIC_API_KEY'],
 });
 
 async function main() {
   // Retrieve model parameters for the prompt
-  const modelParameters = await promptFoundry.prompts.getParameters("1212121", {
-    variables: { hello: "world" },
+  const modelParameters = await promptFoundry.prompts.getParameters('1212121', {
+    variables: { hello: 'world' },
   });
 
   // check if provider is Open AI
-  if (modelParameters.provider === "anthropic") {
+  if (modelParameters.provider === 'anthropic') {
     // Use the retrieved parameters to create a chat completion request
     const message = await anthropic.messages.create(modelParameters.parameters);
 
@@ -117,7 +115,7 @@ This library includes TypeScript definitions for all request params and response
 ```ts
 import PromptFoundry from '@prompt-foundry/typescript-sdk';
 
-const promptFoundry = new PromptFoundry({
+const client = new PromptFoundry({
   apiKey: process.env['PROMPT_FOUNDRY_API_KEY'], // This is the default and can be omitted
 });
 
@@ -177,7 +175,7 @@ You can use the `maxRetries` option to configure or disable this:
 <!-- prettier-ignore -->
 ```js
 // Configure the default for all requests:
-const promptFoundry = new PromptFoundry({
+const client = new PromptFoundry({
   maxRetries: 0, // default is 2
 });
 
@@ -194,7 +192,7 @@ Requests time out after 1 minute by default. You can configure this with a `time
 <!-- prettier-ignore -->
 ```ts
 // Configure the default for all requests:
-const promptFoundry = new PromptFoundry({
+const client = new PromptFoundry({
   timeout: 20 * 1000, // 20 seconds (default is 1 minute)
 });
 
@@ -218,7 +216,7 @@ You can also use the `.withResponse()` method to get the raw `Response` along wi
 
 <!-- prettier-ignore -->
 ```ts
-const promptFoundry = new PromptFoundry();
+const client = new PromptFoundry();
 
 const response = await promptFoundry.prompts.getParameters('1212121').asResponse();
 console.log(response.headers.get('X-My-Header'));
@@ -327,7 +325,7 @@ import http from 'http';
 import { HttpsProxyAgent } from 'https-proxy-agent';
 
 // Configure the default for all requests:
-const promptFoundry = new PromptFoundry({
+const client = new PromptFoundry({
   httpAgent: new HttpsProxyAgent(process.env.PROXY_URL),
 });
 
