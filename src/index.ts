@@ -146,6 +146,7 @@ export class PromptFoundry extends Core.APIClient {
   }
 
   static PromptFoundry = this;
+  static DEFAULT_TIMEOUT = 60000; // 1 minute
 
   static PromptFoundryError = Errors.PromptFoundryError;
   static APIError = Errors.APIError;
