@@ -1,5 +1,39 @@
 # Changelog
 
+## 1.15.0 (2024-07-29)
+
+Full Changelog: [v1.14.0...v1.15.0](https://github.com/prompt-foundry/typescript-sdk/compare/v1.14.0...v1.15.0)
+
+### Features
+
+* **api:** OpenAPI spec update via Stainless API ([#167](https://github.com/prompt-foundry/typescript-sdk/issues/167)) ([f4194ed](https://github.com/prompt-foundry/typescript-sdk/commit/f4194ed4482d9297eeb30d15d96c59803601c300))
+* **api:** OpenAPI spec update via Stainless API ([#168](https://github.com/prompt-foundry/typescript-sdk/issues/168)) ([565aaca](https://github.com/prompt-foundry/typescript-sdk/commit/565aaca618c46677e2a9178d866f675ed307d82d))
+* **api:** OpenAPI spec update via Stainless API ([#169](https://github.com/prompt-foundry/typescript-sdk/issues/169)) ([f677dce](https://github.com/prompt-foundry/typescript-sdk/commit/f677dcee27effa57f53633c941515b5b6719463e))
+* **api:** OpenAPI spec update via Stainless API ([#170](https://github.com/prompt-foundry/typescript-sdk/issues/170)) ([0414fa8](https://github.com/prompt-foundry/typescript-sdk/commit/0414fa80f3e1b482d94f7ba9f01dbd5510d7a01d))
+* **api:** OpenAPI spec update via Stainless API ([#171](https://github.com/prompt-foundry/typescript-sdk/issues/171)) ([0edb9fa](https://github.com/prompt-foundry/typescript-sdk/commit/0edb9fa563f70ec730ecc7ba34e4bf156a655316))
+* **api:** OpenAPI spec update via Stainless API ([#172](https://github.com/prompt-foundry/typescript-sdk/issues/172)) ([42b9670](https://github.com/prompt-foundry/typescript-sdk/commit/42b967041822ba8c674f69d635613c4c783e0b66))
+* **api:** OpenAPI spec update via Stainless API ([#173](https://github.com/prompt-foundry/typescript-sdk/issues/173)) ([1b2e4b2](https://github.com/prompt-foundry/typescript-sdk/commit/1b2e4b223a50c2a4f9de289733f6de72564de4bd))
+* **api:** OpenAPI spec update via Stainless API ([#174](https://github.com/prompt-foundry/typescript-sdk/issues/174)) ([d374b01](https://github.com/prompt-foundry/typescript-sdk/commit/d374b0168b58595ae39fa573d21e7595c78ba613))
+* **api:** OpenAPI spec update via Stainless API ([#175](https://github.com/prompt-foundry/typescript-sdk/issues/175)) ([1ff2682](https://github.com/prompt-foundry/typescript-sdk/commit/1ff2682f491d37d6dfd24690085c7020f4978820))
+* **api:** OpenAPI spec update via Stainless API ([#178](https://github.com/prompt-foundry/typescript-sdk/issues/178)) ([a04deb8](https://github.com/prompt-foundry/typescript-sdk/commit/a04deb8166b0101e70df5f433a196ec350cec2e4))
+* **api:** OpenAPI spec update via Stainless API ([#179](https://github.com/prompt-foundry/typescript-sdk/issues/179)) ([33d3978](https://github.com/prompt-foundry/typescript-sdk/commit/33d39788f8406e56ecc54f1d021d4c0410484767))
+* **api:** OpenAPI spec update via Stainless API ([#180](https://github.com/prompt-foundry/typescript-sdk/issues/180)) ([d21e0e7](https://github.com/prompt-foundry/typescript-sdk/commit/d21e0e78dac8e8ea419ae91277fecd8506690408))
+* **api:** OpenAPI spec update via Stainless API ([#181](https://github.com/prompt-foundry/typescript-sdk/issues/181)) ([c8a0ea4](https://github.com/prompt-foundry/typescript-sdk/commit/c8a0ea4bfa1ddb763d9efd8dcd8fb13d8f27eb21))
+* **api:** OpenAPI spec update via Stainless API ([#182](https://github.com/prompt-foundry/typescript-sdk/issues/182)) ([49fd7b4](https://github.com/prompt-foundry/typescript-sdk/commit/49fd7b42b2013e1613034652e03e53eea1c98093))
+* **api:** OpenAPI spec update via Stainless API ([#184](https://github.com/prompt-foundry/typescript-sdk/issues/184)) ([00609d4](https://github.com/prompt-foundry/typescript-sdk/commit/00609d4ed913460bd07663413d83fdd05c2907b1))
+* **api:** OpenAPI spec update via Stainless API ([#185](https://github.com/prompt-foundry/typescript-sdk/issues/185)) ([e242f12](https://github.com/prompt-foundry/typescript-sdk/commit/e242f129e52ffeba1bd2173b951e3dfae67ef40d))
+
+
+### Bug Fixes
+
+* **compat:** remove ReadableStream polyfill redundant since node v16 ([#183](https://github.com/prompt-foundry/typescript-sdk/issues/183)) ([95dc075](https://github.com/prompt-foundry/typescript-sdk/commit/95dc075349c326cc978163b8e31ec43965d6af92))
+* use relative paths ([#177](https://github.com/prompt-foundry/typescript-sdk/issues/177)) ([136fe6a](https://github.com/prompt-foundry/typescript-sdk/commit/136fe6a66d2fff6ac8f3a4548ebfae0405dae6f5))
+
+
+### Chores
+
+* **tests:** update prism version ([#176](https://github.com/prompt-foundry/typescript-sdk/issues/176)) ([9e91a38](https://github.com/prompt-foundry/typescript-sdk/commit/9e91a38263b9e5bce0127be77376935af4086821))
+
 ## 1.14.0 (2024-07-17)
 
 Full Changelog: [v1.13.0...v1.14.0](https://github.com/prompt-foundry/typescript-sdk/compare/v1.13.0...v1.14.0)
