@@ -125,6 +125,7 @@ export class PromptFoundry extends Core.APIClient {
     this.apiKey = apiKey;
   }
 
+  completion: API.Completion = new API.Completion(this);
   prompts: API.Prompts = new API.Prompts(this);
   tools: API.Tools = new API.Tools(this);
   evaluationAssertions: API.EvaluationAssertions = new API.EvaluationAssertions(this);
@@ -187,6 +188,10 @@ export import fileFromPath = Uploads.fileFromPath;
 
 export namespace PromptFoundry {
   export import RequestOptions = Core.RequestOptions;
+
+  export import Completion = API.Completion;
+  export import CompletionCreateResponse = API.CompletionCreateResponse;
+  export import CompletionCreateParams = API.CompletionCreateParams;
 
   export import Prompts = API.Prompts;
   export import ModelParameters = API.ModelParameters;
