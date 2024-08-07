@@ -1,3 +1,13 @@
+# Completion
+
+Types:
+
+- <code><a href="./src/resources/completion.ts">CompletionCreateResponse</a></code>
+
+Methods:
+
+- <code title="post /sdk/v1/prompts/{id}/completion">client.completion.<a href="./src/resources/completion.ts">create</a>(id, { ...params }) -> CompletionCreateResponse</code>
+
 # Prompts
 
 Types:
