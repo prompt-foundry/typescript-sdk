@@ -455,7 +455,7 @@ export interface PromptConfiguration {
 export namespace PromptConfiguration {
   export interface Message {
     content: Array<
-      | Message.TextContentBlock
+      | Message.TextContentBlockSchema
       | Message.ImageBase64ContentBlock
       | Message.ToolCallContentBlock
       | Message.ToolResultContentBlock
@@ -465,7 +465,7 @@ export namespace PromptConfiguration {
   }
 
   export namespace Message {
-    export interface TextContentBlock {
+    export interface TextContentBlockSchema {
       text: string;
 
       type: 'TEXT';
@@ -631,7 +631,7 @@ export interface PromptCreateParams {
 export namespace PromptCreateParams {
   export interface Message {
     content: Array<
-      | Message.TextContentBlock
+      | Message.TextContentBlockSchema
       | Message.ImageBase64ContentBlock
       | Message.ToolCallContentBlock
       | Message.ToolResultContentBlock
@@ -643,7 +643,7 @@ export namespace PromptCreateParams {
   }
 
   export namespace Message {
-    export interface TextContentBlock {
+    export interface TextContentBlockSchema {
       text: string;
 
       type: 'TEXT';
@@ -781,7 +781,7 @@ export interface PromptUpdateParams {
 export namespace PromptUpdateParams {
   export interface Message {
     content: Array<
-      | Message.TextContentBlock
+      | Message.TextContentBlockSchema
       | Message.ImageBase64ContentBlock
       | Message.ToolCallContentBlock
       | Message.ToolResultContentBlock
@@ -793,7 +793,7 @@ export namespace PromptUpdateParams {
   }
 
   export namespace Message {
-    export interface TextContentBlock {
+    export interface TextContentBlockSchema {
       text: string;
 
       type: 'TEXT';
@@ -945,7 +945,7 @@ export interface PromptGetParametersParams {
 export namespace PromptGetParametersParams {
   export interface AppendMessage {
     content: Array<
-      | AppendMessage.TextContentBlock
+      | AppendMessage.TextContentBlockSchema
       | AppendMessage.ImageBase64ContentBlock
       | AppendMessage.ToolCallContentBlock
       | AppendMessage.ToolResultContentBlock
@@ -955,7 +955,7 @@ export namespace PromptGetParametersParams {
   }
 
   export namespace AppendMessage {
-    export interface TextContentBlock {
+    export interface TextContentBlockSchema {
       text: string;
 
       type: 'TEXT';
@@ -1019,7 +1019,7 @@ export namespace PromptGetParametersParams {
 
   export interface OverrideMessage {
     content: Array<
-      | OverrideMessage.TextContentBlock
+      | OverrideMessage.TextContentBlockSchema
       | OverrideMessage.ImageBase64ContentBlock
       | OverrideMessage.ToolCallContentBlock
       | OverrideMessage.ToolResultContentBlock
@@ -1029,7 +1029,7 @@ export namespace PromptGetParametersParams {
   }
 
   export namespace OverrideMessage {
-    export interface TextContentBlock {
+    export interface TextContentBlockSchema {
       text: string;
 
       type: 'TEXT';
