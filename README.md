@@ -1,14 +1,10 @@
 # Prompt Foundry TypeScript SDK
 
-The prompt engineering, prompt management, and prompt evaluation tool for TypeScript, JavaScript, and NodeJS.
+The prompt engineering, prompt management, and prompt evaluation tool for developers working on TypeScript, JavaScript, and NodeJS AI applications using large language models (LLMs).
 
 [![NPM version](https://img.shields.io/npm/v/@prompt-foundry/typescript-sdk.svg)](https://npmjs.org/package/@prompt-foundry/typescript-sdk) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@prompt-foundry/typescript-sdk)
 
 This library provides convenient access to the Prompt Foundry REST API from server-side TypeScript or JavaScript.
-
-The REST API documentation can be found on [docs.promptfoundry.ai](https://docs.promptfoundry.ai). The full API of this library can be found in [api.md](api.md).
-
-It is generated with [Stainless](https://www.stainlessapi.com/).
 
 ## Installation
 
@@ -18,9 +14,42 @@ npm install @prompt-foundry/typescript-sdk
 
 ## Usage
 
-The full API of this library can be found in [api.md](api.md).
+The full Prompt Foundry documentation can be found at [docs.promptfoundry.ai](https://docs.promptfoundry.ai/libraries/node).
 
-### OpenAI Integration
+### Option 1 - Completion Proxy
+
+Initiates a completion request to the configured LLM provider using specified parameters and provided variables. This endpoint abstracts the integration with different model providers, enabling seamless switching between models while maintaining a consistent data model for your application.
+
+```js
+import PromptFoundry from '@prompt-foundry/typescript-sdk';
+
+// Initialize Prompt Foundry SDK with your API key
+const promptFoundry = new PromptFoundry({
+  apiKey: process.env['PROMPT_FOUNDRY_API_KEY'],
+});
+
+async function main() {
+  // Retrieve model parameters for the prompt
+  const completionCreateResponse = await client.completion.create('637ae1aa8f4aa6fad144ccbd', {
+    // Optionally append additional messages to the converstation thread on top of your configured prompt messages
+    appendMessages: [
+      { role: 'user', content: [{ type: 'TEXT', text: 'What is the weather in Seattle, WA?' }] },
+    ],
+    // Supports prompt template variables
+    variables: {},
+  });
+  // completion response
+  console.log(completionCreateResponse.message);
+}
+
+main().catch(console.error);
+```
+
+### Option 2 - Direct Provider Integration
+
+Fetches the configured model parameters and messages rendered with the provided variables mapped to the set LLM provider. This endpoint abstracts the need to handle mapping between different providers, while still allowing direct calls to the providers.
+
+#### OpenAI Integration
 
 Install the OpenAI SDK
 
@@ -64,7 +93,7 @@ async function main() {
 main().catch(console.error);
 ```
 
-### Anthropic Integration
+#### Anthropic Integration
 
 Install the Anthropic SDK
 
