@@ -45,7 +45,7 @@ export namespace CompletionCreateResponse {
    */
   export interface Message {
     content: Array<
-      | Message.TextContentBlockSchema
+      | Message.TextContentBlock
       | Message.ImageBase64ContentBlock
       | Message.ToolCallContentBlock
       | Message.ToolResultContentBlock
@@ -55,7 +55,7 @@ export namespace CompletionCreateResponse {
   }
 
   export namespace Message {
-    export interface TextContentBlockSchema {
+    export interface TextContentBlock {
       text: string;
 
       type: 'TEXT';
@@ -167,7 +167,7 @@ export interface CompletionCreateParams {
 export namespace CompletionCreateParams {
   export interface AppendMessage {
     content: Array<
-      | AppendMessage.TextContentBlockSchema
+      | AppendMessage.TextContentBlock
       | AppendMessage.ImageBase64ContentBlock
       | AppendMessage.ToolCallContentBlock
       | AppendMessage.ToolResultContentBlock
@@ -177,7 +177,7 @@ export namespace CompletionCreateParams {
   }
 
   export namespace AppendMessage {
-    export interface TextContentBlockSchema {
+    export interface TextContentBlock {
       text: string;
 
       type: 'TEXT';
@@ -241,7 +241,7 @@ export namespace CompletionCreateParams {
 
   export interface OverrideMessage {
     content: Array<
-      | OverrideMessage.TextContentBlockSchema
+      | OverrideMessage.TextContentBlock
       | OverrideMessage.ImageBase64ContentBlock
       | OverrideMessage.ToolCallContentBlock
       | OverrideMessage.ToolResultContentBlock
@@ -251,7 +251,7 @@ export namespace CompletionCreateParams {
   }
 
   export namespace OverrideMessage {
-    export interface TextContentBlockSchema {
+    export interface TextContentBlock {
       text: string;
 
       type: 'TEXT';
