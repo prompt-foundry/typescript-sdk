@@ -47,9 +47,10 @@ export class Prompts extends APIResource {
   }
 
   /**
-   * Fetches the model configuration parameters for a specified prompt, including
-   * penalty settings, response format, and the model messages rendered with the
-   * given variables mapped to the set LLM provider.
+   * Fetches the configured model parameters and messages rendered with the provided
+   * variables mapped to the set LLM provider. This endpoint abstracts the need to
+   * handle mapping between different providers, while still allowing direct calls to
+   * the providers.
    */
   getParameters(
     id: string,
@@ -454,7 +455,7 @@ export interface PromptConfiguration {
 export namespace PromptConfiguration {
   export interface Message {
     content: Array<
-      | Message.TextContentBlockSchema
+      | Message.TextContentBlock
       | Message.ImageBase64ContentBlock
       | Message.ToolCallContentBlock
       | Message.ToolResultContentBlock
@@ -464,7 +465,7 @@ export namespace PromptConfiguration {
   }
 
   export namespace Message {
-    export interface TextContentBlockSchema {
+    export interface TextContentBlock {
       text: string;
 
       type: 'TEXT';
@@ -538,14 +539,9 @@ export namespace PromptConfiguration {
     maxTokens: number | null;
 
     /**
-     * Example: "gpt-3.5-turbo"
+     * The name of the model for the provider.
      */
-    modelName: string;
-
-    /**
-     * The provider of the provided model.
-     */
-    modelProvider: 'ANTHROPIC' | 'OPENAI';
+    name: string;
 
     parallelToolCalls: boolean;
 
@@ -553,6 +549,11 @@ export namespace PromptConfiguration {
      * Example: 0
      */
     presencePenalty: number;
+
+    /**
+     * The LLM model provider.
+     */
+    provider: 'ANTHROPIC' | 'OPENAI';
 
     /**
      * Example: PromptResponseFormat.TEXT
@@ -630,7 +631,7 @@ export interface PromptCreateParams {
 export namespace PromptCreateParams {
   export interface Message {
     content: Array<
-      | Message.TextContentBlockSchema
+      | Message.TextContentBlock
       | Message.ImageBase64ContentBlock
       | Message.ToolCallContentBlock
       | Message.ToolResultContentBlock
@@ -642,7 +643,7 @@ export namespace PromptCreateParams {
   }
 
   export namespace Message {
-    export interface TextContentBlockSchema {
+    export interface TextContentBlock {
       text: string;
 
       type: 'TEXT';
@@ -716,14 +717,9 @@ export namespace PromptCreateParams {
     maxTokens: number | null;
 
     /**
-     * Example: "gpt-3.5-turbo"
+     * The name of the model for the provider.
      */
-    modelName: string;
-
-    /**
-     * The provider of the provided model.
-     */
-    modelProvider: 'ANTHROPIC' | 'OPENAI';
+    name: string;
 
     parallelToolCalls: boolean;
 
@@ -731,6 +727,11 @@ export namespace PromptCreateParams {
      * Example: 0
      */
     presencePenalty: number;
+
+    /**
+     * The LLM model provider.
+     */
+    provider: 'ANTHROPIC' | 'OPENAI';
 
     /**
      * Example: PromptResponseFormat.TEXT
@@ -780,7 +781,7 @@ export interface PromptUpdateParams {
 export namespace PromptUpdateParams {
   export interface Message {
     content: Array<
-      | Message.TextContentBlockSchema
+      | Message.TextContentBlock
       | Message.ImageBase64ContentBlock
       | Message.ToolCallContentBlock
       | Message.ToolResultContentBlock
@@ -792,7 +793,7 @@ export namespace PromptUpdateParams {
   }
 
   export namespace Message {
-    export interface TextContentBlockSchema {
+    export interface TextContentBlock {
       text: string;
 
       type: 'TEXT';
@@ -866,14 +867,9 @@ export namespace PromptUpdateParams {
     maxTokens: number | null;
 
     /**
-     * Example: "gpt-3.5-turbo"
+     * The name of the model for the provider.
      */
-    modelName: string;
-
-    /**
-     * The provider of the provided model.
-     */
-    modelProvider: 'ANTHROPIC' | 'OPENAI';
+    name: string;
 
     parallelToolCalls: boolean;
 
@@ -881,6 +877,11 @@ export namespace PromptUpdateParams {
      * Example: 0
      */
     presencePenalty: number;
+
+    /**
+     * The LLM model provider.
+     */
+    provider: 'ANTHROPIC' | 'OPENAI';
 
     /**
      * Example: PromptResponseFormat.TEXT
@@ -944,7 +945,7 @@ export interface PromptGetParametersParams {
 export namespace PromptGetParametersParams {
   export interface AppendMessage {
     content: Array<
-      | AppendMessage.TextContentBlockSchema
+      | AppendMessage.TextContentBlock
       | AppendMessage.ImageBase64ContentBlock
       | AppendMessage.ToolCallContentBlock
       | AppendMessage.ToolResultContentBlock
@@ -954,7 +955,7 @@ export namespace PromptGetParametersParams {
   }
 
   export namespace AppendMessage {
-    export interface TextContentBlockSchema {
+    export interface TextContentBlock {
       text: string;
 
       type: 'TEXT';
@@ -1018,7 +1019,7 @@ export namespace PromptGetParametersParams {
 
   export interface OverrideMessage {
     content: Array<
-      | OverrideMessage.TextContentBlockSchema
+      | OverrideMessage.TextContentBlock
       | OverrideMessage.ImageBase64ContentBlock
       | OverrideMessage.ToolCallContentBlock
       | OverrideMessage.ToolResultContentBlock
@@ -1028,7 +1029,7 @@ export namespace PromptGetParametersParams {
   }
 
   export namespace OverrideMessage {
-    export interface TextContentBlockSchema {
+    export interface TextContentBlock {
       text: string;
 
       type: 'TEXT';
