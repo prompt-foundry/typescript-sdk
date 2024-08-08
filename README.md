@@ -1,6 +1,6 @@
 # Prompt Foundry TypeScript SDK
 
-Prompt Foundry is a comprehensive tool for prompt engineering, management, and evaluation. It is designed to simplify the development and integration process for developers working with TypeScript, JavaScript, and NodeJS AI applications utilizing large language models (LLMs).
+Prompt Foundry is a comprehensive tool for prompt engineering, management, and evaluation. It is designed to simplify the development and integration process for developers working on TypeScript, JavaScript, and NodeJS AI applications utilizing large language models (LLMs).
 
 This SDK provides convenient access to the Prompt Foundry REST API from server-side TypeScript or JavaScript applications.
 
