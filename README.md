@@ -158,7 +158,7 @@ const { data: completionCreateResponse, response: raw } = await client.completio
   .create('1212121')
   .withResponse();
 console.log(raw.headers.get('X-My-Header'));
-console.log(completionCreateResponse.provider);
+console.log(completionCreateResponse.message);
 ```
 
 ### Making custom/undocumented requests

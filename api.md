@@ -12,7 +12,7 @@ Methods:
 
 Types:
 
-- <code><a href="./src/resources/prompts.ts">ModelParameters</a></code>
+- <code><a href="./src/resources/prompts.ts">Parameters</a></code>
 - <code><a href="./src/resources/prompts.ts">PromptConfiguration</a></code>
 - <code><a href="./src/resources/prompts.ts">PromptListResponse</a></code>
 - <code><a href="./src/resources/prompts.ts">PromptDeleteResponse</a></code>
@@ -24,7 +24,7 @@ Methods:
 - <code title="get /sdk/v1/prompts">client.prompts.<a href="./src/resources/prompts.ts">list</a>() -> PromptListResponse</code>
 - <code title="delete /sdk/v1/prompts/{id}">client.prompts.<a href="./src/resources/prompts.ts">delete</a>(id) -> PromptDeleteResponse</code>
 - <code title="get /sdk/v1/prompts/{id}">client.prompts.<a href="./src/resources/prompts.ts">get</a>(id) -> PromptConfiguration</code>
-- <code title="post /sdk/v1/prompts/{id}">client.prompts.<a href="./src/resources/prompts.ts">getParameters</a>(id, { ...params }) -> ModelParameters</code>
+- <code title="post /sdk/v1/prompts/{id}">client.prompts.<a href="./src/resources/prompts.ts">getParameters</a>(id, { ...params }) -> Parameters</code>
 
 # Tools
 
