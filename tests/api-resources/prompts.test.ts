@@ -42,8 +42,8 @@ describe('resource prompts', () => {
       ],
       name: 'name',
       parameters: {
-        provider: 'ANTHROPIC',
-        name: 'name',
+        modelProvider: 'ANTHROPIC',
+        modelName: 'modelName',
         responseFormat: 'JSON',
         temperature: 0,
         topP: 0,
@@ -100,8 +100,8 @@ describe('resource prompts', () => {
       ],
       name: 'name',
       parameters: {
-        provider: 'ANTHROPIC',
-        name: 'name',
+        modelProvider: 'ANTHROPIC',
+        modelName: 'modelName',
         responseFormat: 'JSON',
         temperature: 0,
         topP: 0,
@@ -151,8 +151,8 @@ describe('resource prompts', () => {
       ],
       name: 'name',
       parameters: {
-        provider: 'ANTHROPIC',
-        name: 'name',
+        modelProvider: 'ANTHROPIC',
+        modelName: 'modelName',
         responseFormat: 'JSON',
         temperature: 0,
         topP: 0,
@@ -209,8 +209,8 @@ describe('resource prompts', () => {
       ],
       name: 'name',
       parameters: {
-        provider: 'ANTHROPIC',
-        name: 'name',
+        modelProvider: 'ANTHROPIC',
+        modelName: 'modelName',
         responseFormat: 'JSON',
         temperature: 0,
         topP: 0,
