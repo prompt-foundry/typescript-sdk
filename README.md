@@ -1,18 +1,24 @@
 # Prompt Foundry TypeScript SDK
 
-The prompt engineering, prompt management, and prompt evaluation tool for developers working on TypeScript, JavaScript, and NodeJS AI applications using large language models (LLMs).
+Prompt Foundry is a comprehensive tool for prompt engineering, management, and evaluation. It is designed to simplify the development and integration process for developers working on TypeScript, JavaScript, and NodeJS AI applications utilizing large language models (LLMs).
 
-[![NPM version](https://img.shields.io/npm/v/@prompt-foundry/typescript-sdk.svg)](https://npmjs.org/package/@prompt-foundry/typescript-sdk) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@prompt-foundry/typescript-sdk)
+This SDK provides convenient access to the Prompt Foundry REST API from server-side TypeScript or JavaScript applications.
 
-This library provides convenient access to the Prompt Foundry REST API from server-side TypeScript or JavaScript.
+## Deploy Prompt
+
+To use this SDK, you need a Prompt Foundry account. Sign up at [promptfoundry.ai](https://promptfoundry.ai). Follow the getting started guide in our [documentation](https://docs.promptfoundry.ai/quickstart/getting-started) to get set up.
+
+![Playground](/playground.gif)
 
 ## Installation
+
+[![NPM version](https://img.shields.io/npm/v/@prompt-foundry/typescript-sdk.svg)](https://npmjs.org/package/@prompt-foundry/typescript-sdk) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@prompt-foundry/typescript-sdk)
 
 ```sh
 npm install @prompt-foundry/typescript-sdk
 ```
 
-## Usage
+## Integration
 
 The full Prompt Foundry documentation can be found at [docs.promptfoundry.ai](https://docs.promptfoundry.ai/libraries/node).
 
