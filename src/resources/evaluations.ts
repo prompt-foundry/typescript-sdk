@@ -74,7 +74,7 @@ export interface Evaluation {
 export namespace Evaluation {
   export interface AppendedMessage {
     content: Array<
-      | AppendedMessage.TextContentBlock
+      | AppendedMessage.TextContentBlockSchema
       | AppendedMessage.ImageBase64ContentBlock
       | AppendedMessage.ToolCallContentBlock
       | AppendedMessage.ToolResultContentBlock
@@ -84,7 +84,7 @@ export namespace Evaluation {
   }
 
   export namespace AppendedMessage {
-    export interface TextContentBlock {
+    export interface TextContentBlockSchema {
       text: string;
 
       type: 'TEXT';
@@ -180,7 +180,7 @@ export interface EvaluationCreateParams {
 export namespace EvaluationCreateParams {
   export interface AppendedMessage {
     content: Array<
-      | AppendedMessage.TextContentBlock
+      | AppendedMessage.TextContentBlockSchema
       | AppendedMessage.ImageBase64ContentBlock
       | AppendedMessage.ToolCallContentBlock
       | AppendedMessage.ToolResultContentBlock
@@ -190,7 +190,7 @@ export namespace EvaluationCreateParams {
   }
 
   export namespace AppendedMessage {
-    export interface TextContentBlock {
+    export interface TextContentBlockSchema {
       text: string;
 
       type: 'TEXT';
@@ -280,7 +280,7 @@ export interface EvaluationUpdateParams {
 export namespace EvaluationUpdateParams {
   export interface AppendedMessage {
     content: Array<
-      | AppendedMessage.TextContentBlock
+      | AppendedMessage.TextContentBlockSchema
       | AppendedMessage.ImageBase64ContentBlock
       | AppendedMessage.ToolCallContentBlock
       | AppendedMessage.ToolResultContentBlock
@@ -290,7 +290,7 @@ export namespace EvaluationUpdateParams {
   }
 
   export namespace AppendedMessage {
-    export interface TextContentBlock {
+    export interface TextContentBlockSchema {
       text: string;
 
       type: 'TEXT';
