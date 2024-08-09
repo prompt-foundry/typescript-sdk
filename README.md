@@ -39,7 +39,15 @@ async function main() {
   const completionCreateResponse = await client.completion.create('637ae1aa8f4aa6fad144ccbd', {
     // Optionally append additional messages to the converstation thread on top of your configured prompt messages
     appendMessages: [
-      { role: 'user', content: [{ type: 'TEXT', text: 'What is the weather in Seattle, WA?' }] },
+      {
+        role: 'user',
+        content: [
+          {
+            type: 'TEXT',
+            text: 'What is the weather in Seattle, WA?',
+          },
+        ],
+      },
     ],
     // Supports prompt template variables
     variables: {},
@@ -84,6 +92,17 @@ async function main() {
   // Retrieve model parameters for the prompt
   const modelParameters = await promptFoundry.prompts.getParameters('1212121', {
     variables: { hello: 'world' },
+    appendMessages: [
+      {
+        role: 'user',
+        content: [
+          {
+            type: 'TEXT',
+            text: 'What is the weather in Seattle, WA?',
+          },
+        ],
+      },
+    ],
   });
 
   // check if provider is Open AI
@@ -127,6 +146,17 @@ async function main() {
   // Retrieve model parameters for the prompt
   const modelParameters = await promptFoundry.prompts.getParameters('1212121', {
     variables: { hello: 'world' },
+    appendMessages: [
+      {
+        role: 'user',
+        content: [
+          {
+            type: 'TEXT',
+            text: 'What is the weather in Seattle, WA?',
+          },
+        ],
+      },
+    ],
   });
 
   // check if provider is Open AI
