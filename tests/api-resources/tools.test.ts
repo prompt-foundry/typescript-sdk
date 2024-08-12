@@ -13,7 +13,7 @@ describe('resource tools', () => {
     const responsePromise = client.tools.create({
       description: 'description',
       name: 'name',
-      parameters: { foo: {} },
+      parameters: { foo: 'bar' },
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -28,7 +28,7 @@ describe('resource tools', () => {
     const response = await client.tools.create({
       description: 'description',
       name: 'name',
-      parameters: { foo: {} },
+      parameters: { foo: 'bar' },
     });
   });
 
@@ -36,7 +36,7 @@ describe('resource tools', () => {
     const responsePromise = client.tools.update('1212121', {
       description: 'description',
       name: 'name',
-      parameters: { foo: {} },
+      parameters: { foo: 'bar' },
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -51,7 +51,7 @@ describe('resource tools', () => {
     const response = await client.tools.update('1212121', {
       description: 'description',
       name: 'name',
-      parameters: { foo: {} },
+      parameters: { foo: 'bar' },
     });
   });
 
