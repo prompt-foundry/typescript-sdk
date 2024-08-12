@@ -36,25 +36,25 @@ describe('resource completion', () => {
           appendMessages: [
             {
               content: [
-                { type: 'TEXT', text: 'text' },
-                { type: 'TEXT', text: 'text' },
-                { type: 'TEXT', text: 'text' },
+                { text: 'text', type: 'TEXT' },
+                { text: 'text', type: 'TEXT' },
+                { text: 'text', type: 'TEXT' },
               ],
               role: 'assistant',
             },
             {
               content: [
-                { type: 'TEXT', text: 'text' },
-                { type: 'TEXT', text: 'text' },
-                { type: 'TEXT', text: 'text' },
+                { text: 'text', type: 'TEXT' },
+                { text: 'text', type: 'TEXT' },
+                { text: 'text', type: 'TEXT' },
               ],
               role: 'assistant',
             },
             {
               content: [
-                { type: 'TEXT', text: 'text' },
-                { type: 'TEXT', text: 'text' },
-                { type: 'TEXT', text: 'text' },
+                { text: 'text', type: 'TEXT' },
+                { text: 'text', type: 'TEXT' },
+                { text: 'text', type: 'TEXT' },
               ],
               role: 'assistant',
             },
@@ -62,25 +62,25 @@ describe('resource completion', () => {
           overrideMessages: [
             {
               content: [
-                { type: 'TEXT', text: 'text' },
-                { type: 'TEXT', text: 'text' },
-                { type: 'TEXT', text: 'text' },
+                { text: 'text', type: 'TEXT' },
+                { text: 'text', type: 'TEXT' },
+                { text: 'text', type: 'TEXT' },
               ],
               role: 'assistant',
             },
             {
               content: [
-                { type: 'TEXT', text: 'text' },
-                { type: 'TEXT', text: 'text' },
-                { type: 'TEXT', text: 'text' },
+                { text: 'text', type: 'TEXT' },
+                { text: 'text', type: 'TEXT' },
+                { text: 'text', type: 'TEXT' },
               ],
               role: 'assistant',
             },
             {
               content: [
-                { type: 'TEXT', text: 'text' },
-                { type: 'TEXT', text: 'text' },
-                { type: 'TEXT', text: 'text' },
+                { text: 'text', type: 'TEXT' },
+                { text: 'text', type: 'TEXT' },
+                { text: 'text', type: 'TEXT' },
               ],
               role: 'assistant',
             },
