@@ -19,7 +19,7 @@ export {
   EvaluationAssertions,
 } from './evaluation-assertions';
 export {
-  ModelParameters,
+  Parameters,
   PromptConfiguration,
   PromptListResponse,
   PromptDeleteResponse,
