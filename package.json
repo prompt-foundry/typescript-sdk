@@ -1,18 +1,7 @@
 {
   "name": "@prompt-foundry/typescript-sdk",
-  "version": "1.16.0",
-  "description": "The prompt engineering, prompt management, and prompt evaluation tool for TypeScript, JavaScript, and NodeJS.",
-  "keywords": [
-    "typescript",
-    "javascript",
-    "nodejs",
-    "sdk",
-    "prompt",
-    "prompt-engineering",
-    "prompt-management",
-    "prompt-testing",
-    "openai"
-  ],
+  "version": "1.17.0",
+  "description": "The official TypeScript library for the Prompt Foundry API",
   "author": "Prompt Foundry <dev-feedback@promptfoundry.ai>",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
@@ -32,7 +21,7 @@
     "prepare": "if ./scripts/utils/check-is-in-git-install.sh; then ./scripts/build; fi",
     "tsn": "ts-node -r tsconfig-paths/register",
     "lint": "./scripts/lint",
-    "fix": "eslint --fix --ext ts,js ."
+    "fix": "./scripts/format"
   },
   "dependencies": {
     "@types/node": "^18.11.18",
