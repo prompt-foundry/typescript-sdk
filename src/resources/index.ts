@@ -19,10 +19,10 @@ export {
   EvaluationAssertions,
 } from './evaluation-assertions';
 export {
-  Parameters,
   PromptConfiguration,
   PromptListResponse,
   PromptDeleteResponse,
+  PromptGetParametersResponse,
   PromptCreateParams,
   PromptUpdateParams,
   PromptGetParametersParams,
