@@ -1,5 +1,43 @@
 # Changelog
 
+## 1.19.0 (2024-09-14)
+
+Full Changelog: [v1.18.0...v1.19.0](https://github.com/prompt-foundry/typescript-sdk/compare/v1.18.0...v1.19.0)
+
+### Features
+
+* **api:** OpenAPI spec update via Stainless API ([#296](https://github.com/prompt-foundry/typescript-sdk/issues/296)) ([b109397](https://github.com/prompt-foundry/typescript-sdk/commit/b1093976c3be6e8389d65d127ebe856d2a34ff9b))
+* **api:** OpenAPI spec update via Stainless API ([#298](https://github.com/prompt-foundry/typescript-sdk/issues/298)) ([22df253](https://github.com/prompt-foundry/typescript-sdk/commit/22df253af20a541055c4343da65e7ef0774980b0))
+* **api:** OpenAPI spec update via Stainless API ([#299](https://github.com/prompt-foundry/typescript-sdk/issues/299)) ([aeb5bd3](https://github.com/prompt-foundry/typescript-sdk/commit/aeb5bd3613548139d4fbf332a2f48ef110ac87b1))
+* **api:** OpenAPI spec update via Stainless API ([#300](https://github.com/prompt-foundry/typescript-sdk/issues/300)) ([ab92cbf](https://github.com/prompt-foundry/typescript-sdk/commit/ab92cbf32a5e3373825d653b8b19ecdbd93c6fe7))
+* **api:** OpenAPI spec update via Stainless API ([#301](https://github.com/prompt-foundry/typescript-sdk/issues/301)) ([0cd49b4](https://github.com/prompt-foundry/typescript-sdk/commit/0cd49b4545499086879da70f5f620e90b189a6e6))
+* **api:** OpenAPI spec update via Stainless API ([#302](https://github.com/prompt-foundry/typescript-sdk/issues/302)) ([c78917f](https://github.com/prompt-foundry/typescript-sdk/commit/c78917fe2d358ba099969afb3a7982614c693c75))
+* **api:** OpenAPI spec update via Stainless API ([#303](https://github.com/prompt-foundry/typescript-sdk/issues/303)) ([dd0b8fb](https://github.com/prompt-foundry/typescript-sdk/commit/dd0b8fb614803dd001962871ad6964c0c48b8751))
+* **api:** OpenAPI spec update via Stainless API ([#304](https://github.com/prompt-foundry/typescript-sdk/issues/304)) ([cdd4c5f](https://github.com/prompt-foundry/typescript-sdk/commit/cdd4c5fa4a07b7e7e84e424bd6c56e92f0c16559))
+* **api:** OpenAPI spec update via Stainless API ([#305](https://github.com/prompt-foundry/typescript-sdk/issues/305)) ([9d85271](https://github.com/prompt-foundry/typescript-sdk/commit/9d85271e34f76fbf1dcb2b9f37e05d88f10bdb2e))
+* **api:** OpenAPI spec update via Stainless API ([#308](https://github.com/prompt-foundry/typescript-sdk/issues/308)) ([1c39d23](https://github.com/prompt-foundry/typescript-sdk/commit/1c39d23aaf9c86dd2eebd094ca2f768bd4ea2291))
+* **api:** OpenAPI spec update via Stainless API ([#311](https://github.com/prompt-foundry/typescript-sdk/issues/311)) ([80d0a53](https://github.com/prompt-foundry/typescript-sdk/commit/80d0a53aefee1441308ae23ef509a3672692a5c7))
+
+
+### Bug Fixes
+
+* **client:** correct File construction from node-fetch Responses ([#309](https://github.com/prompt-foundry/typescript-sdk/issues/309)) ([30fb68e](https://github.com/prompt-foundry/typescript-sdk/commit/30fb68e1fa8fcbecc0372d6357d7258fa04655b8))
+* **errors:** pass message through to APIConnectionError ([#313](https://github.com/prompt-foundry/typescript-sdk/issues/313)) ([694c64f](https://github.com/prompt-foundry/typescript-sdk/commit/694c64f2fa194e9bc5497facd1671efd7b300f5e))
+
+
+### Chores
+
+* better object fallback behaviour for casting errors ([#314](https://github.com/prompt-foundry/typescript-sdk/issues/314)) ([2aa9f07](https://github.com/prompt-foundry/typescript-sdk/commit/2aa9f07f487316818567b6963dce705d48d8233e))
+* **ci:** check for build errors ([#297](https://github.com/prompt-foundry/typescript-sdk/issues/297)) ([2b8b0d7](https://github.com/prompt-foundry/typescript-sdk/commit/2b8b0d7841454afe4a164217a1cccd7e3d58e2a5))
+* **ci:** install deps via ./script/bootstrap ([#307](https://github.com/prompt-foundry/typescript-sdk/issues/307)) ([8b757ee](https://github.com/prompt-foundry/typescript-sdk/commit/8b757ee63f894eb9498d575f2155732703d10995))
+* **internal:** codegen related update ([#312](https://github.com/prompt-foundry/typescript-sdk/issues/312)) ([14613c4](https://github.com/prompt-foundry/typescript-sdk/commit/14613c4fc73afd6fadaae1fb9e1de40af7edc889))
+* run tsc as part of lint script ([#306](https://github.com/prompt-foundry/typescript-sdk/issues/306)) ([e19c47f](https://github.com/prompt-foundry/typescript-sdk/commit/e19c47f427c47c2a645f03e1b1e2934acd5bc27e))
+
+
+### Documentation
+
+* update CONTRIBUTING.md ([#315](https://github.com/prompt-foundry/typescript-sdk/issues/315)) ([d24e88f](https://github.com/prompt-foundry/typescript-sdk/commit/d24e88f6ed1cfc692972c6200d89e6b2d5f2cc07))
+
 ## 1.18.0 (2024-08-26)
 
 Full Changelog: [v1.17.0...v1.18.0](https://github.com/prompt-foundry/typescript-sdk/compare/v1.17.0...v1.18.0)

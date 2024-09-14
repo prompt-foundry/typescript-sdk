@@ -1,6 +1,6 @@
 {
   "name": "@prompt-foundry/typescript-sdk",
-  "version": "1.18.0",
+  "version": "1.19.0",
   "description": "The official TypeScript library for the Prompt Foundry API",
   "author": "Prompt Foundry <dev-feedback@promptfoundry.ai>",
   "types": "dist/index.d.ts",
