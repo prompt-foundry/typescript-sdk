@@ -194,10 +194,10 @@ export namespace PromptFoundry {
   export import CompletionCreateParams = API.CompletionCreateParams;
 
   export import Prompts = API.Prompts;
-  export import Parameters = API.Parameters;
   export import PromptConfiguration = API.PromptConfiguration;
   export import PromptListResponse = API.PromptListResponse;
   export import PromptDeleteResponse = API.PromptDeleteResponse;
+  export import PromptGetParametersResponse = API.PromptGetParametersResponse;
   export import PromptCreateParams = API.PromptCreateParams;
   export import PromptUpdateParams = API.PromptUpdateParams;
   export import PromptGetParametersParams = API.PromptGetParametersParams;
