@@ -11,7 +11,7 @@
     "paths": {
       "@prompt-foundry/typescript-sdk/_shims/auto/*": ["src/_shims/auto/*-node"],
       "@prompt-foundry/typescript-sdk/*": ["src/*"],
-      "@prompt-foundry/typescript-sdk": ["src/index.ts"],
+      "@prompt-foundry/typescript-sdk": ["src/index.ts"]
     },
     "noEmit": true,
 
@@ -32,6 +32,7 @@
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
+		"isolatedModules": false,
 
     "skipLibCheck": true
   }

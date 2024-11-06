@@ -2,7 +2,6 @@
 
 import { APIResource } from '../resource';
 import * as Core from '../core';
-import * as ToolsAPI from './tools';
 
 export class Tools extends APIResource {
   /**
@@ -115,10 +114,12 @@ export interface ToolUpdateParams {
   parameters: Record<string, unknown>;
 }
 
-export namespace Tools {
-  export import Tool = ToolsAPI.Tool;
-  export import ToolListResponse = ToolsAPI.ToolListResponse;
-  export import ToolDeleteResponse = ToolsAPI.ToolDeleteResponse;
-  export import ToolCreateParams = ToolsAPI.ToolCreateParams;
-  export import ToolUpdateParams = ToolsAPI.ToolUpdateParams;
+export declare namespace Tools {
+  export {
+    type Tool as Tool,
+    type ToolListResponse as ToolListResponse,
+    type ToolDeleteResponse as ToolDeleteResponse,
+    type ToolCreateParams as ToolCreateParams,
+    type ToolUpdateParams as ToolUpdateParams,
+  };
 }

@@ -3,7 +3,6 @@
 import { APIResource } from '../resource';
 import { isRequestOptions } from '../core';
 import * as Core from '../core';
-import * as PromptsAPI from './prompts';
 
 export class Prompts extends APIResource {
   /**
@@ -1111,12 +1110,14 @@ export namespace PromptGetParametersParams {
   }
 }
 
-export namespace Prompts {
-  export import PromptConfiguration = PromptsAPI.PromptConfiguration;
-  export import PromptListResponse = PromptsAPI.PromptListResponse;
-  export import PromptDeleteResponse = PromptsAPI.PromptDeleteResponse;
-  export import PromptGetParametersResponse = PromptsAPI.PromptGetParametersResponse;
-  export import PromptCreateParams = PromptsAPI.PromptCreateParams;
-  export import PromptUpdateParams = PromptsAPI.PromptUpdateParams;
-  export import PromptGetParametersParams = PromptsAPI.PromptGetParametersParams;
+export declare namespace Prompts {
+  export {
+    type PromptConfiguration as PromptConfiguration,
+    type PromptListResponse as PromptListResponse,
+    type PromptDeleteResponse as PromptDeleteResponse,
+    type PromptGetParametersResponse as PromptGetParametersResponse,
+    type PromptCreateParams as PromptCreateParams,
+    type PromptUpdateParams as PromptUpdateParams,
+    type PromptGetParametersParams as PromptGetParametersParams,
+  };
 }

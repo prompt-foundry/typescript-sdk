@@ -1,10 +1,46 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Errors from './error';
-import * as Uploads from './uploads';
 import { type Agent } from './_shims/index';
 import * as Core from './core';
+import * as Errors from './error';
+import * as Uploads from './uploads';
 import * as API from './resources/index';
+import { Completion, CompletionCreateParams, CompletionCreateResponse } from './resources/completion';
+import {
+  EvaluationAssertion,
+  EvaluationAssertionCreateParams,
+  EvaluationAssertionDeleteResponse,
+  EvaluationAssertionListParams,
+  EvaluationAssertionListResponse,
+  EvaluationAssertionUpdateParams,
+  EvaluationAssertions,
+} from './resources/evaluation-assertions';
+import {
+  Evaluation,
+  EvaluationCreateParams,
+  EvaluationDeleteResponse,
+  EvaluationListResponse,
+  EvaluationUpdateParams,
+  Evaluations,
+} from './resources/evaluations';
+import {
+  PromptConfiguration,
+  PromptCreateParams,
+  PromptDeleteResponse,
+  PromptGetParametersParams,
+  PromptGetParametersResponse,
+  PromptListResponse,
+  PromptUpdateParams,
+  Prompts,
+} from './resources/prompts';
+import {
+  Tool,
+  ToolCreateParams,
+  ToolDeleteResponse,
+  ToolListResponse,
+  ToolUpdateParams,
+  Tools,
+} from './resources/tools';
 
 export interface ClientOptions {
   /**
@@ -167,7 +203,7 @@ export class PromptFoundry extends Core.APIClient {
   static fileFromPath = Uploads.fileFromPath;
 }
 
-export const {
+export {
   PromptFoundryError,
   APIError,
   APIConnectionError,
@@ -181,48 +217,64 @@ export const {
   InternalServerError,
   PermissionDeniedError,
   UnprocessableEntityError,
-} = Errors;
+} from './error';
 
 export import toFile = Uploads.toFile;
 export import fileFromPath = Uploads.fileFromPath;
 
-export namespace PromptFoundry {
-  export import RequestOptions = Core.RequestOptions;
+PromptFoundry.Completion = Completion;
+PromptFoundry.Prompts = Prompts;
+PromptFoundry.Tools = Tools;
+PromptFoundry.EvaluationAssertions = EvaluationAssertions;
+PromptFoundry.Evaluations = Evaluations;
 
-  export import Completion = API.Completion;
-  export import CompletionCreateResponse = API.CompletionCreateResponse;
-  export import CompletionCreateParams = API.CompletionCreateParams;
+export declare namespace PromptFoundry {
+  export type RequestOptions = Core.RequestOptions;
 
-  export import Prompts = API.Prompts;
-  export import PromptConfiguration = API.PromptConfiguration;
-  export import PromptListResponse = API.PromptListResponse;
-  export import PromptDeleteResponse = API.PromptDeleteResponse;
-  export import PromptGetParametersResponse = API.PromptGetParametersResponse;
-  export import PromptCreateParams = API.PromptCreateParams;
-  export import PromptUpdateParams = API.PromptUpdateParams;
-  export import PromptGetParametersParams = API.PromptGetParametersParams;
+  export {
+    Completion as Completion,
+    type CompletionCreateResponse as CompletionCreateResponse,
+    type CompletionCreateParams as CompletionCreateParams,
+  };
 
-  export import Tools = API.Tools;
-  export import Tool = API.Tool;
-  export import ToolListResponse = API.ToolListResponse;
-  export import ToolDeleteResponse = API.ToolDeleteResponse;
-  export import ToolCreateParams = API.ToolCreateParams;
-  export import ToolUpdateParams = API.ToolUpdateParams;
+  export {
+    Prompts as Prompts,
+    type PromptConfiguration as PromptConfiguration,
+    type PromptListResponse as PromptListResponse,
+    type PromptDeleteResponse as PromptDeleteResponse,
+    type PromptGetParametersResponse as PromptGetParametersResponse,
+    type PromptCreateParams as PromptCreateParams,
+    type PromptUpdateParams as PromptUpdateParams,
+    type PromptGetParametersParams as PromptGetParametersParams,
+  };
 
-  export import EvaluationAssertions = API.EvaluationAssertions;
-  export import EvaluationAssertion = API.EvaluationAssertion;
-  export import EvaluationAssertionListResponse = API.EvaluationAssertionListResponse;
-  export import EvaluationAssertionDeleteResponse = API.EvaluationAssertionDeleteResponse;
-  export import EvaluationAssertionCreateParams = API.EvaluationAssertionCreateParams;
-  export import EvaluationAssertionUpdateParams = API.EvaluationAssertionUpdateParams;
-  export import EvaluationAssertionListParams = API.EvaluationAssertionListParams;
+  export {
+    Tools as Tools,
+    type Tool as Tool,
+    type ToolListResponse as ToolListResponse,
+    type ToolDeleteResponse as ToolDeleteResponse,
+    type ToolCreateParams as ToolCreateParams,
+    type ToolUpdateParams as ToolUpdateParams,
+  };
 
-  export import Evaluations = API.Evaluations;
-  export import Evaluation = API.Evaluation;
-  export import EvaluationListResponse = API.EvaluationListResponse;
-  export import EvaluationDeleteResponse = API.EvaluationDeleteResponse;
-  export import EvaluationCreateParams = API.EvaluationCreateParams;
-  export import EvaluationUpdateParams = API.EvaluationUpdateParams;
+  export {
+    EvaluationAssertions as EvaluationAssertions,
+    type EvaluationAssertion as EvaluationAssertion,
+    type EvaluationAssertionListResponse as EvaluationAssertionListResponse,
+    type EvaluationAssertionDeleteResponse as EvaluationAssertionDeleteResponse,
+    type EvaluationAssertionCreateParams as EvaluationAssertionCreateParams,
+    type EvaluationAssertionUpdateParams as EvaluationAssertionUpdateParams,
+    type EvaluationAssertionListParams as EvaluationAssertionListParams,
+  };
+
+  export {
+    Evaluations as Evaluations,
+    type Evaluation as Evaluation,
+    type EvaluationListResponse as EvaluationListResponse,
+    type EvaluationDeleteResponse as EvaluationDeleteResponse,
+    type EvaluationCreateParams as EvaluationCreateParams,
+    type EvaluationUpdateParams as EvaluationUpdateParams,
+  };
 }
 
 export default PromptFoundry;

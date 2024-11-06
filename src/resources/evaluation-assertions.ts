@@ -3,7 +3,6 @@
 import { APIResource } from '../resource';
 import { isRequestOptions } from '../core';
 import * as Core from '../core';
-import * as EvaluationAssertionsAPI from './evaluation-assertions';
 
 export class EvaluationAssertions extends APIResource {
   /**
@@ -734,11 +733,13 @@ export interface EvaluationAssertionListParams {
   evaluationId?: string;
 }
 
-export namespace EvaluationAssertions {
-  export import EvaluationAssertion = EvaluationAssertionsAPI.EvaluationAssertion;
-  export import EvaluationAssertionListResponse = EvaluationAssertionsAPI.EvaluationAssertionListResponse;
-  export import EvaluationAssertionDeleteResponse = EvaluationAssertionsAPI.EvaluationAssertionDeleteResponse;
-  export import EvaluationAssertionCreateParams = EvaluationAssertionsAPI.EvaluationAssertionCreateParams;
-  export import EvaluationAssertionUpdateParams = EvaluationAssertionsAPI.EvaluationAssertionUpdateParams;
-  export import EvaluationAssertionListParams = EvaluationAssertionsAPI.EvaluationAssertionListParams;
+export declare namespace EvaluationAssertions {
+  export {
+    type EvaluationAssertion as EvaluationAssertion,
+    type EvaluationAssertionListResponse as EvaluationAssertionListResponse,
+    type EvaluationAssertionDeleteResponse as EvaluationAssertionDeleteResponse,
+    type EvaluationAssertionCreateParams as EvaluationAssertionCreateParams,
+    type EvaluationAssertionUpdateParams as EvaluationAssertionUpdateParams,
+    type EvaluationAssertionListParams as EvaluationAssertionListParams,
+  };
 }

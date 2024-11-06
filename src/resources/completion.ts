@@ -3,7 +3,6 @@
 import { APIResource } from '../resource';
 import { isRequestOptions } from '../core';
 import * as Core from '../core';
-import * as CompletionAPI from './completion';
 
 export class Completion extends APIResource {
   /**
@@ -321,7 +320,9 @@ export namespace CompletionCreateParams {
   }
 }
 
-export namespace Completion {
-  export import CompletionCreateResponse = CompletionAPI.CompletionCreateResponse;
-  export import CompletionCreateParams = CompletionAPI.CompletionCreateParams;
+export declare namespace Completion {
+  export {
+    type CompletionCreateResponse as CompletionCreateResponse,
+    type CompletionCreateParams as CompletionCreateParams,
+  };
 }

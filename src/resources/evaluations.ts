@@ -2,7 +2,6 @@
 
 import { APIResource } from '../resource';
 import * as Core from '../core';
-import * as EvaluationsAPI from './evaluations';
 
 export class Evaluations extends APIResource {
   /**
@@ -353,10 +352,12 @@ export namespace EvaluationUpdateParams {
   }
 }
 
-export namespace Evaluations {
-  export import Evaluation = EvaluationsAPI.Evaluation;
-  export import EvaluationListResponse = EvaluationsAPI.EvaluationListResponse;
-  export import EvaluationDeleteResponse = EvaluationsAPI.EvaluationDeleteResponse;
-  export import EvaluationCreateParams = EvaluationsAPI.EvaluationCreateParams;
-  export import EvaluationUpdateParams = EvaluationsAPI.EvaluationUpdateParams;
+export declare namespace Evaluations {
+  export {
+    type Evaluation as Evaluation,
+    type EvaluationListResponse as EvaluationListResponse,
+    type EvaluationDeleteResponse as EvaluationDeleteResponse,
+    type EvaluationCreateParams as EvaluationCreateParams,
+    type EvaluationUpdateParams as EvaluationUpdateParams,
+  };
 }
