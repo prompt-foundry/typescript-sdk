@@ -203,31 +203,11 @@ export class PromptFoundry extends Core.APIClient {
   static fileFromPath = Uploads.fileFromPath;
 }
 
-export {
-  PromptFoundryError,
-  APIError,
-  APIConnectionError,
-  APIConnectionTimeoutError,
-  APIUserAbortError,
-  NotFoundError,
-  ConflictError,
-  RateLimitError,
-  BadRequestError,
-  AuthenticationError,
-  InternalServerError,
-  PermissionDeniedError,
-  UnprocessableEntityError,
-} from './error';
-
-export import toFile = Uploads.toFile;
-export import fileFromPath = Uploads.fileFromPath;
-
 PromptFoundry.Completion = Completion;
 PromptFoundry.Prompts = Prompts;
 PromptFoundry.Tools = Tools;
 PromptFoundry.EvaluationAssertions = EvaluationAssertions;
 PromptFoundry.Evaluations = Evaluations;
-
 export declare namespace PromptFoundry {
   export type RequestOptions = Core.RequestOptions;
 
@@ -276,5 +256,22 @@ export declare namespace PromptFoundry {
     type EvaluationUpdateParams as EvaluationUpdateParams,
   };
 }
+
+export { toFile, fileFromPath } from '@prompt-foundry/typescript-sdk/uploads';
+export {
+  PromptFoundryError,
+  APIError,
+  APIConnectionError,
+  APIConnectionTimeoutError,
+  APIUserAbortError,
+  NotFoundError,
+  ConflictError,
+  RateLimitError,
+  BadRequestError,
+  AuthenticationError,
+  InternalServerError,
+  PermissionDeniedError,
+  UnprocessableEntityError,
+} from '@prompt-foundry/typescript-sdk/error';
 
 export default PromptFoundry;
