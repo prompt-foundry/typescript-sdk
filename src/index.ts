@@ -257,7 +257,7 @@ export declare namespace PromptFoundry {
   };
 }
 
-export { toFile, fileFromPath } from '@prompt-foundry/typescript-sdk/uploads';
+export { toFile, fileFromPath } from './uploads';
 export {
   PromptFoundryError,
   APIError,
@@ -272,6 +272,6 @@ export {
   InternalServerError,
   PermissionDeniedError,
   UnprocessableEntityError,
-} from '@prompt-foundry/typescript-sdk/error';
+} from './error';
 
 export default PromptFoundry;
