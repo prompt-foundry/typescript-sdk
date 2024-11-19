@@ -11,32 +11,7 @@ const client = new PromptFoundry({
 describe('resource evaluations', () => {
   test('create: only required params', async () => {
     const responsePromise = client.evaluations.create({
-      appendedMessages: [
-        {
-          content: [
-            { text: 'text', type: 'TEXT' },
-            { text: 'text', type: 'TEXT' },
-            { text: 'text', type: 'TEXT' },
-          ],
-          role: 'assistant',
-        },
-        {
-          content: [
-            { text: 'text', type: 'TEXT' },
-            { text: 'text', type: 'TEXT' },
-            { text: 'text', type: 'TEXT' },
-          ],
-          role: 'assistant',
-        },
-        {
-          content: [
-            { text: 'text', type: 'TEXT' },
-            { text: 'text', type: 'TEXT' },
-            { text: 'text', type: 'TEXT' },
-          ],
-          role: 'assistant',
-        },
-      ],
+      appendedMessages: [{ content: [{ text: 'text', type: 'TEXT' }], role: 'assistant' }],
       promptId: 'promptId',
       variables: { foo: 'string' },
     });
@@ -51,32 +26,7 @@ describe('resource evaluations', () => {
 
   test('create: required and optional params', async () => {
     const response = await client.evaluations.create({
-      appendedMessages: [
-        {
-          content: [
-            { text: 'text', type: 'TEXT' },
-            { text: 'text', type: 'TEXT' },
-            { text: 'text', type: 'TEXT' },
-          ],
-          role: 'assistant',
-        },
-        {
-          content: [
-            { text: 'text', type: 'TEXT' },
-            { text: 'text', type: 'TEXT' },
-            { text: 'text', type: 'TEXT' },
-          ],
-          role: 'assistant',
-        },
-        {
-          content: [
-            { text: 'text', type: 'TEXT' },
-            { text: 'text', type: 'TEXT' },
-            { text: 'text', type: 'TEXT' },
-          ],
-          role: 'assistant',
-        },
-      ],
+      appendedMessages: [{ content: [{ text: 'text', type: 'TEXT' }], role: 'assistant' }],
       promptId: 'promptId',
       variables: { foo: 'string' },
       threshold: 0,
@@ -86,32 +36,7 @@ describe('resource evaluations', () => {
 
   test('update: only required params', async () => {
     const responsePromise = client.evaluations.update('1212121', {
-      appendedMessages: [
-        {
-          content: [
-            { text: 'text', type: 'TEXT' },
-            { text: 'text', type: 'TEXT' },
-            { text: 'text', type: 'TEXT' },
-          ],
-          role: 'assistant',
-        },
-        {
-          content: [
-            { text: 'text', type: 'TEXT' },
-            { text: 'text', type: 'TEXT' },
-            { text: 'text', type: 'TEXT' },
-          ],
-          role: 'assistant',
-        },
-        {
-          content: [
-            { text: 'text', type: 'TEXT' },
-            { text: 'text', type: 'TEXT' },
-            { text: 'text', type: 'TEXT' },
-          ],
-          role: 'assistant',
-        },
-      ],
+      appendedMessages: [{ content: [{ text: 'text', type: 'TEXT' }], role: 'assistant' }],
       promptId: 'promptId',
       variables: { foo: 'string' },
     });
@@ -126,32 +51,7 @@ describe('resource evaluations', () => {
 
   test('update: required and optional params', async () => {
     const response = await client.evaluations.update('1212121', {
-      appendedMessages: [
-        {
-          content: [
-            { text: 'text', type: 'TEXT' },
-            { text: 'text', type: 'TEXT' },
-            { text: 'text', type: 'TEXT' },
-          ],
-          role: 'assistant',
-        },
-        {
-          content: [
-            { text: 'text', type: 'TEXT' },
-            { text: 'text', type: 'TEXT' },
-            { text: 'text', type: 'TEXT' },
-          ],
-          role: 'assistant',
-        },
-        {
-          content: [
-            { text: 'text', type: 'TEXT' },
-            { text: 'text', type: 'TEXT' },
-            { text: 'text', type: 'TEXT' },
-          ],
-          role: 'assistant',
-        },
-      ],
+      appendedMessages: [{ content: [{ text: 'text', type: 'TEXT' }], role: 'assistant' }],
       promptId: 'promptId',
       variables: { foo: 'string' },
       threshold: 0,

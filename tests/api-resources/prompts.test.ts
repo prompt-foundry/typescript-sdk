@@ -12,33 +12,7 @@ describe('resource prompts', () => {
   test('create: only required params', async () => {
     const responsePromise = client.prompts.create({
       messages: [
-        {
-          content: [
-            { text: 'text', type: 'TEXT' },
-            { text: 'text', type: 'TEXT' },
-            { text: 'text', type: 'TEXT' },
-          ],
-          promptMessageId: 'promptMessageId',
-          role: 'assistant',
-        },
-        {
-          content: [
-            { text: 'text', type: 'TEXT' },
-            { text: 'text', type: 'TEXT' },
-            { text: 'text', type: 'TEXT' },
-          ],
-          promptMessageId: 'promptMessageId',
-          role: 'assistant',
-        },
-        {
-          content: [
-            { text: 'text', type: 'TEXT' },
-            { text: 'text', type: 'TEXT' },
-            { text: 'text', type: 'TEXT' },
-          ],
-          promptMessageId: 'promptMessageId',
-          role: 'assistant',
-        },
+        { content: [{ text: 'text', type: 'TEXT' }], promptMessageId: 'promptMessageId', role: 'assistant' },
       ],
       name: 'name',
       parameters: {
@@ -56,7 +30,7 @@ describe('resource prompts', () => {
         topK: 1,
         topP: 0,
       },
-      tools: [{ toolId: 'toolId' }, { toolId: 'toolId' }, { toolId: 'toolId' }],
+      tools: [{ toolId: 'toolId' }],
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -70,33 +44,7 @@ describe('resource prompts', () => {
   test('create: required and optional params', async () => {
     const response = await client.prompts.create({
       messages: [
-        {
-          content: [
-            { text: 'text', type: 'TEXT' },
-            { text: 'text', type: 'TEXT' },
-            { text: 'text', type: 'TEXT' },
-          ],
-          promptMessageId: 'promptMessageId',
-          role: 'assistant',
-        },
-        {
-          content: [
-            { text: 'text', type: 'TEXT' },
-            { text: 'text', type: 'TEXT' },
-            { text: 'text', type: 'TEXT' },
-          ],
-          promptMessageId: 'promptMessageId',
-          role: 'assistant',
-        },
-        {
-          content: [
-            { text: 'text', type: 'TEXT' },
-            { text: 'text', type: 'TEXT' },
-            { text: 'text', type: 'TEXT' },
-          ],
-          promptMessageId: 'promptMessageId',
-          role: 'assistant',
-        },
+        { content: [{ text: 'text', type: 'TEXT' }], promptMessageId: 'promptMessageId', role: 'assistant' },
       ],
       name: 'name',
       parameters: {
@@ -114,40 +62,14 @@ describe('resource prompts', () => {
         topK: 1,
         topP: 0,
       },
-      tools: [{ toolId: 'toolId' }, { toolId: 'toolId' }, { toolId: 'toolId' }],
+      tools: [{ toolId: 'toolId' }],
     });
   });
 
   test('update: only required params', async () => {
     const responsePromise = client.prompts.update('1212121', {
       messages: [
-        {
-          content: [
-            { text: 'text', type: 'TEXT' },
-            { text: 'text', type: 'TEXT' },
-            { text: 'text', type: 'TEXT' },
-          ],
-          promptMessageId: 'promptMessageId',
-          role: 'assistant',
-        },
-        {
-          content: [
-            { text: 'text', type: 'TEXT' },
-            { text: 'text', type: 'TEXT' },
-            { text: 'text', type: 'TEXT' },
-          ],
-          promptMessageId: 'promptMessageId',
-          role: 'assistant',
-        },
-        {
-          content: [
-            { text: 'text', type: 'TEXT' },
-            { text: 'text', type: 'TEXT' },
-            { text: 'text', type: 'TEXT' },
-          ],
-          promptMessageId: 'promptMessageId',
-          role: 'assistant',
-        },
+        { content: [{ text: 'text', type: 'TEXT' }], promptMessageId: 'promptMessageId', role: 'assistant' },
       ],
       name: 'name',
       parameters: {
@@ -165,7 +87,7 @@ describe('resource prompts', () => {
         topK: 1,
         topP: 0,
       },
-      tools: [{ toolId: 'toolId' }, { toolId: 'toolId' }, { toolId: 'toolId' }],
+      tools: [{ toolId: 'toolId' }],
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -179,33 +101,7 @@ describe('resource prompts', () => {
   test('update: required and optional params', async () => {
     const response = await client.prompts.update('1212121', {
       messages: [
-        {
-          content: [
-            { text: 'text', type: 'TEXT' },
-            { text: 'text', type: 'TEXT' },
-            { text: 'text', type: 'TEXT' },
-          ],
-          promptMessageId: 'promptMessageId',
-          role: 'assistant',
-        },
-        {
-          content: [
-            { text: 'text', type: 'TEXT' },
-            { text: 'text', type: 'TEXT' },
-            { text: 'text', type: 'TEXT' },
-          ],
-          promptMessageId: 'promptMessageId',
-          role: 'assistant',
-        },
-        {
-          content: [
-            { text: 'text', type: 'TEXT' },
-            { text: 'text', type: 'TEXT' },
-            { text: 'text', type: 'TEXT' },
-          ],
-          promptMessageId: 'promptMessageId',
-          role: 'assistant',
-        },
+        { content: [{ text: 'text', type: 'TEXT' }], promptMessageId: 'promptMessageId', role: 'assistant' },
       ],
       name: 'name',
       parameters: {
@@ -223,7 +119,7 @@ describe('resource prompts', () => {
         topK: 1,
         topP: 0,
       },
-      tools: [{ toolId: 'toolId' }, { toolId: 'toolId' }, { toolId: 'toolId' }],
+      tools: [{ toolId: 'toolId' }],
     });
   });
 
@@ -305,58 +201,8 @@ describe('resource prompts', () => {
       client.prompts.getParameters(
         '1212121',
         {
-          appendMessages: [
-            {
-              content: [
-                { text: 'text', type: 'TEXT' },
-                { text: 'text', type: 'TEXT' },
-                { text: 'text', type: 'TEXT' },
-              ],
-              role: 'assistant',
-            },
-            {
-              content: [
-                { text: 'text', type: 'TEXT' },
-                { text: 'text', type: 'TEXT' },
-                { text: 'text', type: 'TEXT' },
-              ],
-              role: 'assistant',
-            },
-            {
-              content: [
-                { text: 'text', type: 'TEXT' },
-                { text: 'text', type: 'TEXT' },
-                { text: 'text', type: 'TEXT' },
-              ],
-              role: 'assistant',
-            },
-          ],
-          overrideMessages: [
-            {
-              content: [
-                { text: 'text', type: 'TEXT' },
-                { text: 'text', type: 'TEXT' },
-                { text: 'text', type: 'TEXT' },
-              ],
-              role: 'assistant',
-            },
-            {
-              content: [
-                { text: 'text', type: 'TEXT' },
-                { text: 'text', type: 'TEXT' },
-                { text: 'text', type: 'TEXT' },
-              ],
-              role: 'assistant',
-            },
-            {
-              content: [
-                { text: 'text', type: 'TEXT' },
-                { text: 'text', type: 'TEXT' },
-                { text: 'text', type: 'TEXT' },
-              ],
-              role: 'assistant',
-            },
-          ],
+          appendMessages: [{ content: [{ text: 'text', type: 'TEXT' }], role: 'assistant' }],
+          overrideMessages: [{ content: [{ text: 'text', type: 'TEXT' }], role: 'assistant' }],
           user: 'user',
           variables: { foo: 'string' },
         },

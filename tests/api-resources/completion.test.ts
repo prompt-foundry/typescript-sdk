@@ -33,58 +33,8 @@ describe('resource completion', () => {
       client.completion.create(
         '1212121',
         {
-          appendMessages: [
-            {
-              content: [
-                { text: 'text', type: 'TEXT' },
-                { text: 'text', type: 'TEXT' },
-                { text: 'text', type: 'TEXT' },
-              ],
-              role: 'assistant',
-            },
-            {
-              content: [
-                { text: 'text', type: 'TEXT' },
-                { text: 'text', type: 'TEXT' },
-                { text: 'text', type: 'TEXT' },
-              ],
-              role: 'assistant',
-            },
-            {
-              content: [
-                { text: 'text', type: 'TEXT' },
-                { text: 'text', type: 'TEXT' },
-                { text: 'text', type: 'TEXT' },
-              ],
-              role: 'assistant',
-            },
-          ],
-          overrideMessages: [
-            {
-              content: [
-                { text: 'text', type: 'TEXT' },
-                { text: 'text', type: 'TEXT' },
-                { text: 'text', type: 'TEXT' },
-              ],
-              role: 'assistant',
-            },
-            {
-              content: [
-                { text: 'text', type: 'TEXT' },
-                { text: 'text', type: 'TEXT' },
-                { text: 'text', type: 'TEXT' },
-              ],
-              role: 'assistant',
-            },
-            {
-              content: [
-                { text: 'text', type: 'TEXT' },
-                { text: 'text', type: 'TEXT' },
-                { text: 'text', type: 'TEXT' },
-              ],
-              role: 'assistant',
-            },
-          ],
+          appendMessages: [{ content: [{ text: 'text', type: 'TEXT' }], role: 'assistant' }],
+          overrideMessages: [{ content: [{ text: 'text', type: 'TEXT' }], role: 'assistant' }],
           user: 'user',
           variables: { foo: 'string' },
         },
