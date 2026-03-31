@@ -168,7 +168,7 @@ export interface CompletionCreateParams {
   /**
    * The template variables added to the prompt when executing the prompt.
    */
-  variables?: Record<string, string | null>;
+  variables?: { [key: string]: string | null };
 }
 
 export namespace CompletionCreateParams {

@@ -247,7 +247,7 @@ export namespace PromptConfiguration {
      * schema is designed to match the TypeScript Record<string, unknown>, allowing for
      * any properties with values of any type.
      */
-    parameters: Record<string, unknown>;
+    parameters: { [key: string]: unknown };
   }
 }
 
@@ -345,7 +345,7 @@ export namespace PromptGetParametersResponse {
         export interface ToolUseBlockParam {
           id: string;
 
-          input: Record<string, string>;
+          input: { [key: string]: string };
 
           name: string;
 
@@ -419,7 +419,8 @@ export namespace PromptGetParametersResponse {
         export interface InputSchema {
           type: 'object';
 
-          properties?: unknown | null;
+          properties?: unknown;
+
           [k: string]: unknown;
         }
       }
@@ -455,7 +456,7 @@ export namespace PromptGetParametersResponse {
 
       frequency_penalty?: number | null;
 
-      logit_bias?: Record<string, number> | null;
+      logit_bias?: { [key: string]: number } | null;
 
       logprobs?: boolean | null;
 
@@ -602,7 +603,7 @@ export namespace PromptGetParametersResponse {
 
           description?: string;
 
-          schema?: Record<string, unknown>;
+          schema?: { [key: string]: unknown };
         }
       }
 
@@ -630,7 +631,7 @@ export namespace PromptGetParametersResponse {
 
           description?: string;
 
-          parameters?: Record<string, unknown>;
+          parameters?: { [key: string]: unknown };
         }
       }
     }
@@ -958,7 +959,7 @@ export interface PromptGetParametersParams {
   /**
    * The template variables added to the prompt when executing the prompt.
    */
-  variables?: Record<string, string | null>;
+  variables?: { [key: string]: string | null };
 }
 
 export namespace PromptGetParametersParams {

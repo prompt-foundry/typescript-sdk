@@ -58,7 +58,7 @@ export interface Evaluation {
   /**
    * The template variables added to the prompt when executing the prompt.
    */
-  variables: Record<string, string | null>;
+  variables: { [key: string]: string | null };
 
   /**
    * What percentage of assertions must pass for the evaluation to pass.
@@ -164,7 +164,7 @@ export interface EvaluationCreateParams {
   /**
    * The template variables added to the prompt when executing the prompt.
    */
-  variables: Record<string, string | null>;
+  variables: { [key: string]: string | null };
 
   /**
    * What percentage of assertions must pass for the evaluation to pass.
@@ -264,7 +264,7 @@ export interface EvaluationUpdateParams {
   /**
    * The template variables added to the prompt when executing the prompt.
    */
-  variables: Record<string, string | null>;
+  variables: { [key: string]: string | null };
 
   /**
    * What percentage of assertions must pass for the evaluation to pass.

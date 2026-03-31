@@ -64,7 +64,7 @@ export interface Tool {
    * schema is designed to match the TypeScript Record<string, unknown>, allowing for
    * any properties with values of any type.
    */
-  parameters: Record<string, unknown>;
+  parameters: { [key: string]: unknown };
 }
 
 export type ToolListResponse = Array<Tool>;
@@ -91,7 +91,7 @@ export interface ToolCreateParams {
    * schema is designed to match the TypeScript Record<string, unknown>, allowing for
    * any properties with values of any type.
    */
-  parameters: Record<string, unknown>;
+  parameters: { [key: string]: unknown };
 }
 
 export interface ToolUpdateParams {
@@ -112,7 +112,7 @@ export interface ToolUpdateParams {
    * schema is designed to match the TypeScript Record<string, unknown>, allowing for
    * any properties with values of any type.
    */
-  parameters: Record<string, unknown>;
+  parameters: { [key: string]: unknown };
 }
 
 export namespace Tools {

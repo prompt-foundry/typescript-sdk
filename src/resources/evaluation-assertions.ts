@@ -307,7 +307,7 @@ export type EvaluationAssertionCreateParams =
   | EvaluationAssertionCreateParams.EvaluationAssertionToolCalledBody
   | EvaluationAssertionCreateParams.EvaluationAssertionToolCalledWithBody;
 
-export namespace EvaluationAssertionCreateParams {
+export declare namespace EvaluationAssertionCreateParams {
   export interface EvaluationAssertionExactMatchBody {
     evaluationId: string;
 
@@ -522,7 +522,7 @@ export type EvaluationAssertionUpdateParams =
   | EvaluationAssertionUpdateParams.EvaluationAssertionToolCalledBody
   | EvaluationAssertionUpdateParams.EvaluationAssertionToolCalledWithBody;
 
-export namespace EvaluationAssertionUpdateParams {
+export declare namespace EvaluationAssertionUpdateParams {
   export interface EvaluationAssertionExactMatchBody {
     evaluationId: string;
 
