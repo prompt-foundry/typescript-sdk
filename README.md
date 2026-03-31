@@ -24,17 +24,13 @@ const client = new PromptFoundry({
   apiKey: process.env['PROMPT_FOUNDRY_API_KEY'], // This is the default and can be omitted
 });
 
-async function main() {
-  const completionCreateResponse = await client.completion.create('1212121', {
-    appendMessages: [
-      { role: 'user', content: [{ type: 'TEXT', text: 'What is the weather in Seattle, WA?' }] },
-    ],
-  });
+const completionCreateResponse = await client.completion.create('1212121', {
+  appendMessages: [
+    { role: 'user', content: [{ type: 'TEXT', text: 'What is the weather in Seattle, WA?' }] },
+  ],
+});
 
-  console.log(completionCreateResponse.message);
-}
-
-main();
+console.log(completionCreateResponse.message);
 ```
 
 ### Request & Response types
@@ -49,13 +45,8 @@ const client = new PromptFoundry({
   apiKey: process.env['PROMPT_FOUNDRY_API_KEY'], // This is the default and can be omitted
 });
 
-async function main() {
-  const completionCreateResponse: PromptFoundry.CompletionCreateResponse = await client.completion.create(
-    '1212121',
-  );
-}
-
-main();
+const completionCreateResponse: PromptFoundry.CompletionCreateResponse =
+  await client.completion.create('1212121');
 ```
 
 Documentation for each method, request param, and response field are available in docstrings and will appear on hover in most modern editors.
@@ -68,22 +59,18 @@ a subclass of `APIError` will be thrown:
 
 <!-- prettier-ignore -->
 ```ts
-async function main() {
-  const completionCreateResponse = await client.completion.create('1212121').catch(async (err) => {
-    if (err instanceof PromptFoundry.APIError) {
-      console.log(err.status); // 400
-      console.log(err.name); // BadRequestError
-      console.log(err.headers); // {server: 'nginx', ...}
-    } else {
-      throw err;
-    }
-  });
-}
-
-main();
+const completionCreateResponse = await client.completion.create('1212121').catch(async (err) => {
+  if (err instanceof PromptFoundry.APIError) {
+    console.log(err.status); // 400
+    console.log(err.name); // BadRequestError
+    console.log(err.headers); // {server: 'nginx', ...}
+  } else {
+    throw err;
+  }
+});
 ```
 
-Error codes are as followed:
+Error codes are as follows:
 
 | Status Code | Error Type                 |
 | ----------- | -------------------------- |
@@ -272,7 +259,7 @@ await client.completion.create('1212121', {
 This package generally follows [SemVer](https://semver.org/spec/v2.0.0.html) conventions, though certain backwards-incompatible changes may be released as minor versions:
 
 1. Changes that only affect static types, without breaking runtime behavior.
-2. Changes to library internals which are technically public but not intended or documented for external use. _(Please open a GitHub issue to let us know if you are relying on such internals)_.
+2. Changes to library internals which are technically public but not intended or documented for external use. _(Please open a GitHub issue to let us know if you are relying on such internals.)_
 3. Changes that we do not expect to impact the vast majority of users in practice.
 
 We take backwards-compatibility seriously and work hard to ensure you can rely on a smooth upgrade experience.
@@ -286,7 +273,7 @@ TypeScript >= 4.5 is supported.
 The following runtimes are supported:
 
 - Node.js 18 LTS or later ([non-EOL](https://endoflife.date/nodejs)) versions.
-- Deno v1.28.0 or higher, using `import PromptFoundry from "npm:@prompt-foundry/typescript-sdk"`.
+- Deno v1.28.0 or higher.
 - Bun 1.0 or later.
 - Cloudflare Workers.
 - Vercel Edge Runtime.

@@ -1,6 +1,6 @@
 ## Setting up the environment
 
-This repository uses [`yarn@v1`](https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable).
+This repository uses [`yarn@v1`](https://classic.yarnpkg.com/lang/en/docs/install).
 Other package managers may work but are not officially supported for development.
 
 To set up the repository, run:
@@ -29,10 +29,10 @@ All files in the `examples/` directory are not modified by the generator and can
 …
 ```
 
-```
-chmod +x examples/<your-example>.ts
+```sh
+$ chmod +x examples/<your-example>.ts
 # run the example against your api
-yarn tsn -T examples/<your-example>.ts
+$ yarn tsn -T examples/<your-example>.ts
 ```
 
 ## Using the repository from source
@@ -60,15 +60,15 @@ $ yarn link @prompt-foundry/typescript-sdk
 # With pnpm
 $ pnpm link --global
 $ cd ../my-package
-$ pnpm link -—global @prompt-foundry/typescript-sdk
+$ pnpm link --global @prompt-foundry/typescript-sdk
 ```
 
 ## Running tests
 
-Most tests require you to [set up a mock server](https://github.com/stoplightio/prism) against the OpenAPI spec to run the tests.
+Most tests require you to [set up a mock server](https://github.com/dgellow/steady) against the OpenAPI spec to run the tests.
 
 ```sh
-$ npx prism mock path/to/your/openapi.yml
+$ ./scripts/mock
 ```
 
 ```sh

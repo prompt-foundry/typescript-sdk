@@ -12,7 +12,11 @@ describe('resource prompts', () => {
   test('create: only required params', async () => {
     const responsePromise = client.prompts.create({
       messages: [
-        { content: [{ text: 'text', type: 'TEXT' }], promptMessageId: 'promptMessageId', role: 'assistant' },
+        {
+          content: [{ text: 'text', type: 'TEXT' }],
+          promptMessageId: 'promptMessageId',
+          role: 'assistant',
+        },
       ],
       name: 'name',
       parameters: {
@@ -44,7 +48,11 @@ describe('resource prompts', () => {
   test('create: required and optional params', async () => {
     const response = await client.prompts.create({
       messages: [
-        { content: [{ text: 'text', type: 'TEXT' }], promptMessageId: 'promptMessageId', role: 'assistant' },
+        {
+          content: [{ text: 'text', type: 'TEXT' }],
+          promptMessageId: 'promptMessageId',
+          role: 'assistant',
+        },
       ],
       name: 'name',
       parameters: {
@@ -69,7 +77,11 @@ describe('resource prompts', () => {
   test('update: only required params', async () => {
     const responsePromise = client.prompts.update('1212121', {
       messages: [
-        { content: [{ text: 'text', type: 'TEXT' }], promptMessageId: 'promptMessageId', role: 'assistant' },
+        {
+          content: [{ text: 'text', type: 'TEXT' }],
+          promptMessageId: 'promptMessageId',
+          role: 'assistant',
+        },
       ],
       name: 'name',
       parameters: {
@@ -101,7 +113,11 @@ describe('resource prompts', () => {
   test('update: required and optional params', async () => {
     const response = await client.prompts.update('1212121', {
       messages: [
-        { content: [{ text: 'text', type: 'TEXT' }], promptMessageId: 'promptMessageId', role: 'assistant' },
+        {
+          content: [{ text: 'text', type: 'TEXT' }],
+          promptMessageId: 'promptMessageId',
+          role: 'assistant',
+        },
       ],
       name: 'name',
       parameters: {

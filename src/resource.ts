@@ -2,7 +2,7 @@
 
 import type { PromptFoundry } from './index';
 
-export class APIResource {
+export abstract class APIResource {
   protected _client: PromptFoundry;
 
   constructor(client: PromptFoundry) {

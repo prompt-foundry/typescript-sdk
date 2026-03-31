@@ -1,8 +1,12 @@
-# workflow for re-running publishing to NPM in case it fails for some reason
-# you can run this workflow by navigating to https://www.github.com/prompt-foundry/typescript-sdk/actions/workflows/publish-npm.yml
+# This workflow is triggered when a GitHub release is created.
+# It can also be run manually to re-publish to NPM in case it failed for some reason.
+# You can run this workflow by navigating to https://www.github.com/prompt-foundry/typescript-sdk/actions/workflows/publish-npm.yml
 name: Publish NPM
 on:
   workflow_dispatch:
+
+  release:
+    types: [published]
 
 jobs:
   publish:
@@ -10,12 +14,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Set up Node
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '20'
 
       - name: Install dependencies
         run: |
